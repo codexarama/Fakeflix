@@ -1,3 +1,12 @@
 .navbar {
-    color: white;
+  color: white;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-left--logo {
+  width: 100px;
 }
