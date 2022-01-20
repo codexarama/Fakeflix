@@ -1,5 +1,5 @@
 import Navbar from '../components/navbar'
-import "./home.scss"
+import "./home.css"
 
 export default function Home() {
   return <div className='home' > <Navbar /> </div>;

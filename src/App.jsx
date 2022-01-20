@@ -1,6 +1,7 @@
 
-import './app.scss'
+import './app.css'
+import Home from './home';
 
 export default function App() {
-  return <div>Netflix Clone</div>;
+  return <Home />;
 }
