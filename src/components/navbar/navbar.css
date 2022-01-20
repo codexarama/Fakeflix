@@ -2,11 +2,46 @@
   color: white;
 }
 
-.navbar-left {
+.navbar-container {
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
 .navbar-left--logo {
   width: 100px;
+}
+
+.navbar-left,
+.navbar-right {
+  display: flex;
+  flex-grow: 1.5;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-right {
+  padding: 0 1rem 0 5rem;
+}
+
+.navbar-right--avatar {
+  width: 32px;
+  border-radius: 50%;
+  background-color: var(--color-secondary);
+  cursor: pointer;
+}
+
+.navbar-right--options {
+  position: absolute;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  right: 0;
+  background-color: var(--color-secondary);
+  border-radius: 0.25rem 0 0 0.25rem;
+  padding: 0.5rem;
+}
+
+.navbar-right--options button > * {
+ width: 1rem;
 }
