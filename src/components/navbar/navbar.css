@@ -1,7 +1,15 @@
 .navbar {
+  width: 100%;
+  position: fixed;
+  top: 0;
   color: white;
+  z-index: 1;
+  background: linear-gradient(to top, transparent 0%, rgb(0, 0, 0, 0.3) 50%);
 }
 
+.scrolled {
+    background-color: var(--color-primary);
+}
 .navbar-container {
   display: flex;
   align-items: center;
@@ -31,6 +39,10 @@
   cursor: pointer;
 }
 
+.navbar-right--profile {
+  padding-top: 0.5rem;
+}
+
 .navbar-right--options {
   position: absolute;
   overflow: hidden;
@@ -43,5 +55,5 @@
 }
 
 .navbar-right--options button > * {
- width: 1rem;
+  width: 1rem;
 }

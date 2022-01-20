@@ -3,7 +3,6 @@ import logo from '../../assets/logo_netflix.svg';
 import {
   ArrowDropDown,
   ArrowDropUp,
-  Logout,
   Notifications,
   PowerSettingsNew,
   Search,
@@ -19,15 +18,21 @@ export default function Navbar() {
     setIsOpen(!isOpen);
   };
 
+  const [isScrolled, setIsScrolled] = useState(false);
+  window.onscroll = () => {
+    setIsScrolled(window.pageYOffset === 0 ? false : true);
+    return () => (window.onscroll = null);
+  };
+
   return (
-    <nav className="navbar">
+    <nav className={isScrolled ? 'navbar scrolled' : 'navbar'}>
       <div className="navbar-container">
         <div className="navbar-left">
           <img src={logo} alt="Netflix Logo" className="navbar-left--logo" />
-          <span className="navbar-link">Homepage</span>
           <span className="navbar-link">Series</span>
           <span className="navbar-link">Movies</span>
           <span className="navbar-link">Popular</span>
+          <span className="navbar-link">New</span>
           <span className="navbar-link">My List</span>
         </div>
         <div className="navbar-right">
@@ -50,8 +55,6 @@ export default function Navbar() {
                   <button>
                     <Tune />
                   </button>
-                  {/* <button>Settings</button>
-                <button>Logout</button> */}
                 </div>
               </>
             ) : (
