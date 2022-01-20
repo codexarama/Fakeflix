@@ -31,6 +31,10 @@ Tags:
   box-sizing: inherit;
 }
 
+button {
+  all: unset
+}
+
 /* FONT */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
 :root {
@@ -39,5 +43,6 @@ Tags:
 
 /* COLORS */
 :root {
-  --main-color: #0b0b0b;
+  --color-primary: #0b0b0b;
+  --color-secondary: #d81f26
 }
