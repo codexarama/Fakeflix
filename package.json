@@ -1,5 +1,25 @@
 {
   "name": "netflix",
+  "description": "Netflix Clone is a streaming platform app clone with movies, series and user settings",
+  "author": "Amandine Arias-Breton alias Codexarama",
+  "keywords": [
+    "netflix",
+    "streaming",
+    "platform",
+    "react",
+    "app",
+    "clone",
+    "App",
+    "movies",
+    "series",
+    "settings",
+    "form",
+    "lightbox",
+    "carousel",
+    "dynamic",
+    "development"
+  ],
+
   "version": "0.1.0",
   "private": true,
   "dependencies": {
