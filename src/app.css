@@ -35,6 +35,16 @@ button {
   all: unset
 }
 
+body {
+  background-color: var(--color-primary);
+}
+
+/* SCROLLBAR */
+body::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
 /* FONT */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
 :root {
