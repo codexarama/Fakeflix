@@ -1,0 +1,43 @@
+/*
+Author: Amandine ARIAS alias Codexarama;
+Project: Netflix Clone;
+Type: React app;
+Description: Netflix Clone is a streaming platform clone with movies, series and user settings;
+First version: 20/01/2022;
+Tags:
+    netflix,
+    streaming,
+    platform,
+    react,
+    app,
+    clone,
+    App,
+    movies,
+    series,
+    settings,
+    form,
+    lightbox,
+    carousel,
+    dynamic,
+    development;
+*/
+
+/* GENERAL */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+/* FONT */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+:root {
+  font-family: 'Roboto', sans-serif;
+}
+
+/* COLORS */
+:root {
+  --main-color: #0b0b0b;
+}
