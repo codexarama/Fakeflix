@@ -1,0 +1,26 @@
+.feature {
+    position: relative;
+    height: 90vh;
+    color: white;
+}
+
+.feature img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.feature-content {
+    width: 35%;
+    position: absolute;
+    left: 50px;
+    bottom: 100px;
+}
+
+.feature-content img {
+    width: 10rem;
+}
+
+.feature-description {
+    font-weight: 300;
+}
