@@ -18,7 +18,8 @@ export default function Feature({ type }) {
             id="genre"
             options={options}
             defaultValue={options[0]}
-            label="Single select"
+            className='react-select-container'
+            classNamePrefix="react-select"
             theme={(theme) => ({
               ...theme,
               borderRadius: 5,

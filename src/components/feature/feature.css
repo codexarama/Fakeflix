@@ -20,6 +20,10 @@
   width: 9.6rem;
 }
 
+/* .react-select__control {
+  background: var(--color-primary);
+} */
+
 #genre > div,
 #react-select-3-listbox {
   background-color: var(--color-primary);
