@@ -1,15 +1,17 @@
 .slider {
   margin-top: 1rem;
-  color: white;
 }
 
 .slider-title {
-  margin: 1rem 1.75rem 0 1.75rem;
+  margin: 1rem 1.75rem 0.5rem 1.75rem;
+  color: white;
 }
 .slider-content {
   display: flex;
   width: max-content;
   margin-left: 1.75rem;
+  transform: translateX(0px);
+  transition: all 1s ease
 }
 
 .slider-wrapper {
@@ -22,8 +24,10 @@
   top: 0;
   bottom: 0;
   margin: auto;
-  background-color: rgb(22, 22, 22, 0.5);
+  cursor: pointer;
   height: 120px;
+  color: white;
+  background-color: rgb(22, 22, 22, 0.5);
 }
 
 .left {
