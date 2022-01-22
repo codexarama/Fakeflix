@@ -1,0 +1,35 @@
+.slider {
+  margin-top: 1rem;
+  color: white;
+}
+
+.slider-title {
+  margin: 1rem 1.75rem 0 1.75rem;
+}
+.slider-content {
+  display: flex;
+  width: max-content;
+  margin-left: 1.75rem;
+}
+
+.slider-wrapper {
+  position: relative;
+}
+
+.sliderArrow {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: rgb(22, 22, 22, 0.5);
+  height: 120px;
+}
+
+.left {
+  left: 0;
+}
+
+.right {
+  right: 0;
+}
