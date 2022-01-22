@@ -45,6 +45,10 @@ body::-webkit-scrollbar {
   height: 0;
 }
 
+li {
+  list-style: none;
+}
+
 /* FONT */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
 :root {
@@ -53,6 +57,6 @@ body::-webkit-scrollbar {
 
 /* COLORS */
 :root {
-  --color-primary: #0b0b0b;
+  --color-primary: #141414;
   --color-secondary: #d81f26;
 }
