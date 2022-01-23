@@ -4,7 +4,7 @@
   color: white;
 }
 
-.feature-category {
+.feature_category {
   position: absolute;
   top: 5rem;
   left: 0.75rem;
@@ -25,7 +25,7 @@
 } */
 
 #genre > div,
-#react-select-3-listbox {
+#react_select-3-listbox {
   background-color: var(--color-primary);
 }
 
@@ -45,28 +45,28 @@
   object-fit: cover;
 }
 
-.feature-content {
+.feature_content {
   width: 35%;
   position: absolute;
   left: 50px;
   bottom: 100px;
 }
 
-.feature-content img {
+.feature_content img {
   width: 10rem;
 }
 
-.feature-description {
+.feature_description {
   margin: 1rem 0;
   font-weight: 300;
 }
 
-.feature-options button {
+.feature_options button {
   display: inline-flex;
   align-items: center;
   padding: 0.5rem 1rem;
 }
 
-.feature-options button svg {
+.feature_options button svg {
   margin-right: 0.5rem;
 }
