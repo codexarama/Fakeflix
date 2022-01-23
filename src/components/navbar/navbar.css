@@ -10,18 +10,18 @@
 .scrolled {
     background-color: var(--color-primary);
 }
-.navbar-container {
+.navbar_container {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.navbar-left--logo {
+.navbar_left--logo {
   width: 100px;
 }
 
-.navbar-left,
-.navbar-right {
+.navbar_left,
+.navbar_right {
   position: relative;
   display: flex;
   flex-grow: 1.5;
@@ -29,22 +29,22 @@
   justify-content: space-between;
 }
 
-.navbar-right {
+.navbar_right {
   padding: 0 1rem 0 5rem;
 }
 
-.navbar-right--avatar {
+.navbar_right--avatar {
   width: 32px;
   border-radius: 50%;
   background-color: var(--color-secondary);
   cursor: pointer;
 }
 
-.navbar-right--profile {
+.navbar_right--profile {
   padding-top: 0.5rem;
 }
 
-.navbar-right--options {
+.navbar_right--options {
   position: absolute;
   overflow: hidden;
   display: flex;
@@ -56,6 +56,6 @@
   padding: 0.5rem;
 }
 
-.navbar-right--options button > * {
+.navbar_right--options button > * {
   width: 1rem;
 }

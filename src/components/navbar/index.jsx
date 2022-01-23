@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import logo from '../../assets/logo_netflix.svg';
-import {menu} from './menu'
+import { menu } from './menu';
 
 import {
   ArrowDropDown,
@@ -28,36 +28,36 @@ export default function Navbar() {
 
   return (
     <nav className={isScrolled ? 'navbar scrolled' : 'navbar'}>
-      <div className="navbar-container">
-        <ul className="navbar-left">
-          <img src={logo} alt="Netflix Logo" className="navbar-left--logo" />
+      <div className="navbar_container">
+        <ul className="navbar_left">
+          <img src={logo} alt="Netflix Logo" className="navbar_left--logo" />
           {menu.map((item) => (
-            <li key={item} >{item}</li>
+            <li key={item}>{item}</li>
           ))}
         </ul>
-        <div className="navbar-right">
+        <div className="navbar_right">
           <Search />
           <Notifications />
           <img
             src={avatar}
             alt="avatar Amandine"
-            className="navbar-right--avatar"
+            className="navbar_right--avatar"
           />
-            {isOpen ? (
-              <>
-                <ArrowDropUp onClick={handleClick} />
-                <div className="navbar-right--options">
-                  <button>
-                    <PowerSettingsNew />
-                  </button>
-                  <button>
-                    <Tune />
-                  </button>
-                </div>
-              </>
-            ) : (
-              <ArrowDropDown onClick={handleClick} />
-            )}
+          {isOpen ? (
+            <>
+              <ArrowDropUp onClick={handleClick} />
+              <div className="navbar_right--options">
+                <button>
+                  <PowerSettingsNew />
+                </button>
+                <button>
+                  <Tune />
+                </button>
+              </div>
+            </>
+          ) : (
+            <ArrowDropDown onClick={handleClick} />
+          )}
         </div>
       </div>
     </nav>
