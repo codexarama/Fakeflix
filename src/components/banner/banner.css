@@ -1,10 +1,10 @@
-.feature {
+.banner {
   position: relative;
   height: 90vh;
   color: white;
 }
 
-.feature_category {
+.banner_category {
   position: absolute;
   top: 5rem;
   left: 0.75rem;
@@ -39,34 +39,34 @@
   font-weight: 300;
 }
 
-.feature img {
+.banner img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.feature_content {
+.banner_content {
   width: 35%;
   position: absolute;
   left: 50px;
   bottom: 100px;
 }
 
-.feature_content img {
+.banner_content img {
   width: 10rem;
 }
 
-.feature_description {
+.banner_description {
   margin: 1rem 0;
   font-weight: 300;
 }
 
-.feature_options button {
+.banner_options button {
   display: inline-flex;
   align-items: center;
   padding: 0.5rem 1rem;
 }
 
-.feature_options button svg {
+.banner_options button svg {
   margin-right: 0.5rem;
 }

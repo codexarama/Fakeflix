@@ -1,5 +1,5 @@
 import Navbar from '../components/navbar';
-import Feature from '../components/feature';
+import Banner from '../components/banner';
 import Slider from '../components/slider';
 
 import './home.css';
@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <main className="landing-page">
       <Navbar />
-      <Feature type="movies" />
+      <Banner type="movies" />
       <Slider />
       <Slider />
       <Slider />

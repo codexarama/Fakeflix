@@ -5,13 +5,13 @@ import { options } from './options';
 
 import poster from '../../assets/serie_true-detective_1.jpg';
 
-import './feature.css';
+import './banner.css';
 
-export default function Feature({ type }) {
+export default function Banner({ type }) {
   return (
-    <section className="feature">
+    <section className="banner">
       {type && (
-        <div className="feature_category">
+        <div className="banner_category">
           <span>{type === 'movie' ? 'Movies' : 'Series'} </span>
           <Select
             name="genre"
@@ -35,20 +35,20 @@ export default function Feature({ type }) {
       )}
 
       <img src={poster} alt="" />
-      <article className="feature_content">
+      <article className="banner_content">
         <h1>True detective</h1>
-        <p className="feature_description">
+        <p className="banner_description">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam neque
           laborum suscipit saepe? Voluptatibus atque necessitatibus, autem sequi
           pariatur dignissimos magnam incidunt assumenda, optio explicabo quam
           ducimus esse non adipisci.
         </p>
-        <div className="feature_options">
-          <button className="feature_options--play">
+        <div className="banner_options">
+          <button className="banner_options--play">
             <PlayCircleFilledRounded />
             Play
           </button>
-          <button className="feature_options--more">
+          <button className="banner_options--more">
             <InfoRounded />
             Info
           </button>
