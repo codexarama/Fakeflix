@@ -6,7 +6,7 @@ import {
   ArrowForwardIosOutlined,
 } from '@mui/icons-material';
 
-import Item from '../item';
+import Item from '../Item';
 
 import './slider.css';
 
@@ -14,7 +14,6 @@ export default function Slider() {
   const [slideNumber, setSlideNumber] = useState(0);
 
   const sliderRef = useRef();
-  console.log(sliderRef);
 
   const handleClick = (slide) => {
     let distance = sliderRef.current.getBoundingClientRect().x - 28;
