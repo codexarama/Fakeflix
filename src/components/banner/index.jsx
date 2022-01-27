@@ -1,15 +1,47 @@
-import { InfoRounded, PlayCircleFilledRounded } from '@mui/icons-material';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import requests from '../../config/requests';
+import { Link } from 'react-router-dom';
 
 import Select from 'react-select';
 import { options } from './options';
 
-import poster from '../../assets/serie_true-detective_1.jpg';
+import { InfoRounded, PlayCircleFilledRounded } from '@mui/icons-material';
 
 import './banner.css';
 
 export default function Banner({ type }) {
+  const [movie, setMovie] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      const request = await axios.get(requests.fetchTrending);
+
+      setMovie(
+        request.data.results[
+          Math.floor(Math.random() * request.data.results.length - 1)
+        ]
+      );
+    }
+    fetchData();
+  }, []);
+
+  // console.log(movie);
+
+  function truncateText(string, n) {
+    return string?.length > n
+      ? string.substr(0, n - 1) + '...'
+      : 'No description';
+  }
+
+  const bannerPlayer = {
+    backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie?.backdrop_path}")`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center center',
+  };
+
   return (
-    <section className="banner">
+    <header className="banner" style={bannerPlayer}>
       {type && (
         <div className="banner_category">
           <span>{type === 'movie' ? 'Movies' : 'Series'} </span>
@@ -18,7 +50,7 @@ export default function Banner({ type }) {
             id="genre"
             options={options}
             defaultValue={options[0]}
-            className='react_select-container'
+            className="react_select-container"
             classNamePrefix="react_select"
             theme={(theme) => ({
               ...theme,
@@ -26,34 +58,34 @@ export default function Banner({ type }) {
               colors: {
                 ...theme.colors,
                 primary25: '#d81f26',
-                primary: "#141414",
-                backgroundColor: '#141414'
+                primary: '#141414',
+                backgroundColor: '#141414',
               },
             })}
           />
         </div>
       )}
-
-      <img src={poster} alt="" />
       <article className="banner_content">
-        <h1>True detective</h1>
+        <h1 className="banner_title">
+          {movie?.title || movie?.name || movie?.original_title}
+        </h1>
         <p className="banner_description">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam neque
-          laborum suscipit saepe? Voluptatibus atque necessitatibus, autem sequi
-          pariatur dignissimos magnam incidunt assumenda, optio explicabo quam
-          ducimus esse non adipisci.
+          {truncateText(movie?.overview, 100)}
         </p>
-        <div className="banner_options">
-          <button className="banner_options--play">
-            <PlayCircleFilledRounded />
-            Play
-          </button>
-          <button className="banner_options--more">
-            <InfoRounded />
-            Info
-          </button>
-        </div>
+        {movie.id && (
+          <div className="banner_options">
+            <Link to={`/video/${movie?.id}`}></Link>
+            <button className="banner_options--play">
+              <PlayCircleFilledRounded />
+              Play
+            </button>
+            <button className="banner_options--info">
+              <InfoRounded />
+              Info
+            </button>
+          </div>
+        )}
       </article>
-    </section>
+    </header>
   );
 }
