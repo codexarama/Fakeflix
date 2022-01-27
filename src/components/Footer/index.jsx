@@ -45,6 +45,7 @@ export default function Footer() {
           </>
         ))}
       </div>
+      <p className="footer_copyright">{copyright}</p>
     </footer>
   );
 }
