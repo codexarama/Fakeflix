@@ -70,7 +70,7 @@ export default function Banner({ type }) {
           {movie?.title || movie?.name || movie?.original_title}
         </h1>
         <p className="banner_description">
-          {truncateText(movie?.overview, 100)}
+          {truncateText(movie?.overview, 150)}
         </p>
         {movie.id && (
           <div className="banner_options">
