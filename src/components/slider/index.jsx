@@ -7,6 +7,8 @@ import {
   ArrowForwardIosOutlined,
 } from '@mui/icons-material';
 
+import Item from '../Popup'
+
 import './slider.css';
 
 export default function Slider({title, fetchUrl, isPoster}) {
