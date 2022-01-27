@@ -32,7 +32,7 @@ Tags:
 }
 
 button {
-  all: unset
+  all: unset;
 }
 
 body {
@@ -47,6 +47,10 @@ body::-webkit-scrollbar {
 
 li {
   list-style: none;
+}
+
+a {
+  text-decoration: none;
 }
 
 /* FONT */
