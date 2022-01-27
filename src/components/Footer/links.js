@@ -32,18 +32,18 @@ export const socials = [
 ];
 
 export const links = [
-  'Audio et sous-titres',
-  "Centre d'aide",
-  'Presse',
-  'Recrutement',
-  'Confidentialité',
-  'Préférences de cookies',
-  'Nous contacter',
-  'Audiodescription',
-  'Cartes cadeaux',
-  'Relations Investisseurs',
-  "Conditions d'utilisation",
-  'Mentions légales'
+  'Audio and subtitles',
+  "Heelp center",
+  'Hurry',
+  'Recruitment',
+  'Privacy',
+  'Cookie preferences',
+  'Contact us',
+  'Audio description',
+  'Gift Cards',
+  'Investors relations',
+  "Terms of use",
+  'Legal notice'
 ];
 
 export const service = [
