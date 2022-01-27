@@ -10,6 +10,7 @@
 .scrolled {
     background-color: var(--color-primary);
 }
+
 .navbar_container {
   display: flex;
   align-items: center;
@@ -17,6 +18,7 @@
 }
 
 .navbar_left {
+  margin-left: 1rem;
   flex-grow: 2;
 }
 
