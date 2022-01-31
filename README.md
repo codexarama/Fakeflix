@@ -3,7 +3,7 @@
     Projet perso | Clone d'une Plateforme de streaming
 
 
-![Visuel](./Fakeflix.png)
+<kbd>![Visuel](./Fakeflix.png)</kbd>
 
 > PROBLEMATIQUE
 
