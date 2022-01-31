@@ -1,38 +1,39 @@
-import requests from '../../config/requests'
+import requests from '../../config/requests';
 
 const data = [
-    {
-        title: "Netflix originals",
-        url: requests.fetchNetflixOriginals
-    },
-    {
-        title: "Trending",
-        url: requests.fetchTrending
-    },
-    {
-        title: "Top rated",
-        url: requests.fetchTopRated
-    },
-    {
-        title: "Romance",
-        url: requests.fetchRomanceMovies
-    },
-    {
-        title: "Comedy",
-        url: requests.fetchComedyMovies
-    },
-    {
-        title: "Action",
-        url: requests.fetchActionMovies
-    },
-    {
-        title: "Horror",
-        url: requests.fetchHorrorMovies
-    },
-    {
-        title: "Documentaries",
-        url: requests.fetchDocumentaries
-    },
-]
+  {
+    title: 'Top rated movies',
+    url: requests.fetchTopRatedMovie,
+  },
+  {
+    title: 'Trending',
+    url: requests.fetchTrending,
+    isPoster: 'true',
+  },
+  {
+    title: 'Drama',
+    url: requests.fetchDramaMovies,
+  },
+  {
+    title: 'Animation',
+    url: requests.fetchAnimationMovies,
+  },
+  {
+    title: 'Sci-Fi',
+    url: requests.fetchSciFiMovies,
+  },
+  {
+    title: 'Mystery',
+    url: requests.fetchMysteryMovies,
+  },
+  {
+    title: 'Documentaries',
+    url: requests.fetchDocumentaries,
+  },
+  {
+    title: 'Top rated tv shows',
+    url: requests.fetchTopRatedTvShow,
+  },
+];
 
-export default data
+export default data;
