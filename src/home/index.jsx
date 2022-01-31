@@ -5,11 +5,18 @@ import data from '../components/Slider/data';
 import './home.css';
 
 export default function Home() {
+  console.log(data.map((slider) => slider.url));
+
   return (
     <main className="landing-page">
       <Banner type="movies" />
-      {data.map((title, index) => (
-        <Slider key={index} title={title.title} fetchUrl={title.url} />
+      {data.map((slider, index) => (
+        <Slider
+          key={index}
+          title={slider.title}
+          fetchUrl={slider.url}
+          isPoster={slider.isPoster}
+        />
       ))}
     </main>
   );
