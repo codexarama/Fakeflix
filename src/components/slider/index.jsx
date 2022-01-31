@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { Link } from "react-router-dom"
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 import {
@@ -7,24 +7,21 @@ import {
   ArrowForwardIosOutlined,
 } from '@mui/icons-material';
 
-import Item from '../Popup'
-
 import './slider.css';
 
-export default function Slider({title, fetchUrl, isPoster}) {
-
-  const BASE_URL = "https://image.tmdb.org/t/p/original"
-  const [movies, setMovies] = useState([])
+export default function Slider({ title, fetchUrl, isPoster }) {
+  const IMG_URL = 'https://image.tmdb.org/t/p/original';
+  const [movies, setMovies] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
-      const request = await axios.get(fetchUrl)
-      setMovies(request.data.results)
+      const request = await axios.get(fetchUrl);
+      setMovies(request.data.results);
     }
-    fetchData()
-  }, [fetchUrl])
+    fetchData();
+  }, [fetchUrl]);
 
-  console.log(movies)
+  console.log(movies);
 
   const [slideNumber, setSlideNumber] = useState(0);
   const sliderRef = useRef();
@@ -46,32 +43,28 @@ export default function Slider({title, fetchUrl, isPoster}) {
     <div className="slider">
       <h2 className="slider_title">{title}</h2>
       <div className="slider_wrapper">
-          <button
+        <button
           className="slider_arrow slider_arrow--left"
           onClick={() => handleClick('previous')}
         >
           <ArrowBackIosNewOutlined />
         </button>
         <div className="slider_content" ref={sliderRef}>
-        {movies.map(movie => (
-          <div className="item" key={movie.id}>
-            <Link to={`/video/${movie.id}`}>
-              {isPoster ? (
+          {movies.map((movie) => (
+            <div className="item" key={movie.id}>
+              <Link to={`/video/${movie.id}`}>
                 <img
-                  src={`${BASE_URL}/${movie.poster_path}`}
-                  className="row__image"
+                  src={
+                    isPoster
+                      ? `${IMG_URL}/${movie.poster_path}`
+                      : `${IMG_URL}/${movie.backdrop_path}`
+                  }
+                  className="slider_image"
                   alt={movie?.title || movie?.name || movie?.original_title}
                 />
-              ) : (
-                <img
-                  src={`${BASE_URL}/${movie.backdrop_path}`}
-                  className="row__image"
-                  alt={movie?.title || movie?.name || movie?.original_title}
-                />
-              )}
-            </Link>
-          </div>
-        ))}
+              </Link>
+            </div>
+          ))}
         </div>
         <button
           className="slider_arrow slider_arrow--right"
