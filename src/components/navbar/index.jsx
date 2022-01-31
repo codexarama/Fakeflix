@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import logo from '../../assets/logo_netflix.svg';
+import logo from '../../assets/logo_fakeflix.png';
+// import logo from '../../assets/logo_netflix.svg';
 import { menu } from './menu';
 
 import {
