@@ -18,12 +18,13 @@
 }
 
 .navbar_left {
-  margin-left: 1rem;
+  margin-left: 0.5rem;
   flex-grow: 2;
 }
 
 .navbar_left--logo {
   width: 100px;
+  padding: 1.5rem 1rem;
 }
 
 .navbar_left,

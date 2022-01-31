@@ -1,6 +1,6 @@
 .banner {
   position: relative;
-  height: 90vh;
+  height: 70vh;
   color: white;
 }
 
@@ -23,7 +23,7 @@
 .banner_category {
   position: absolute;
   top: 5rem;
-  left: 0.75rem;
+  left: 3rem;
   display: flex;
   align-items: center;
   color: var(--color-primary);

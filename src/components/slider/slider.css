@@ -26,7 +26,7 @@
   bottom: 0;
   margin: auto;
   cursor: pointer;
-  height: 120px;
+  height: 150px;
   color: white;
   background-color: rgb(22, 22, 22, 0.5);
 }
@@ -41,7 +41,6 @@
 
 .item {
   width: 225px;
-  height: 120px;
   background-color: var(--color-primary);
   border-radius: 5px;
   margin-right: 5px;
@@ -49,14 +48,14 @@
   color: white;
 }
 
-.item:hover {
+/* .item:hover {
   width: 325px;
   height: 250px;
   position: absolute;
   top: -150px;
   -webkit-box-shadow: 0 0 15px 0 rgba(255, 255, 255, 0.2);
   box-shadow: 0 0 15px 0 rgba(255, 255, 255, 0.2);
-}
+} */
 
 .item img {
   object-fit: cover;
@@ -65,7 +64,7 @@
   /* transition: transform 0.5s ease-in; */
 }
 
-.item:hover img {
+/* .item:hover img {
   height: 140px;
-  /* transform: scale(1.1); */
-}
+  transform: scale(1.1);
+} */
