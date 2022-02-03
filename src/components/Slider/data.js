@@ -2,13 +2,22 @@ import requests from '../../config/requests';
 
 const data = [
   {
+    title: 'Netflix originals',
+    url: requests.fetchNetflixOriginals,
+    isPoster: 'true',
+  },
+  {
+    title: 'Top rated tv shows',
+    url: requests.fetchTopRatedTvShow,
+  },
+  {
     title: 'Top rated movies',
     url: requests.fetchTopRatedMovie,
   },
   {
     title: 'Trending',
     url: requests.fetchTrending,
-    isPoster: 'true',
+    // isPoster: 'true',
   },
   {
     title: 'Drama',
@@ -29,10 +38,6 @@ const data = [
   {
     title: 'Documentaries',
     url: requests.fetchDocumentaries,
-  },
-  {
-    title: 'Top rated tv shows',
-    url: requests.fetchTopRatedTvShow,
   },
 ];
 

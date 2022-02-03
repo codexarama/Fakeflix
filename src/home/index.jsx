@@ -5,7 +5,7 @@ import data from '../components/Slider/data';
 import './home.css';
 
 export default function Home() {
-  console.log(data.map((slider) => slider.url));
+  // console.log(data.map((slider) => slider.url));
 
   return (
     <main className="landing-page">
@@ -15,7 +15,7 @@ export default function Home() {
           key={index}
           title={slider.title}
           fetchUrl={slider.url}
-          isPoster={slider.isPoster}
+          // isPoster={slider.isPoster}
         />
       ))}
     </main>
