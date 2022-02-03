@@ -5,8 +5,8 @@ import axios from 'axios';
 import {
   Add,
   PlayCircleFilled,
-  ThumbDownAltRounded,
-  ThumbUpAltRounded,
+  ThumbUpOffAlt,
+  ThumbDownOffAlt,
 } from '@mui/icons-material';
 
 import './popup.css';
@@ -17,7 +17,7 @@ export default function Popup({ date, genre, vote, overview }) {
 
   return (
       <div className="popup">
-      <video src={trailer} autoPlay={true} loop />
+      <video className="popup_trailer" src={trailer} autoPlay={true} loop />
         <button className="popup_icon">
           <PlayCircleFilled />
         </button>
@@ -25,17 +25,15 @@ export default function Popup({ date, genre, vote, overview }) {
           <Add />
         </button>
         <button className="popup_icon">
-          <ThumbUpAltRounded />
+          <ThumbUpOffAlt />
         </button>
         <button className="popup_icon">
-          <ThumbDownAltRounded />
+          <ThumbDownOffAlt />
         </button>
-        <div className="popup_infos">
           <p className="popup_infos--vote">Recommended at {vote} %</p>
           <p className="popup_infos--date">{date}</p>
           <p className="popup_infos--description">{overview}</p>
           <p className="popup_infos--genre">{genre}</p>
-        </div>
       </div>
   );
 }

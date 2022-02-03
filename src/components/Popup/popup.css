@@ -1,21 +1,21 @@
 .popup {
   width: 225px;
-  height: inherit;
   /* height: 100%; */
-  /* height: 120px; */
+  height: 375px;
   background-color: var(--color-primary);
   border-radius: 5px;
   margin-right: 5px;
-  overflow-Y: hidden;
   color: white;
 }
 
-.popup video {
+.popup_trailer {
   object-fit: cover;
   width: 100%;
-  height: 20%;
+  height: 35%;
 }
 
-.popup-infos {
-  overflow-Y: hidden;
+.popup_infos--description {
+  height: 98px;
+  overflow: auto;
+  font-weight: 300;
 }

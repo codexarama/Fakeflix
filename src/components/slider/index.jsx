@@ -61,7 +61,15 @@ export default function Slider({ title, fetchUrl, isPoster }) {
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
             >
-              {isHovered ? (
+                <Popup
+                  id={`popup ${movie.id}`}
+                  key={`popup ${movie.id}`}
+                  vote={movie.vote_average * 10}
+                  date={movie?.release_date || movie?.first_air_date}
+                  genre={movie.genre_ids.join(', ')}
+                  overview={movie.overview}
+                />
+              {/* {isHovered ? (
                 <Popup
                   key={`popup ${movie.id}`}
                   vote={movie.vote_average * 10}
@@ -84,7 +92,7 @@ export default function Slider({ title, fetchUrl, isPoster }) {
                     alt={movie?.title || movie?.name || movie?.original_title}
                   />
                 </Link>
-              )}
+              )} */}
 
               {/* {isPoster ? null : (
                     <h3 className="slider_wrapper--title">
