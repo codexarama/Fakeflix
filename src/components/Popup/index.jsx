@@ -1,39 +1,41 @@
 import { useState, useEffect } from 'react';
-import { Link } from "react-router-dom"
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 import {
   Add,
-  PlayCircleFilledRounded,
+  PlayCircleFilled,
   ThumbDownAltRounded,
   ThumbUpAltRounded,
 } from '@mui/icons-material';
 
 import './popup.css';
 
-export default function Popup() {
+export default function Popup({ date, genre, vote, overview }) {
+  const trailer =
+    'https://player.vimeo.com/external/371433846.sd.mp4?s=236da2f3c0fd273d2c6d9a064f3ae35579b2bbdf&profile_id=139&oauth2_token_id=57447761';
+
   return (
-    <>
-      <div className="popup_infos">
+      <div className="popup">
+      <video src={trailer} autoPlay={true} loop />
         <button className="popup_icon">
-        <PlayCircleFilledRounded />
+          <PlayCircleFilled />
+        </button>
+        <button className="popup_icon">
           <Add />
+        </button>
+        <button className="popup_icon">
           <ThumbUpAltRounded />
+        </button>
+        <button className="popup_icon">
           <ThumbDownAltRounded />
         </button>
+        <div className="popup_infos">
+          <p className="popup_infos--vote">Recommended at {vote} %</p>
+          <p className="popup_infos--date">{date}</p>
+          <p className="popup_infos--description">{overview}</p>
+          <p className="popup_infos--genre">{genre}</p>
+        </div>
       </div>
-      <div className="popup_infos--header">
-        <span>1 hour 14 min</span>
-        <span className="popup_age--limit">+16</span>
-        <span>1999</span>
-      </div>
-      <div>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae vero
-        soluta eligendi est quas labore aliquam. Sequi velit, sunt ducimus
-        blanditiis porro molestias aliquam ullam rerum aliquid alias reiciendis
-        itaque.
-      </div>
-      <div className="popup_genre">Action</div>
-    </>
   );
 }
