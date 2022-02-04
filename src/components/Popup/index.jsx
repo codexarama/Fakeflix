@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+
+import trailer from '../../assets/video_netflix_intro.mp4';
 
 import {
   Add,
@@ -11,29 +12,63 @@ import {
 
 import './popup.css';
 
-export default function Popup({ date, genre, vote, overview }) {
-  const trailer =
-    'https://player.vimeo.com/external/371433846.sd.mp4?s=236da2f3c0fd273d2c6d9a064f3ae35579b2bbdf&profile_id=139&oauth2_token_id=57447761';
+export default function Popup({
+  index,
+  id,
+  poster,
+  title,
+  date,
+  genre,
+  vote,
+  overview,
+}) {
+  const IMG_URL = 'https://image.tmdb.org/t/p/original';
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
-      <div className="popup">
-      <video className="popup_trailer" src={trailer} autoPlay={true} loop />
-        <button className="popup_icon">
-          <PlayCircleFilled />
-        </button>
-        <button className="popup_icon">
-          <Add />
-        </button>
-        <button className="popup_icon">
-          <ThumbUpOffAlt />
-        </button>
-        <button className="popup_icon">
-          <ThumbDownOffAlt />
-        </button>
-          <p className="popup_infos--vote">Recommended at {vote} %</p>
-          <p className="popup_infos--date">{date}</p>
-          <p className="popup_infos--description">{overview}</p>
-          <p className="popup_infos--genre">{genre}</p>
-      </div>
+    <>
+      {isHovered ? (
+        <div
+          className="popup"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
+          <video className="popup_trailer" src={trailer} autoPlay={true} loop />
+          <div className="popup_infos">
+            <button className="popup_icon">
+              <PlayCircleFilled />
+            </button>
+            <button className="popup_icon">
+              <Add />
+            </button>
+            <button className="popup_icon">
+              <ThumbUpOffAlt />
+            </button>
+            <button className="popup_icon">
+              <ThumbDownOffAlt />
+            </button>
+            <p className="popup_infos--vote">Recommended at {vote} %</p>
+            <p className="popup_infos--genre">{genre}</p>
+            <p className="popup_infos--date">{date}</p>
+            <p className="popup_infos--description">{overview}</p>
+          </div>
+        </div>
+      ) : (
+        <div
+          className="slider_wrapper--item"
+          style={{ left: isHovered && index * 225 - 50 + index * 2.5 }}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
+          <Link to={`/video/${id}`} key={`poster ${id}`}>
+            <img
+              src={`${IMG_URL}/${poster}`}
+              className="slider_wrapper--image"
+              alt={title}
+            />
+          </Link>
+        </div>
+      )}
+    </>
   );
 }
