@@ -1,185 +1,74 @@
-import React from 'react';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
-// voir exemple plus complet :
-// https://github.com/Th3Wall/Fakeflix/blob/main/src/components/SplashAnimation/SplashAnimation.jsx
-// copyright : Claudio Bonfati
+import trailer from '../../assets/video_netflix_intro.mp4';
 
-export default function Teaser() {
+import {
+  Add,
+  PlayCircleFilled,
+  ThumbUpOffAlt,
+  ThumbDownOffAlt,
+} from '@mui/icons-material';
+
+import './teaser.css';
+
+export default function Teaser({
+  index,
+  id,
+  poster,
+  title,
+  date,
+  genre,
+  vote,
+  overview,
+}) {
+  const IMG_URL = 'https://image.tmdb.org/t/p/original';
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
-    <div id="teaser">
-      {/* Edit the letter attr to: N, E, T, F, L, I or X */}
-      <netflixintro letter="N">
-        <div class="helper-1">
-          <div class="effect-brush">
-            <span class="fur-31"></span>
-            <span class="fur-30"></span>
-            <span class="fur-29"></span>
-            <span class="fur-28"></span>
-            <span class="fur-27"></span>
-            <span class="fur-26"></span>
-            <span class="fur-25"></span>
-            <span class="fur-24"></span>
-            <span class="fur-23"></span>
-            <span class="fur-22"></span>
-            <span class="fur-21"></span>
-            <span class="fur-20"></span>
-            <span class="fur-19"></span>
-            <span class="fur-18"></span>
-            <span class="fur-17"></span>
-            <span class="fur-16"></span>
-            <span class="fur-15"></span>
-            <span class="fur-14"></span>
-            <span class="fur-13"></span>
-            <span class="fur-12"></span>
-            <span class="fur-11"></span>
-            <span class="fur-10"></span>
-            <span class="fur-9"></span>
-            <span class="fur-8"></span>
-            <span class="fur-7"></span>
-            <span class="fur-6"></span>
-            <span class="fur-5"></span>
-            <span class="fur-4"></span>
-            <span class="fur-3"></span>
-            <span class="fur-2"></span>
-            <span class="fur-1"></span>
-          </div>
-          <div class="effect-lumieres">
-            <span class="lamp-1"></span>
-            <span class="lamp-2"></span>
-            <span class="lamp-3"></span>
-            <span class="lamp-4"></span>
-            <span class="lamp-5"></span>
-            <span class="lamp-6"></span>
-            <span class="lamp-7"></span>
-            <span class="lamp-8"></span>
-            <span class="lamp-9"></span>
-            <span class="lamp-10"></span>
-            <span class="lamp-11"></span>
-            <span class="lamp-12"></span>
-            <span class="lamp-13"></span>
-            <span class="lamp-14"></span>
-            <span class="lamp-15"></span>
-            <span class="lamp-16"></span>
-            <span class="lamp-17"></span>
-            <span class="lamp-18"></span>
-            <span class="lamp-19"></span>
-            <span class="lamp-20"></span>
-            <span class="lamp-21"></span>
-            <span class="lamp-22"></span>
-            <span class="lamp-23"></span>
-            <span class="lamp-24"></span>
-            <span class="lamp-25"></span>
-            <span class="lamp-26"></span>
-            <span class="lamp-27"></span>
-            <span class="lamp-28"></span>
+    <>
+      {isHovered ? (
+        <div
+          className="teaser"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
+          <video className="teaser_trailer" src={trailer} autoPlay={true} loop />
+          <div className="teaser_infos">
+            <button className="teaser_icon">
+              <PlayCircleFilled />
+            </button>
+            <button className="teaser_icon">
+              <Add />
+            </button>
+            <button className="teaser_icon">
+              <ThumbUpOffAlt />
+            </button>
+            <button className="teaser_icon">
+              <ThumbDownOffAlt />
+            </button>
+            <p className="teaser_infos--vote">Recommended at {vote} %</p>
+            <p className="teaser_infos--date">{date}</p>
+            <ul className="teaser_infos--genre">{genre}</ul>
+            <p className="teaser_infos--description">{overview}</p>
           </div>
         </div>
-        <div class="helper-2">
-          <div class="effect-brush">
-            <span class="fur-31"></span>
-            <span class="fur-30"></span>
-            <span class="fur-29"></span>
-            <span class="fur-28"></span>
-            <span class="fur-27"></span>
-            <span class="fur-26"></span>
-            <span class="fur-25"></span>
-            <span class="fur-24"></span>
-            <span class="fur-23"></span>
-            <span class="fur-22"></span>
-            <span class="fur-21"></span>
-            <span class="fur-20"></span>
-            <span class="fur-19"></span>
-            <span class="fur-18"></span>
-            <span class="fur-17"></span>
-            <span class="fur-16"></span>
-            <span class="fur-15"></span>
-            <span class="fur-14"></span>
-            <span class="fur-13"></span>
-            <span class="fur-12"></span>
-            <span class="fur-11"></span>
-            <span class="fur-10"></span>
-            <span class="fur-9"></span>
-            <span class="fur-8"></span>
-            <span class="fur-7"></span>
-            <span class="fur-6"></span>
-            <span class="fur-5"></span>
-            <span class="fur-4"></span>
-            <span class="fur-3"></span>
-            <span class="fur-2"></span>
-            <span class="fur-1"></span>
-          </div>
+      ) : (
+        <div
+          className="slider_wrapper--item"
+          style={{ left: isHovered && index * 225 - 50 + index * 2.5 }}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
+          <Link to={`/video/${id}`} key={`poster ${id}`}>
+            <img
+              src={`${IMG_URL}/${poster}`}
+              className="slider_wrapper--image"
+              alt={title}
+            />
+          </Link>
         </div>
-        <div class="helper-3">
-          <div class="effect-brush">
-            <span class="fur-31"></span>
-            <span class="fur-30"></span>
-            <span class="fur-29"></span>
-            <span class="fur-28"></span>
-            <span class="fur-27"></span>
-            <span class="fur-26"></span>
-            <span class="fur-25"></span>
-            <span class="fur-24"></span>
-            <span class="fur-23"></span>
-            <span class="fur-22"></span>
-            <span class="fur-21"></span>
-            <span class="fur-20"></span>
-            <span class="fur-19"></span>
-            <span class="fur-18"></span>
-            <span class="fur-17"></span>
-            <span class="fur-16"></span>
-            <span class="fur-15"></span>
-            <span class="fur-14"></span>
-            <span class="fur-13"></span>
-            <span class="fur-12"></span>
-            <span class="fur-11"></span>
-            <span class="fur-10"></span>
-            <span class="fur-9"></span>
-            <span class="fur-8"></span>
-            <span class="fur-7"></span>
-            <span class="fur-6"></span>
-            <span class="fur-5"></span>
-            <span class="fur-4"></span>
-            <span class="fur-3"></span>
-            <span class="fur-2"></span>
-            <span class="fur-1"></span>
-          </div>
-        </div>
-        <div class="helper-4">
-          <div class="effect-brush">
-            <span class="fur-31"></span>
-            <span class="fur-30"></span>
-            <span class="fur-29"></span>
-            <span class="fur-28"></span>
-            <span class="fur-27"></span>
-            <span class="fur-26"></span>
-            <span class="fur-25"></span>
-            <span class="fur-24"></span>
-            <span class="fur-23"></span>
-            <span class="fur-22"></span>
-            <span class="fur-21"></span>
-            <span class="fur-20"></span>
-            <span class="fur-19"></span>
-            <span class="fur-18"></span>
-            <span class="fur-17"></span>
-            <span class="fur-16"></span>
-            <span class="fur-15"></span>
-            <span class="fur-14"></span>
-            <span class="fur-13"></span>
-            <span class="fur-12"></span>
-            <span class="fur-11"></span>
-            <span class="fur-10"></span>
-            <span class="fur-9"></span>
-            <span class="fur-8"></span>
-            <span class="fur-7"></span>
-            <span class="fur-6"></span>
-            <span class="fur-5"></span>
-            <span class="fur-4"></span>
-            <span class="fur-3"></span>
-            <span class="fur-2"></span>
-            <span class="fur-1"></span>
-          </div>
-        </div>
-      </netflixintro>
-    </div>
+      )}
+    </>
   );
 }
