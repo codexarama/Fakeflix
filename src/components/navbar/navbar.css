@@ -1,9 +1,9 @@
 .navbar {
-  width: 100%;
+  z-index: 3;
   position: fixed;
   top: 0;
-  color: white;
-  z-index: 2;
+  width: 100%;
+  color: var(--color-default);
   background: linear-gradient(to top, transparent 0%, rgb(0, 0, 0, 0.3) 50%);
 }
 
