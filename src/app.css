@@ -63,4 +63,8 @@ a {
 :root {
   --color-primary: #141414;
   --color-secondary: #d81f26;
+  --color-tertiary: lightgray;
+  --color-default: white;
+  --color-validate: lightgreen;
+  --color-exit: #ff4242;
 }
