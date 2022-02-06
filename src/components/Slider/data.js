@@ -2,7 +2,7 @@ import requests from '../../config/requests';
 
 const data = [
   {
-    title: 'Netflix originals',
+    title: 'Fakeflix originals',
     url: requests.fetchNetflixOriginals,
     isPoster: 'true',
   },
