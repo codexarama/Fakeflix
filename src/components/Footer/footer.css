@@ -31,7 +31,7 @@
 
 .footer_socials-links :hover,
 .footer_links-link :hover {
-  color: lightgrey;
+  color: var(--color-tertiary);
 }
 
 .footer_code {
@@ -42,11 +42,11 @@
 }
 
 .footer_code:hover {
-  border: solid 1px lightgrey;
+  border: solid 1px var(--color-tertiary);
 }
 
 .footer_code :hover {
-  color: lightgrey;
+  color: var(--color-tertiary);
 }
 
 .footer_copyright {
