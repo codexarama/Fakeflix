@@ -8,7 +8,7 @@ import { options } from './options';
 
 import { InfoRounded, PlayCircleFilledRounded } from '@mui/icons-material';
 
-import usePopup from '../Popup/usePopup';
+import usePopup from '../Popup/usePopup.js';
 import Popup from '../Popup';
 
 import { genreFinder } from '../Teaser/genres.js';
