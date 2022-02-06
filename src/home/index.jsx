@@ -5,8 +5,6 @@ import data from '../components/Slider/data';
 import './home.css';
 
 export default function Home() {
-  // console.log(data.map((slider) => slider.url));
-
   return (
     <main className="landing-page">
       <Banner type="movies" />
