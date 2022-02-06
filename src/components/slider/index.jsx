@@ -23,7 +23,7 @@ export default function Slider({ title, fetchUrl }) {
     fetchData();
   }, [fetchUrl]);
 
-  console.log(movies);
+  // console.log(movies);
 
   const [slideNumber, setSlideNumber] = useState(0);
   const sliderRef = useRef();
@@ -70,7 +70,7 @@ export default function Slider({ title, fetchUrl }) {
                 movie?.release_date?.slice(0, -6) ||
                 movie?.first_air_date?.slice(0, -6)
               }
-              overview={movie?.overview || 'No description'}
+              overview={movie?.overview || 'No description available'}
             />
           ))}
         </div>
