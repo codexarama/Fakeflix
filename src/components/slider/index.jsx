@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 import {
@@ -55,14 +54,13 @@ export default function Slider({ title, fetchUrl }) {
           {movies.map((movie) => (
             <Teaser
               key={movie.id}
-              // index={movie.index}
+              image={movie}
               id={movie.id}
               poster={movie.poster_path}
               vote={movie.vote_average * 10}
               title={movie?.title || movie?.name || movie?.original_title}
               genre={genreFinder(movie)}
-
-              // genre={movie.genre_ids.join(' · ')}
+              // genre={movie.genre_ids.join(' · ')} // if <p>{genre}</p>
 
               // get only yyyy from format date yyyy-mm-dd
               // THE SECRET : add "?" after key "realease_date" || "first_air_date"
@@ -70,7 +68,7 @@ export default function Slider({ title, fetchUrl }) {
                 movie?.release_date?.slice(0, -6) ||
                 movie?.first_air_date?.slice(0, -6)
               }
-              overview={movie?.overview || 'No description available'}
+              synopsis={movie?.overview || 'No description available'}
             />
           ))}
         </div>
