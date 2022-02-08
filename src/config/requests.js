@@ -1,5 +1,5 @@
-const API_KEY = '7cd87a2a8f9768f5fe4154575d2b60bb';
-const BASE_URL = 'https://api.themoviedb.org/3';
+export const API_KEY = '7cd87a2a8f9768f5fe4154575d2b60bb';
+export const BASE_URL = 'https://api.themoviedb.org/3';
 
 const requests = {
   // fetchBest: `${BASE_URL}/discover/movie?api_key=${API_KEY}&primary_release_year=2021&sort_by=vote_average.desc`,
