@@ -1,8 +1,10 @@
 import { createPortal } from 'react-dom';
 
 import { Cancel } from '@mui/icons-material';
+import { Content, Header, Icons } from '../../Features';
 
 import './popup.css';
+import '../../Features/features.css';
 
 export default function Popup({
   popup,
@@ -10,7 +12,7 @@ export default function Popup({
   style,
   title,
   vote,
-  description,
+  synopsis,
   date,
   casting,
   genre,
@@ -22,29 +24,25 @@ export default function Popup({
           autoFocus
           className="popup"
           role="main"
-          // close popup when click outside of element
           onClick={() => {
             close();
           }}
         >
-          <article className="popup_content">
-            <header className="popup_content--header" style={style}>
-              <button className="popup_close" onClick={close}>
-                <Cancel className="popup_close--icon" />
-              </button>
-              <div className='vignette' ></div>
-            </header>
-            <main className="popup_content--main">
-              <h2 className="popup_content--mainTitle">{title}</h2>
-              <p className="popup_content--mainVote">Recommended at {vote} %</p>
-              <p className="popup_content--mainDescription">{description}</p>
-            </main>
-            <aside className="popup_content--aside">
-              <p className="popup_content--asideCasting">{date}</p>
-              <p className="popup_content--asideCasting">{casting}</p>
-              <ul className="popup_content--asideGenres">{genre}</ul>
-            </aside>
-          </article>
+          <section className="popup_container">
+            <button className="popup_close" onClick={close}>
+              <Cancel className="popup_close--icon" />
+            </button>
+            <Header className={'banner_popup--header'} style={style} />
+            <Icons className={'popup_icons'} />
+            <article className="popup_content">
+              <main className="popup_main">
+                <Content title={title} vote={vote} synopsis={synopsis} />
+              </main>
+              <aside className="popup_aside">
+                <Content date={date} casting={casting} genre={genre} />
+              </aside>
+            </article>
+          </section>
         </main>
       ) : null}
     </>,
