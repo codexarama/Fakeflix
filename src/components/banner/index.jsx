@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import requests from '../../config/requests';
+import requests, { BASE_URL, API_KEY } from '../../config/requests';
 import { Link } from 'react-router-dom';
 
 import Select from 'react-select';
@@ -17,12 +17,15 @@ import './banner.css';
 
 export default function Banner({ type }) {
   const [movie, setMovie] = useState([]);
+  const [casting, setCasting] = useState([]);
+  const creditsURL = `${BASE_URL}/movie/${movie?.id}/credits?api_key=${API_KEY}&language=en-US`;
+  // console.log(creditsURL);
+
   const { isOpen, toggle, escToClose } = usePopup();
 
   useEffect(() => {
     async function fetchData() {
       const request = await axios.get(requests.fetchTrending);
-
       setMovie(
         request.data.results[
           Math.floor(Math.random() * request.data.results.length - 1)
@@ -32,12 +35,22 @@ export default function Banner({ type }) {
     fetchData();
   }, []);
 
+  console.log(movie);
+
+  useEffect(() => {
+    async function fetchCasting() {
+      const credits = await axios.get(creditsURL);
+      // get the 3 main actors
+      if (credits.data.cast.length > 3) credits.data.cast.length = 3;
+      setCasting(credits.data.cast);
+    }
+    fetchCasting();
+  }, [creditsURL]);
+
   useEffect(() => {
     window.addEventListener('keydown', escToClose);
     return () => window.removeEventListener('keydown', escToClose);
   });
-
-  console.log(movie);
 
   function truncateText(string, n) {
     return string?.length > n
@@ -107,12 +120,19 @@ export default function Banner({ type }) {
         style={bannerStyle}
         title={movie?.title || movie?.name || movie?.original_title}
         vote={movie.vote_average * 10}
-        description={movie?.overview || 'No description available'}
+        synopsis={movie?.overview || 'No description available'}
         date={
           movie?.release_date?.slice(0, -6) ||
           movie?.first_air_date?.slice(0, -6)
         }
-        // casting={}
+        casting={casting.map((actor) => (
+          <li key={actor.index} className="teaser_infos--casting">
+            {actor?.name}
+          </li>
+        ))}
+        // casting={casting.map((actor) => (
+        //  " " + actor?.name
+        // ))}
         // genre={genreFinder(movie)}
       />
     </>
