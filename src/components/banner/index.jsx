@@ -130,10 +130,8 @@ export default function Banner({ type }) {
             {actor?.name}
           </li>
         ))}
-        // casting={casting.map((actor) => (
-        //  " " + actor?.name
-        // ))}
-        // genre={genreFinder(movie)}
+        // genre={genreFinder(movie)} // crash when reload ! why ???
+        //Cannot read properties of undefined (reading 'length') at genreFinder
       />
     </>
   );

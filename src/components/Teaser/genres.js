@@ -85,7 +85,11 @@ export const genreFinder = (movie) => {
         break;
     }
   }
-  return genre.map((name) => <li key={name} className="teaser_infos--genreList banner_infos--genreList">{name}</li>);
+  return genre.map((name) => (
+    <li key={name} className="teaser_infos--genreList banner_infos--genreList">
+      {name}
+    </li>
+  ));
 };
 
 // export const genre = [
