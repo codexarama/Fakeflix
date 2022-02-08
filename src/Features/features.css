@@ -1,0 +1,127 @@
+/* BUTTONS with ICONS */
+.group_icons {
+  display: flex;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  margin-right: 0.5rem;
+}
+
+.icon_play svg {
+  font-size: 1.8rem;
+}
+
+.icon_play svg:hover {
+  transform: scale(1.1);
+}
+
+.icon_add svg,
+.icon_thumb svg {
+  border: 2px solid white;
+  border-radius: 1rem;
+  padding: 0.25rem;
+  font-size: smaller;
+}
+
+.icon_yes svg:hover {
+  border-radius: 1rem;
+  border: 2px solid lightgreen;
+  color: lightgreen;
+}
+
+.icon_no svg:hover {
+  border: 2px solid orangered;
+  color: orangered;
+}
+
+/* CONTENT */
+.teaser_header {
+  border-radius: 1rem 1rem 0 0;
+}
+
+.teaser_vignette {
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(14, 14, 14, 0),
+    rgba(14, 14, 14, 0.1),
+    var(--color-primary)
+  );
+}
+
+.teaser_infos--vote {
+  margin-top: 1rem;
+  color: lightgreen;
+}
+
+.teaser_infos--title,
+.teaser_infos--date {
+  margin-bottom: 1rem;
+}
+
+.teaser_infos--date {
+  margin-top: 1rem;
+}
+
+.teaser_infos--genre {
+  max-height: 1.6rem;
+  overflow: auto;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.teaser_infos--genreList {
+  margin-right: 0.5rem;
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+  border-radius: 0.5rem;
+  border: 1px solid lightgrey;
+  color: lightgrey;
+  /* opacity: 0.75; */
+  /* background-color: lightgray; */
+  /* color: var(--color-primary); */
+  font-size: small;
+}
+
+.teaser_infos--synopsis {
+  max-height: 113px;
+  overflow: auto;
+  margin-top: 0.5rem;
+  padding-right: 0.25rem;
+  color: lightgrey;
+  font-weight: 300;
+  font-size: smaller;
+}
+
+.teaser_infos--genre::-webkit-scrollbar,
+.teaser_infos--synopsis::-webkit-scrollbar {
+  width: 3px;
+}
+
+.teaser_infos--genre::-webkit-scrollbar-track,
+.teaser_infos--synopsis::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.teaser_infos--genre::-webkit-scrollbar-thumb,
+.teaser_infos--synopsis::-webkit-scrollbar-thumb {
+  background-color: lightgrey;
+}
+
+/* .teaser_infos--castingLabel {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+} */
+
+.separator {
+  height: 1px;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  background-color: var(--color-default);
+}
