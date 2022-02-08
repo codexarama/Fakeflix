@@ -1,18 +1,13 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import trailer from '../../assets/video_netflix_intro.mp4';
-
-import {
-  Add,
-  PlayCircleFilled,
-  ThumbUpOffAlt,
-  ThumbDownOffAlt,
-} from '@mui/icons-material';
+import { Content, Header, Icons } from '../../Features';
 
 import './teaser.css';
+import '../../Features/features.css';
 
 export default function Teaser({
+  image,
   index,
   id,
   poster,
@@ -20,7 +15,7 @@ export default function Teaser({
   date,
   genre,
   vote,
-  overview,
+  synopsis,
 }) {
   const IMG_URL = 'https://image.tmdb.org/t/p/original';
   const [isHovered, setIsHovered] = useState(false);
@@ -28,33 +23,31 @@ export default function Teaser({
   return (
     <>
       {isHovered ? (
-        <div
-          className="teaser"
+        <section
+          className="slider_teaser"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
-          <video className="teaser_trailer" src={trailer} autoPlay={true} loop />
-          <div className="teaser_infos">
-            <button className="teaser_icon">
-              <PlayCircleFilled />
-            </button>
-            <button className="teaser_icon">
-              <Add />
-            </button>
-            <button className="teaser_icon">
-              <ThumbUpOffAlt />
-            </button>
-            <button className="teaser_icon">
-              <ThumbDownOffAlt />
-            </button>
-            <p className="teaser_infos--vote">Recommended at {vote} %</p>
-            <p className="teaser_infos--date">{date}</p>
-            <ul className="teaser_infos--genre">{genre}</ul>
-            <p className="teaser_infos--description">{overview}</p>
-          </div>
-        </div>
+          <Header
+            className="slider_teaser--header"
+            style={{
+              backgroundImage: `url("https://image.tmdb.org/t/p/original/${image?.backdrop_path}")`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center center',
+            }}
+          />
+          <main className="teaser_infos">
+            <Icons />
+            <Content
+              genre={genre}
+              vote={vote}
+              date={date}
+              synopsis={synopsis}
+            />
+          </main>
+        </section>
       ) : (
-        <div
+        <section
           className="slider_wrapper--item"
           style={{ left: isHovered && index * 225 - 50 + index * 2.5 }}
           onMouseEnter={() => setIsHovered(true)}
@@ -67,7 +60,7 @@ export default function Teaser({
               alt={title}
             />
           </Link>
-        </div>
+        </section>
       )}
     </>
   );
