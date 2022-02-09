@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import requests, { BASE_URL, API_KEY } from '../../config/requests';
+import requests, { BASE_URL, API_KEY, IMG_URL } from '../../config/requests';
 import { Link } from 'react-router-dom';
 
 import Select from 'react-select';
@@ -58,8 +58,9 @@ export default function Banner({ type }) {
       : 'No description';
   }
 
+  const IMG_PATH = `${movie?.backdrop_path}`;
   const bannerStyle = {
-    backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie?.backdrop_path}")`,
+    backgroundImage: `url(${IMG_URL}${IMG_PATH})`,
     backgroundSize: 'cover',
     backgroundPosition: 'center center',
   };
