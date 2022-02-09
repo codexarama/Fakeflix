@@ -37,10 +37,6 @@
 }
 
 /* CONTENT */
-.teaser_header {
-  border-radius: 1rem 1rem 0 0;
-}
-
 .teaser_vignette {
   height: 100%;
   background: linear-gradient(
@@ -49,6 +45,10 @@
     rgba(14, 14, 14, 0.1),
     var(--color-primary)
   );
+}
+
+.teaser_infos {
+  padding: 0.5rem;
 }
 
 .teaser_infos--vote {
@@ -90,7 +90,7 @@
 }
 
 .teaser_infos--synopsis {
-  max-height: 113px;
+  max-height: 80px;
   overflow: auto;
   margin-top: 0.5rem;
   padding-right: 0.25rem;

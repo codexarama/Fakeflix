@@ -46,21 +46,21 @@ function Content({
 }) {
   return (
     <>
-      {title ? <h2 className="teaser_infos--title">{title}</h2> : null}
-      {genre ? <ul className="teaser_infos--genre">{genre}</ul> : null}
-      {vote ? (
+      {title && <h2 className="teaser_infos--title">{title}</h2>}
+      {genre && <ul className="teaser_infos--genre">{genre}</ul>}
+      {vote && (
         <span className="teaser_infos--vote">Recommended at {vote} %</span>
-      ) : null}
-      {date ? <span className="teaser_infos--date"> · {date} ·</span> : null}
-      {synopsis ? <p className="teaser_infos--synopsis">{synopsis}</p> : null}
-      {casting ? (
+      )}
+      {date && <span className="teaser_infos--date"> · {date} ·</span>}
+      {synopsis && <p className="teaser_infos--synopsis">{synopsis}</p>}
+      {casting && (
         <>
           <hr className="separator" />
           <p className="teaser_infos--castingLabel">{'Casting'}</p>
           <hr className="separator" />
           <ul className="teaser_infos--castingList">{casting}</ul>
         </>
-      ) : null}
+      )}
     </>
   );
 }
