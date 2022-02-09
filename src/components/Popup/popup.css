@@ -55,7 +55,7 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 2rem;
+  padding: 1rem 2rem 2rem;
 }
 
 .popup_main {

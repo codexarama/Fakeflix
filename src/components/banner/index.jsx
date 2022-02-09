@@ -35,7 +35,7 @@ export default function Banner({ type }) {
     fetchData();
   }, []);
 
-  console.log(movie);
+  // console.log(movie);
 
   useEffect(() => {
     async function fetchCasting() {
@@ -127,7 +127,7 @@ export default function Banner({ type }) {
           movie?.first_air_date?.slice(0, -6)
         }
         casting={casting.map((actor) => (
-          <li key={actor.index} className="teaser_infos--casting">
+          <li key={actor?.name} className="teaser_infos--casting">
             {actor?.name}
           </li>
         ))}

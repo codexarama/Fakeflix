@@ -2,6 +2,7 @@
   position: relative;
   width: 225px;
   border-radius: 0.5rem;
+  /* border-radius: 0.5rem 0.5rem 0 0; */
   background-color: var(--color-primary);
   margin-right: 5px;
   color: white;
@@ -10,7 +11,8 @@
   /* z-index: 2; */
   /* transform: scale(1.05); */
   /* transform: scale(1.5); */
-  box-shadow: rgba(255, 255, 255, 0.25) 0px 0px 24px !important;
+  /* box-shadow: rgba(255, 255, 255, 0.25) 0px 0px 24px !important; */
+  border-bottom: 1px solid lightslategray;
 }
 
 .slider_wrapper--image {
@@ -25,14 +27,16 @@
   width: 225px;
   height: 100%;
   border-radius: 0.5rem;
-
   background-color: var(--color-primary);
   margin-right: 5px;
   color: white;
-
 }
 
 .slider_teaser--header {
   height: 130px;
   border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.specific_style {
+  font-size: smaller;
 }

@@ -9,7 +9,6 @@ import '../Features/features.css';
 
 export default function Teaser({
   banner,
-  index,
   id,
   poster,
   title,
@@ -23,7 +22,6 @@ export default function Teaser({
   return (
     <section
       className="slider_wrapper--item"
-      style={{ left: isHovered && index * 225 - 50 + index * 2.5 }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -41,6 +39,7 @@ export default function Teaser({
             <Icons />
             <Content
               genre={genre}
+              className={"specific_style"}
               vote={vote}
               date={date}
               synopsis={synopsis}
