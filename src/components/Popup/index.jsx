@@ -1,10 +1,11 @@
+import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 
 import { Cancel } from '@mui/icons-material';
-import { Content, Header, Icons } from '../../Features';
+import { Content, Header, Icons } from '../Features';
 
 import './popup.css';
-import '../../Features/features.css';
+import '../Features/features.css';
 
 export default function Popup({
   popup,
@@ -17,11 +18,25 @@ export default function Popup({
   casting,
   genre,
 }) {
+  // handle ARIA attributes
+  // prevent body from scrolling when popup is open
+  useEffect(() => {
+    const popupRoot = document.getElementById('popup');
+
+    popup && document.body.setAttribute('arias-hidden', 'true');
+    popup && popupRoot.setAttribute('arias-hidden', 'false');
+    popup && (document.body.style.overflow = 'hidden');
+
+    !popup && document.body.setAttribute('arias-hidden', 'false');
+    !popup && (document.body.style.overflow = 'unset');
+  }, [popup]);
+
   return createPortal(
     <>
-      {popup ? (
+      {popup && (
         <main
           autoFocus
+          id="popup"
           className="popup"
           role="main"
           onClick={() => {
@@ -44,7 +59,7 @@ export default function Popup({
             </article>
           </section>
         </main>
-      ) : null}
+      )}
     </>,
     document.body
   );
