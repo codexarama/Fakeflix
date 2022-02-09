@@ -1,7 +1,7 @@
 .popup {
   z-index: 2;
   position: fixed;
-  top: 3rem;
+  top: 0;
   bottom: 0;
   left: 0;
   right: 0;
@@ -33,7 +33,7 @@
 
 .popup_container {
   position: relative;
-  width: 70vw;
+  width: 500px;
   height: auto;
   border-radius: 1rem;
   background-color: var(--color-primary);
@@ -43,6 +43,7 @@
 
 .banner_popup--header {
   height: 35vh;
+  border-radius: 1rem 1rem 0 0;
 }
 
 .popup_icons {
