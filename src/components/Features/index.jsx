@@ -1,3 +1,6 @@
+import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
+
 import {
   Add,
   PlayCircleFilled,
@@ -5,14 +8,18 @@ import {
   ThumbDownOffAlt,
 } from '@mui/icons-material';
 
+import trailer from '../../assets/video_netflix_intro.mp4';
+
 import './features.css';
 
-function Icons({ className }) {
+function Icons({ className, videoLink }) {
   return (
     <section className={`group_icons ${className}`}>
-      <button className="icon icon_play">
-        <PlayCircleFilled />
-      </button>
+      <Link to={`/video/${videoLink}`}>
+        <button className="icon icon_play">
+          <PlayCircleFilled />
+        </button>
+      </Link>
       <button className="icon icon_add icon_yes">
         <Add />
       </button>
@@ -34,16 +41,7 @@ function Header({ className, style }) {
   );
 }
 
-function Content({
-  className,
-  title,
-  vote,
-  date,
-  genre,
-  synopsis,
-  casting,
-  separator,
-}) {
+function Content({ className, title, vote, date, genre, synopsis, casting }) {
   return (
     <>
       {title && <h2 className="teaser_infos--title">{title}</h2>}
@@ -71,4 +69,18 @@ function Content({
   );
 }
 
-export { Icons, Header, Content };
+function Video() {
+  useEffect(() => {
+    document
+      .querySelectorAll('nav, footer')
+      .forEach((item) => (item.style.display = 'none'));
+  }, []);
+
+  return (
+    <main className="video">
+      <video className="video_teaser" src={trailer} autoPlay={true} loop />
+    </main>
+  );
+}
+
+export { Icons, Header, Content, Video };

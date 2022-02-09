@@ -125,3 +125,21 @@
   margin-bottom: 0.5rem;
   background-color: var(--color-default);
 }
+
+.video_teaser {
+  max-width: 100%;
+  z-index: 2;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.video_teaser::after {
+  content: 'back to home page';
+}

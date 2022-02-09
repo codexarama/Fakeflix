@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Navbar from './components/Navbar';
 import Home from './Home';
+import { Video } from './components/Features';
 import Footer from './components/Footer';
 
 import './app.css';
@@ -18,6 +19,7 @@ export default function App() {
 
       <Routes>
         <Route exact path="/" element={<Home />} />
+        <Route path="/video/:id" element={<Video />} />
       </Routes>
 
       <Footer />
