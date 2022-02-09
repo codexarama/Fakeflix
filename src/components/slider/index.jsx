@@ -56,6 +56,7 @@ export default function Slider({ title, fetchUrl }) {
               key={movie.id}
               image={movie}
               id={movie.id}
+              banner={movie.backdrop_path}
               poster={movie.poster_path}
               vote={movie.vote_average * 10}
               title={movie?.title || movie?.name || movie?.original_title}
@@ -65,8 +66,8 @@ export default function Slider({ title, fetchUrl }) {
               // get only yyyy from format date yyyy-mm-dd
               // THE SECRET : add "?" after key "realease_date" || "first_air_date"
               date={
-                movie?.release_date?.slice(0, -6) ||
-                movie?.first_air_date?.slice(0, -6)
+                movie.release_date?.slice(0, -6) ||
+                movie.first_air_date?.slice(0, -6)
               }
               synopsis={movie?.overview || 'No description available'}
             />

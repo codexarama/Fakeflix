@@ -15,7 +15,6 @@
   display: flex;
   width: max-content;
   margin-left: 1.75rem;
-  border-radius: 5px;
   transform: translateX(0px);
   transition: all 1s ease;
 }
