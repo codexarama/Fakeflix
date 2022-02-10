@@ -13,7 +13,7 @@ export default function Video() {
 
   return (
     <main className="video">
-      <video className="video_teaser" src={trailer} autoPlay={true} loop />
+      <video className="video_player" src={trailer} autoPlay={true} loop />
     </main>
   );
 }
