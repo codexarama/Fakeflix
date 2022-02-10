@@ -7,10 +7,11 @@
   display: flex;
   align-items: center;
   margin-right: 0.5rem;
+  color: var(--color-default);
 }
 
 .icon_play svg {
-  font-size: 1.8rem;
+  font-size: 2rem;
 }
 
 .icon_play svg:hover {
