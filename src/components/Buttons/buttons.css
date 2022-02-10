@@ -1,0 +1,37 @@
+/* BUTTONS with ICONS */
+.group_icons {
+  display: flex;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  margin-right: 0.5rem;
+}
+
+.icon_play svg {
+  font-size: 1.8rem;
+}
+
+.icon_play svg:hover {
+  transform: scale(1.1);
+}
+
+.icon_add svg,
+.icon_thumb svg {
+  border: 2px solid white;
+  border-radius: 1rem;
+  padding: 0.25rem;
+  font-size: smaller;
+}
+
+.icon_yes svg:hover {
+  border-radius: 1rem;
+  border: 2px solid lightgreen;
+  color: lightgreen;
+}
+
+.icon_no svg:hover {
+  border: 2px solid orangered;
+  color: orangered;
+}

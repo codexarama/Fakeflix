@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Navbar from './components/Navbar';
 import Home from './Home';
-import { Video } from './components/Features';
+import Video from './components/Video';
 import Footer from './components/Footer';
 import Error from './Error';
 

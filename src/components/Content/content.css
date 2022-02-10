@@ -1,52 +1,4 @@
-/* BUTTONS with ICONS */
-.group_icons {
-  display: flex;
-}
-
-.icon {
-  display: flex;
-  align-items: center;
-  margin-right: 0.5rem;
-}
-
-.icon_play svg {
-  font-size: 1.8rem;
-}
-
-.icon_play svg:hover {
-  transform: scale(1.1);
-}
-
-.icon_add svg,
-.icon_thumb svg {
-  border: 2px solid white;
-  border-radius: 1rem;
-  padding: 0.25rem;
-  font-size: smaller;
-}
-
-.icon_yes svg:hover {
-  border-radius: 1rem;
-  border: 2px solid lightgreen;
-  color: lightgreen;
-}
-
-.icon_no svg:hover {
-  border: 2px solid orangered;
-  color: orangered;
-}
-
 /* CONTENT */
-.teaser_vignette {
-  height: 100%;
-  background: linear-gradient(
-    180deg,
-    rgba(14, 14, 14, 0),
-    rgba(14, 14, 14, 0.1),
-    var(--color-primary)
-  );
-}
-
 .teaser_infos {
   padding: 0.5rem;
 }
@@ -115,31 +67,13 @@
 }
 
 /* .teaser_infos--castingLabel {
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-} */
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  } */
 
 .separator {
   height: 1px;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
   background-color: var(--color-default);
-}
-
-.video_teaser {
-  max-width: 100%;
-  z-index: 2;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-}
-
-.video_teaser::after {
-  content: 'back to home page';
 }

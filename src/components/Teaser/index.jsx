@@ -2,10 +2,11 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { IMG_URL } from '../../config/requests';
 
-import { Content, Header, Icons } from '../Features';
+import Header from '../Header';
+import Icons from '../Buttons';
+import Content from '../Content';
 
 import './teaser.css';
-import '../Features/features.css';
 
 export default function Teaser({
   banner,

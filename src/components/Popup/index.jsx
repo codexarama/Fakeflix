@@ -2,10 +2,12 @@ import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 
 import { Cancel } from '@mui/icons-material';
-import { Content, Header, Icons } from '../Features';
+
+import Header from '../Header';
+import Icons from '../Buttons';
+import Content from '../Content';
 
 import './popup.css';
-import '../Features/features.css';
 
 export default function Popup({
   popup,
