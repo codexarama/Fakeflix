@@ -27,7 +27,7 @@ export default function Footer() {
         <ul className="footer_links-list">
           {links.map((link) => (
             <li key={link} className="footer_links-link">
-              <Link to="" className="footer_links-to">
+              <Link key={`to ${link}`} to="" className="footer_links-to">
                 {link}
               </Link>
             </li>
@@ -38,9 +38,13 @@ export default function Footer() {
         {service.map((label) => (
           <>
             {string ? (
-              <button onClick={toogle}>{label.string}</button>
+              <button key={label.string} onClick={toogle}>
+                {label.string}
+              </button>
             ) : (
-              <button onClick={toogle}>{label.number}</button>
+              <button key={label.number} onClick={toogle}>
+                {label.number}
+              </button>
             )}
           </>
         ))}
