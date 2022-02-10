@@ -16,13 +16,8 @@ import { genreFinder } from '../Teaser/genres.js';
 import './banner.css';
 
 export default function Banner({ type }) {
+  // get movie data
   const [movie, setMovie] = useState([]);
-  const [casting, setCasting] = useState([]);
-  const creditsURL = `${BASE_URL}/movie/${movie?.id}/credits?api_key=${API_KEY}&language=en-US`;
-  // console.log(creditsURL);
-
-  const { isOpen, toggle, escToClose } = usePopup();
-
   useEffect(() => {
     async function fetchData() {
       const request = await axios.get(requests.fetchTrending);
@@ -37,6 +32,26 @@ export default function Banner({ type }) {
 
   // console.log(movie);
 
+  // get movie image
+  const IMG_PATH = `${movie?.backdrop_path}`;
+  // handle banner style for movie image
+  const bannerStyle = {
+    backgroundImage: `url(${IMG_URL}${IMG_PATH})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center center',
+  };
+
+  // handle description length
+  function truncateText(string, n) {
+    return string?.length > n
+      ? string.substr(0, n - 1) + '...'
+      : 'No description';
+  }
+
+  // get casting data
+  const [casting, setCasting] = useState([]);
+  const creditsURL = `${BASE_URL}/movie/${movie?.id}/credits?api_key=${API_KEY}&language=en-US`;
+  // console.log(creditsURL);
   useEffect(() => {
     async function fetchCasting() {
       const credits = await axios.get(creditsURL);
@@ -47,23 +62,12 @@ export default function Banner({ type }) {
     fetchCasting();
   }, [creditsURL]);
 
+  // handle popup
+  const { isOpen, toggle, escToClose } = usePopup();
   useEffect(() => {
     window.addEventListener('keydown', escToClose);
     return () => window.removeEventListener('keydown', escToClose);
   });
-
-  function truncateText(string, n) {
-    return string?.length > n
-      ? string.substr(0, n - 1) + '...'
-      : 'No description';
-  }
-
-  const IMG_PATH = `${movie?.backdrop_path}`;
-  const bannerStyle = {
-    backgroundImage: `url(${IMG_URL}${IMG_PATH})`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center center',
-  };
 
   return (
     <>
