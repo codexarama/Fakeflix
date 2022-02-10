@@ -19,7 +19,7 @@ export default function App() {
       <Navbar />
 
       <Routes>
-        <Route exact path="/" element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route path="/video/:id" element={<Video />} />
         <Route path="*" element={<Error />} />
       </Routes>
