@@ -86,7 +86,7 @@ export const genreFinder = (movie) => {
     }
   }
   return genre.map((name) => (
-    <li key={name} className="teaser_infos--genreList banner_infos--genreList">
+    <li key={name} className="teaser_infos--genreList">
       {name}
     </li>
   ));
