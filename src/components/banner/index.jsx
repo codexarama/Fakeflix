@@ -11,7 +11,7 @@ import { InfoRounded, PlayCircleFilledRounded } from '@mui/icons-material';
 import usePopup from '../Popup/usePopup.js';
 import Popup from '../Popup';
 
-import { genreFinder } from '../Teaser/genres.js';
+import { genreFinder } from '../Content/genres.js';
 
 import './banner.css';
 
@@ -130,13 +130,12 @@ export default function Banner({ type }) {
           movie?.release_date?.slice(0, -6) ||
           movie?.first_air_date?.slice(0, -6)
         }
+        genre={isOpen && genreFinder(movie)}
         casting={casting.map((actor) => (
           <li key={actor?.name} className="teaser_infos--casting">
             {actor?.name}
           </li>
         ))}
-        // genre={genreFinder(movie)} // crash when reload ! why ???
-        //Cannot read properties of undefined (reading 'length') at genreFinder
       />
     </>
   );
