@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import logo from '../../assets/logo_fakeflix.png';
 // import logo from '../../assets/logo_netflix.svg';
+import avatar from '../../assets/avatar_amandine.png';
+// import avatar from '../../assets/avatar_fakeflix.jpg';
+
 import { menu } from './menu';
 
 import {
@@ -11,7 +14,7 @@ import {
   Search,
   Tune,
 } from '@mui/icons-material';
-import avatar from '../../assets/avatar_amandine.png';
+
 import './navbar.css';
 
 export default function Navbar() {

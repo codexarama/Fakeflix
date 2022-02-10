@@ -44,6 +44,8 @@
 .navbar_right--avatar {
   width: 32px;
   border-radius: 50%;
+  /* width: 24px; */
+  /* border-radius: 0.25rem; */
   background-color: var(--color-secondary);
   cursor: pointer;
 }
