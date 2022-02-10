@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import trailer from '../../assets/video_netflix_intro.mp4';
 
@@ -11,9 +12,15 @@ export default function Video() {
       .forEach((item) => (item.style.display = 'none'));
   }, []);
 
+  let history = useNavigate();
+
+  setTimeout(() => {
+    history('/');
+  }, 5000);
+
   return (
     <main className="video">
-      <video className="video_player" src={trailer} autoPlay={true} loop />
+      <video className="video_player" src={trailer} autoPlay={true} />
     </main>
   );
 }
