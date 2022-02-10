@@ -11,7 +11,7 @@
 }
 
 .icon_play svg {
-  font-size: 2rem;
+  font-size: 1.9rem;
 }
 
 .icon_play svg:hover {
@@ -33,6 +33,6 @@
 }
 
 .icon_no svg:hover {
-  border: 2px solid orangered;
-  color: orangered;
+  border: 2px solid coral;
+  color: coral;
 }

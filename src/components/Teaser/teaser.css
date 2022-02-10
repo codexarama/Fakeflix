@@ -2,8 +2,8 @@
 .slider_wrapper--item {
   position: relative;
   width: 225px;
-  border-radius: 0.5rem;
-  /* border-radius: 0.5rem 0.5rem 0 0; */
+  /* border-radius: 0.5rem; */
+  border-radius: 0.5rem 0.5rem 0 0;
   background-color: var(--color-primary);
   margin-right: 5px;
   color: white;

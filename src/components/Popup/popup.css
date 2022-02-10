@@ -63,3 +63,22 @@
   flex-basis: 70%;
   padding-right: 1rem;
 }
+
+.popup_main .teaser_infos--synopsis {
+  max-height: 145px;
+}
+
+.popup_aside .teaser_infos--genre {
+  display: block;
+  margin-top: 0;
+}
+
+.popup_aside .teaser_infos--genreList {
+  width: fit-content;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.popup_aside .teaser_infos--genreList:last-child {
+  margin-bottom: 0;
+}
