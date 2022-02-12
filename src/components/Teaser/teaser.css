@@ -1,5 +1,6 @@
 /* TEASER */
-.slider_wrapper--item {
+.slider_wrapper--item,
+.slider_wrapper--teaser {
   position: relative;
   width: 225px;
   /* border-radius: 0.5rem; */
@@ -8,11 +9,8 @@
   margin-right: 5px;
   color: white;
 }
-.slider_wrapper--item:hover {
-  /* z-index: 2; */
-  /* transform: scale(1.05); */
-  /* transform: scale(1.5); */
-  /* box-shadow: rgba(255, 255, 255, 0.25) 0px 0px 24px !important; */
+
+.slider_wrapper--teaser {
   border-bottom: 1px solid lightslategray;
 }
 
