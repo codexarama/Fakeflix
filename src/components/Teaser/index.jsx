@@ -22,7 +22,7 @@ export default function Teaser({
 
   return (
     <section
-      className={isHovered ? 'slider_wrapper--teaser' : 'slider_wrapper--item'}
+      className={isHovered ? "slider_wrapper--teaser" : "slider_wrapper--item"}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -40,7 +40,7 @@ export default function Teaser({
             <Icons />
             <Content
               genre={genre}
-              className={'specific_style'}
+              className="specific_style"
               vote={vote}
               date={date}
               synopsis={synopsis}
