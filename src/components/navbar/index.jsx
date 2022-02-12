@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
+
 import logo from '../../assets/logo_fakeflix.png';
 // import logo from '../../assets/logo_netflix.svg';
 import avatar from '../../assets/avatar_amandine.png';
@@ -34,7 +36,9 @@ export default function Navbar() {
     <nav className={isScrolled ? 'navbar scrolled' : 'navbar'}>
       <div className="navbar_container">
         <ul className="navbar_left">
-          <img src={logo} alt="Netflix Logo" className="navbar_left--logo" />
+          <Link to={'/'}>
+            <img src={logo} alt="Netflix Logo" className="navbar_left--logo" />
+          </Link>
           {menu.map((item) => (
             <li key={item}>{item}</li>
           ))}
