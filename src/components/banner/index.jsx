@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import requests, { BASE_URL, API_KEY, IMG_URL } from '../../config/requests';
+import requests, { BASE_URL, REACT_APP_API_KEY, IMG_URL } from '../../config/requests';
 import { Link } from 'react-router-dom';
 
 import Select from 'react-select';
@@ -50,7 +50,7 @@ export default function Banner({ type }) {
 
   // get casting data
   const [casting, setCasting] = useState([]);
-  const creditsURL = `${BASE_URL}/movie/${movie?.id}/credits?api_key=${API_KEY}&language=en-US`;
+  const creditsURL = `${BASE_URL}/movie/${movie?.id}/credits?api_key=${REACT_APP_API_KEY}&language=en-US`;
   // console.log(creditsURL);
   useEffect(() => {
     async function fetchCasting() {
