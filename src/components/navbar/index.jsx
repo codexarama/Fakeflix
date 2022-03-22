@@ -53,7 +53,11 @@ export default function Navbar() {
                 />
               </Link>
               {menu.map((item) => (
-                <li key={item}>{item}</li>
+                <li key={item}>
+              <Link to={`/${item.toLowerCase().replace(/\s+/g, '')}`}>
+                  {item}
+              </Link>
+                  </li>
               ))}
             </ul>
             <div className="navbar_right">
