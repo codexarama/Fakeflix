@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Navbar from './components/Navbar';
 import Home from './Home';
+import MyList from './MyList';
 import Search from './Search';
 import Video from './components/Video';
 import Footer from './components/Footer';
@@ -21,6 +22,7 @@ export default function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/mylist" element={<MyList />} />
         <Route path="/search" element={<Search />} />
         <Route path="/video/:id" element={<Video />} />
         <Route path="*" element={<Error />} />
