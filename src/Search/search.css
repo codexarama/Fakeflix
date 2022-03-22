@@ -1,0 +1,27 @@
+.search_page {
+  min-height: 80vh;
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.search_page input {
+  width: 15rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.search_results {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-top: 2rem;
+}
+
+.slider_wrapper--item,
+.slider_wrapper--teaser {
+  margin-right: 0;
+  margin-bottom: 1.5rem;
+}
