@@ -41,7 +41,7 @@ export default function Navbar() {
 
   return (
     <>
-      {isVideoPage ? null :(
+      {isVideoPage ? null : (
         <nav className={isScrolled ? 'navbar scrolled' : 'navbar'}>
           <div className="navbar_container">
             <ul className="navbar_left">
@@ -57,7 +57,9 @@ export default function Navbar() {
               ))}
             </ul>
             <div className="navbar_right">
-              <Search />
+              <Link to={'/search'}>
+                <Search className='icon' />
+              </Link>
               <Notifications />
               <img
                 src={avatar}
