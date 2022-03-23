@@ -15,7 +15,7 @@ import './buttons.css';
 
 export default function Icons({ className, add, videoLink }) {
   const { addMovieToWatchList, watchList } = useContext(GlobalContext);
-  let storedMovie = watchList.find((item) => item.id === add.id);
+  let storedMovie = watchList?.find((item) => item.id === add.id);
   const addDisabled = storedMovie ? true : false;
 
   return (
