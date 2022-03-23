@@ -8,6 +8,8 @@ import Video from './components/Video';
 import Footer from './components/Footer';
 import Error from './Error';
 
+import GlobalProvider from './context/GlobalState';
+
 import './app.css';
 
 /**
@@ -17,18 +19,20 @@ import './app.css';
  */
 export default function App() {
   return (
-    <BrowserRouter>
-      <Navbar />
+    <GlobalProvider>
+      <BrowserRouter>
+        <Navbar />
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/mylist" element={<MyList />} />
-        <Route path="/search" element={<Search />} />
-        <Route path="/video/:id" element={<Video />} />
-        <Route path="*" element={<Error />} />
-      </Routes>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/mylist" element={<MyList />} />
+          <Route path="/search" element={<Search />} />
+          <Route path="/video/:id" element={<Video />} />
+          <Route path="*" element={<Error />} />
+        </Routes>
 
-      <Footer />
-    </BrowserRouter>
+        <Footer />
+      </BrowserRouter>
+    </GlobalProvider>
   );
 }
