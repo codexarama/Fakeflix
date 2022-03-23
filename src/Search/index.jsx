@@ -8,7 +8,7 @@ import { genreFinder } from '../components/Content/genres';
 
 import './search.css';
 
-export default function Search(event) {
+export default function Search() {
   const [query, setQuery] = useState('');
   const [results, setResults] = useState([]);
 
