@@ -54,9 +54,8 @@ export default function Slider({ title, fetchUrl }) {
           {movies.map((movie) => (
             <Teaser
               key={movie.id}
-              id={movie.id}
               image={movie.backdrop_path}
-              poster={movie.poster_path}
+              add={movie}
               vote={movie.vote_average * 10}
               title={movie?.title || movie?.name || movie?.original_title}
               genre={genreFinder(movie)}
@@ -69,6 +68,8 @@ export default function Slider({ title, fetchUrl }) {
                 movie.first_air_date?.slice(0, -6)
               }
               synopsis={movie?.overview || 'No description available'}
+              id={movie.id}
+              poster={movie.poster_path}
             />
           ))}
         </ul>

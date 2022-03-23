@@ -1,3 +1,6 @@
+import { useContext } from 'react';
+import { GlobalContext } from '../../context/GlobalState';
+
 import { Link } from 'react-router-dom';
 
 import {
@@ -9,7 +12,9 @@ import {
 
 import './buttons.css'
 
-export default function Icons({ className, videoLink }) {
+export default function Icons({ className, add, videoLink }) {
+  const {addMovieToWatchList} = useContext(GlobalContext)
+
   return (
     <section className={`group_icons ${className}`}>
       <Link to={`/video/${videoLink}`}>
@@ -17,7 +22,7 @@ export default function Icons({ className, videoLink }) {
           <PlayCircleFilled />
         </button>
       </Link>
-      <button className="icon icon_add icon_yes">
+      <button className="icon icon_add icon_yes" onClick={() => addMovieToWatchList(add)}>
         <Add />
       </button>
       <button className="icon icon_thumb icon_yes">
