@@ -14,6 +14,7 @@ export default function Popup({
   popup,
   close,
   image,
+  add,
   title,
   vote,
   synopsis,
@@ -60,7 +61,7 @@ export default function Popup({
           >
             <div className="teaser_vignette"></div>
           </header>
-            <Icons className={'popup_icons'} />
+            <Icons className={'popup_icons'} add={add} />
             <article className="popup_content">
               <main className="popup_main">
                 <Content title={title} vote={vote} synopsis={synopsis} />

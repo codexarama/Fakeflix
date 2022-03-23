@@ -49,6 +49,7 @@ export default function Search(event) {
               key={result.id}
               id={result.id}
               image={result.backdrop_path}
+              add={result}
               poster={result.poster_path}
               vote={result.vote_average * 10}
               title={result?.title || result?.name || result?.original_title}
