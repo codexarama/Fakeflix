@@ -13,9 +13,11 @@ import {
 
 import './buttons.css';
 
-export default function Icons({ className, add, videoLink }) {
+export default function Icons({ className, addMovie, movieId, videoLink }) {
   const { addMovieToWatchList, watchList } = useContext(GlobalContext);
-  let storedMovie = watchList?.find((item) => item.id === add.id);
+  const { removeMovieFromWatchList } = useContext(GlobalContext);
+
+  let storedMovie = watchList?.find((item) => item.id === addMovie.id);
   const addDisabled = storedMovie ? true : false;
 
   return (
@@ -28,14 +30,14 @@ export default function Icons({ className, add, videoLink }) {
       {addDisabled ? (
         <button
           className="icon icon_check"
-          disabled={addDisabled}
+          onClick={() => removeMovieFromWatchList(movieId)}
         >
           <Check />
         </button>
       ) : (
         <button
           className="icon icon_add icon_yes"
-          onClick={() => addMovieToWatchList(add)}
+          onClick={() => addMovieToWatchList(addMovie)}
         >
           <Add />
         </button>
