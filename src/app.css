@@ -52,6 +52,7 @@ li {
 a,
 .icon {
   text-decoration: none;
+  color: inherit;
 }
 
 /* FONT */

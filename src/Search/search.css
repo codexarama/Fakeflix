@@ -20,8 +20,7 @@
   margin-top: 2rem;
 }
 
-.slider_wrapper--item,
-.slider_wrapper--teaser {
+.search_results li {
   margin-right: 0;
   margin-bottom: 1.5rem;
 }
