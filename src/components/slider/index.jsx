@@ -41,7 +41,7 @@ export default function Slider({ title, fetchUrl }) {
   };
 
   return (
-    <div className="slider">
+    <section className="slider">
       <h2 className="slider_title">{title}</h2>
       <div className="slider_wrapper">
         <button
@@ -50,7 +50,7 @@ export default function Slider({ title, fetchUrl }) {
         >
           <ArrowBackIosNewOutlined />
         </button>
-        <div className="slider_wrapper--content" ref={sliderRef}>
+        <ul className="slider_wrapper--content" ref={sliderRef}>
           {movies.map((movie) => (
             <Teaser
               key={movie.id}
@@ -72,7 +72,7 @@ export default function Slider({ title, fetchUrl }) {
               synopsis={movie?.overview || 'No description available'}
             />
           ))}
-        </div>
+        </ul>
         <button
           className="slider_wrapper--nav slider_wrapper--navRight"
           onClick={() => handleClick('next')}
@@ -80,6 +80,6 @@ export default function Slider({ title, fetchUrl }) {
           <ArrowForwardIosOutlined />
         </button>
       </div>
-    </div>
+    </section>
   );
 }

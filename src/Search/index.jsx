@@ -42,7 +42,7 @@ export default function Search(event) {
           />
         </label>
       </form>
-      <section className="search_results">
+      <ul className="search_results">
         {results.length > 0 &&
           results.map((result) => (
             <Teaser
@@ -61,7 +61,7 @@ export default function Search(event) {
               synopsis={result?.overview || 'No description available'}
             />
           ))}
-      </section>
+      </ul>
     </main>
   );
 }

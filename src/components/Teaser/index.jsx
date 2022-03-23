@@ -21,7 +21,7 @@ export default function Teaser({
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <section
+    <li
       className={isHovered ? "slider_wrapper--teaser" : "slider_wrapper--item"}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -56,6 +56,6 @@ export default function Teaser({
           />
         </Link>
       )}
-    </section>
+    </li>
   );
 }
