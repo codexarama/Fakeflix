@@ -63,8 +63,10 @@ body {
   align-items: center;
 }
 
-.main_content--title {
-color: var(--color-default);
+.main_content--title
+{
+  margin-top: 5rem;
+  color: var(--color-default);
 }
 
 .main_content--results {
@@ -76,6 +78,31 @@ color: var(--color-default);
 
 .main_content--results li {
   margin: 1.5rem;
+}
+
+.main_content--info {
+  margin: 1rem 0;
+  color: var(--color-default);
+}
+
+.main_content--search {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 1rem;
+  padding: 0.5rem 0.75rem 0.5rem 0.5rem;
+  border-radius: 5rem;
+  font-weight: 700;
+  background-color: rgba(255, 255, 255, 0.7);
+  color: var(--color-primary);
+  cursor: pointer;
+}
+
+.main_content--search svg {
+  margin-right: 0.25rem;
+}
+
+.main_content--search:hover {
+  background-color: var(--color-default);
 }
 
 /* SCROLLBAR */
