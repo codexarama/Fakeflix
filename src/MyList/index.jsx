@@ -1,22 +1,25 @@
 import { useContext } from 'react';
 import { GlobalContext } from '../context/GlobalState';
+import { Link } from 'react-router-dom';
 
 import Teaser from '../components/Teaser';
 import { genreFinder } from '../components/Content/genres';
+import { Search } from '@mui/icons-material';
 
 export default function MyList() {
   const { watchList } = useContext(GlobalContext);
+
   return (
     <main className="main_content">
       <h2 className="main_content--title">My movies</h2>
-      <ul className="main_content--results">
-        {watchList.length > 0 &&
-          watchList.map((result) => (
+      {watchList.length > 0 ? (
+        <ul className="main_content--results">
+          {watchList.map((result) => (
             <Teaser
               key={result.id}
-              id={result.id}
+              movieId={result.id}
               image={result.backdrop_path}
-              add={result}
+              addMovie={result}
               poster={result.poster_path}
               vote={result.vote_average * 10}
               title={result?.title || result?.name || result?.original_title}
@@ -28,7 +31,18 @@ export default function MyList() {
               synopsis={result?.overview || 'No description available'}
             />
           ))}
-      </ul>
+        </ul>
+      ) : (
+        <>
+          <p className="main_content--info">No movies in your list yet</p>
+          <Link to={'/search'}>
+            <button className="main_content--search">
+              <Search className="icon" />
+              Find movies
+            </button>
+          </Link>
+        </>
+      )}
     </main>
   );
 }

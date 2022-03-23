@@ -14,7 +14,8 @@ export default function Popup({
   popup,
   close,
   image,
-  add,
+  addMovie,
+  movieId,
   title,
   vote,
   synopsis,
@@ -52,16 +53,20 @@ export default function Popup({
               <Cancel className="popup_close--icon" />
             </button>
             <header
-            className="popup_header"
-            style={{
-              backgroundImage: `url(${IMG_URL}${image})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center center',
-            }}
-          >
-            <div className="teaser_vignette"></div>
-          </header>
-            <Icons className={'popup_icons'} add={add} />
+              className="popup_header"
+              style={{
+                backgroundImage: `url(${IMG_URL}${image})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center center',
+              }}
+            >
+              <div className="teaser_vignette"></div>
+            </header>
+            <Icons
+              className={'popup_icons'}
+              addMovie={addMovie}
+              movieId={movieId}
+            />
             <article className="popup_content">
               <main className="popup_main">
                 <Content title={title} vote={vote} synopsis={synopsis} />

@@ -1,6 +1,10 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import requests, { BASE_URL, REACT_APP_API_KEY, IMG_URL } from '../../config/requests';
+import requests, {
+  BASE_URL,
+  REACT_APP_API_KEY,
+  IMG_URL,
+} from '../../config/requests';
 import { Link } from 'react-router-dom';
 
 import Select from 'react-select';
@@ -123,7 +127,8 @@ export default function Banner({ type }) {
         popup={isOpen}
         close={toggle}
         image={movie.backdrop_path}
-        add={movie}
+        addMovie={movie}
+        movieId={movie.id}
         title={movie?.title || movie?.name || movie?.original_title}
         vote={movie.vote_average * 10}
         synopsis={movie?.overview || 'No description available'}

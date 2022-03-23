@@ -9,13 +9,13 @@ import './teaser.css';
 
 export default function Teaser({
   image,
-  add,
+  addMovie,
+  movieId,
   title,
   date,
   genre,
   vote,
   synopsis,
-  id,
   poster,
 }) {
   const [isHovered, setIsHovered] = useState(false);
@@ -39,7 +39,7 @@ export default function Teaser({
             <div className="teaser_vignette"></div>
           </header>
           <main className="teaser_infos">
-            <Icons add={add} />
+            <Icons addMovie={addMovie} movieId={movieId} />
             <Content
               genre={genre}
               className="specific_style"
@@ -50,7 +50,7 @@ export default function Teaser({
           </main>
         </>
       ) : (
-        <Link to={`/video/${id}`} key={`poster ${id}`}>
+        <Link to={`/video/${movieId}`} key={`poster ${movieId}`}>
           <img src={`${IMG_URL}${poster}`} className="item_image" alt={title} />
         </Link>
       )}
