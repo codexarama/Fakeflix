@@ -36,3 +36,11 @@
   border: 2px solid coral;
   color: coral;
 }
+
+.icon_check svg {
+  border: 2px solid lightgreen;
+  border-radius: 1rem;
+  padding: 0.25rem;
+  font-size: smaller;
+  color: lightgreen;
+}
