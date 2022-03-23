@@ -18,10 +18,10 @@ export const GlobalContext = createContext(initialState);
 export default function GlobalProvider(props) {
   const [state, dispatch] = useReducer(AppReducer, initialState);
 
-    useEffect(() => {
-      localStorage.setItem('watchlist', JSON.stringify(state.watchList));
-      localStorage.setItem('watched', JSON.stringify(state.watched));
-    }, [state]);
+  useEffect(() => {
+    localStorage.setItem('watchList', JSON.stringify(state.watchList));
+    localStorage.setItem('watched', JSON.stringify(state.watched));
+  }, [state]);
 
   // actions
   const addMovieToWatchList = (movie) => {
