@@ -10,16 +10,16 @@
   color: white;
 }
 
-.slider_wrapper--teaser {
-  border-bottom: 1px solid lightslategray;
-}
-
-.slider_wrapper--image {
+.item_image {
   object-fit: cover;
   width: 100%;
   height: 100%;
   border-radius: 0.5rem;
   transition: transform 0.5s ease-in;
+}
+
+.slider_wrapper--teaser {
+  border-bottom: 1px solid lightslategray;
 }
 
 .slider_teaser {
@@ -31,9 +31,19 @@
   color: white;
 }
 
-.slider_teaser--header {
+.teaser_header {
   height: 130px;
   border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.teaser_vignette {
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(14, 14, 14, 0),
+    rgba(14, 14, 14, 0.1),
+    var(--color-primary)
+  );
 }
 
 .specific_style {

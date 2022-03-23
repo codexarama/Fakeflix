@@ -42,7 +42,7 @@
   color: var(--color-default);
 }
 
-.banner_popup--header {
+.popup_header {
   height: 35vh;
   border-radius: 1rem 1rem 0 0;
 }

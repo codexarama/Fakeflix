@@ -2,14 +2,13 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { IMG_URL } from '../../config/requests';
 
-import Header from '../Header';
 import Icons from '../Buttons';
 import Content from '../Content';
 
 import './teaser.css';
 
 export default function Teaser({
-  banner,
+  image,
   id,
   poster,
   title,
@@ -22,20 +21,22 @@ export default function Teaser({
 
   return (
     <li
-      className={isHovered ? "slider_wrapper--teaser" : "slider_wrapper--item"}
+      className={isHovered ? 'slider_wrapper--teaser' : 'slider_wrapper--item'}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       {isHovered ? (
         <>
-          <Header
-            className="slider_teaser--header"
+          <header
+            className="teaser_header"
             style={{
-              backgroundImage: `url(${IMG_URL}${banner})`,
+              backgroundImage: `url(${IMG_URL}${image})`,
               backgroundSize: 'cover',
               backgroundPosition: 'center center',
             }}
-          />
+          >
+            <div className="teaser_vignette"></div>
+          </header>
           <main className="teaser_infos">
             <Icons />
             <Content
@@ -49,11 +50,7 @@ export default function Teaser({
         </>
       ) : (
         <Link to={`/video/${id}`} key={`poster ${id}`}>
-          <img
-            src={`${IMG_URL}${poster}`}
-            className="slider_wrapper--image"
-            alt={title}
-          />
+          <img src={`${IMG_URL}${poster}`} className="item_image" alt={title} />
         </Link>
       )}
     </li>

@@ -1,9 +1,10 @@
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 
+import { IMG_URL } from '../../config/requests';
+
 import { Cancel } from '@mui/icons-material';
 
-import Header from '../Header';
 import Icons from '../Buttons';
 import Content from '../Content';
 
@@ -12,7 +13,7 @@ import './popup.css';
 export default function Popup({
   popup,
   close,
-  style,
+  image,
   title,
   vote,
   synopsis,
@@ -49,7 +50,16 @@ export default function Popup({
             <button className="popup_close" onClick={close}>
               <Cancel className="popup_close--icon" />
             </button>
-            <Header className={'banner_popup--header'} style={style} />
+            <header
+            className="popup_header"
+            style={{
+              backgroundImage: `url(${IMG_URL}${image})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center center',
+            }}
+          >
+            <div className="teaser_vignette"></div>
+          </header>
             <Icons className={'popup_icons'} />
             <article className="popup_content">
               <main className="popup_main">

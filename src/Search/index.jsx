@@ -47,9 +47,8 @@ export default function Search(event) {
           results.map((result) => (
             <Teaser
               key={result.id}
-              image={result}
               id={result.id}
-              banner={result.backdrop_path}
+              image={result.backdrop_path}
               poster={result.poster_path}
               vote={result.vote_average * 10}
               title={result?.title || result?.name || result?.original_title}

@@ -122,7 +122,7 @@ export default function Banner({ type }) {
       <Popup
         popup={isOpen}
         close={toggle}
-        style={bannerStyle}
+        image={movie.backdrop_path}
         title={movie?.title || movie?.name || movie?.original_title}
         vote={movie.vote_average * 10}
         synopsis={movie?.overview || 'No description available'}
