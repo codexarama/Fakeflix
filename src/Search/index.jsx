@@ -29,8 +29,8 @@ export default function Search(event) {
 //   console.log(results);
 
   return (
-    <main className="search_page">
-      <form action="">
+    <main className="main_content">
+      <form action="" className='search_movie'>
         <label htmlFor="search">
           <input
             id="search"
@@ -42,7 +42,7 @@ export default function Search(event) {
           />
         </label>
       </form>
-      <ul className="search_results">
+      <ul className="main_content--results">
         {results.length > 0 &&
           results.map((result) => (
             <Teaser

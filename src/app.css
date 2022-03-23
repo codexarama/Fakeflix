@@ -22,6 +22,22 @@ Tags:
     development;
 */
 
+/* FONT */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+:root {
+  font-family: 'Roboto', sans-serif;
+}
+
+/* COLORS */
+:root {
+  --color-primary: #141414;
+  --color-secondary: #d81f26;
+  --color-tertiary: lightgray;
+  --color-default: white;
+  --color-validate: lightgreen;
+  --color-exit: #ff4242;
+}
+
 /* GENERAL */
 *,
 *::after,
@@ -39,6 +55,29 @@ body {
   background-color: var(--color-primary);
 }
 
+.main_content {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.main_content--title {
+color: var(--color-default);
+}
+
+.main_content--results {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.main_content--results li {
+  margin: 1.5rem;
+}
+
 /* SCROLLBAR */
 body::-webkit-scrollbar {
   width: 0;
@@ -53,20 +92,4 @@ a,
 .icon {
   text-decoration: none;
   color: inherit;
-}
-
-/* FONT */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
-:root {
-  font-family: 'Roboto', sans-serif;
-}
-
-/* COLORS */
-:root {
-  --color-primary: #141414;
-  --color-secondary: #d81f26;
-  --color-tertiary: lightgray;
-  --color-default: white;
-  --color-validate: lightgreen;
-  --color-exit: #ff4242;
 }
