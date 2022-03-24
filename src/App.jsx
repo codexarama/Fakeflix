@@ -1,12 +1,12 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Navbar from './components/Navbar';
-import Home from './Home';
-import MyList from './MyList';
-import Search from './Search';
+import Home from './pages/Home';
+import MyList from './pages/MyList';
+import Search from './pages/Search';
 import Video from './components/Video';
 import Footer from './components/Footer';
-import Error from './Error';
+import Error from './pages/Error';
 
 import GlobalProvider from './context/GlobalState';
 

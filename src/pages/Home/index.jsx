@@ -1,6 +1,6 @@
-import Banner from '../components/Banner';
-import Slider from '../components/Slider';
-import data from '../components/Slider/data';
+import Banner from '../../components/Banner';
+import Slider from '../../components/Slider';
+import data from '../../components/Slider/data';
 
 import './home.css';
 

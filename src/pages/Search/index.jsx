@@ -1,10 +1,10 @@
 import { useState } from 'react';
 
-import { BASE_URL, REACT_APP_API_KEY } from '../config/requests';
+import { BASE_URL, REACT_APP_API_KEY } from '../../config/requests';
 import axios from 'axios';
 
-import Teaser from '../components/Teaser';
-import { genreFinder } from '../components/Content/genres';
+import Teaser from '../../components/Teaser';
+import { genreFinder } from '../../components/Content/genres';
 
 import './search.css';
 

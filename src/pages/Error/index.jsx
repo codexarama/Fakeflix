@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-import error from '../assets/404.gif';
+import error from '../../assets/404.gif';
 import './error.css'
 
 export default function Error() {

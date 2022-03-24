@@ -1,9 +1,9 @@
 import { useContext } from 'react';
-import { GlobalContext } from '../context/GlobalState';
+import { GlobalContext } from '../../context/GlobalState';
 import { Link } from 'react-router-dom';
 
-import Teaser from '../components/Teaser';
-import { genreFinder } from '../components/Content/genres';
+import Teaser from '../../components/Teaser';
+import { genreFinder } from '../../components/Content/genres';
 import { Search } from '@mui/icons-material';
 
 export default function MyList() {
