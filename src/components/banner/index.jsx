@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import requests, {
-  BASE_URL,
-  REACT_APP_API_KEY,
+  CREDIT_URL_START,
+  CREDIT_URL_END,
+  // MOVIE_ID,
   IMG_URL,
 } from '../../config/requests';
 import { Link } from 'react-router-dom';
@@ -22,6 +23,7 @@ import './banner.css';
 export default function Banner({ type }) {
   // get movie data
   const [movie, setMovie] = useState([]);
+
   useEffect(() => {
     async function fetchData() {
       const request = await axios.get(requests.fetchTrending);
@@ -53,18 +55,26 @@ export default function Banner({ type }) {
   }
 
   // get casting data
+
+  // console.log(MOVIE_ID);
+  // console.log(MOVIE_ID = "ola"); // Cannot set property MOVIE_ID of #<Object> which has only a getter
+  // MOVIE_ID = `${movie?.id}`
+  // const credits_URL = requests.credits;
+  const credits_URL = CREDIT_URL_START + `${movie?.id}` + CREDIT_URL_END;
+
   const [casting, setCasting] = useState([]);
-  const creditsURL = `${BASE_URL}/movie/${movie?.id}/credits?api_key=${REACT_APP_API_KEY}&language=en-US`;
-  // console.log(creditsURL);
+
   useEffect(() => {
     async function fetchCasting() {
-      const credits = await axios.get(creditsURL);
+
+      const credits = await axios.get(credits_URL);
       // get the 3 main actors
       if (credits.data.cast.length > 3) credits.data.cast.length = 3;
       setCasting(credits.data.cast);
     }
+
     fetchCasting();
-  }, [creditsURL]);
+  }, [credits_URL]);
 
   // handle popup
   const { isOpen, toggle, escToClose } = usePopup();
@@ -126,7 +136,7 @@ export default function Banner({ type }) {
       <Popup
         popup={isOpen}
         close={toggle}
-        image={movie.backdrop_path}
+        vignette={movie.backdrop_path}
         addMovie={movie}
         movieId={movie.id}
         title={movie?.title || movie?.name || movie?.original_title}

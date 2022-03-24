@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-import { BASE_URL, REACT_APP_API_KEY } from '../../config/requests';
 import axios from 'axios';
+import requests from '../../config/requests';
 
 import Teaser from '../../components/Teaser';
 import { genreFinder } from '../../components/Content/genres';
@@ -16,16 +16,17 @@ export default function Search() {
     event.preventDefault();
     setQuery(event.target.value);
 
-    const search = `${BASE_URL}/search/movie?api_key=${REACT_APP_API_KEY}&language=en-US&query=${event.target.value}&page=1`;
+    const search_URL = requests.search + `${event.target.value}`;
 
     async function fetchData() {
-      const request = await axios.get(search);
+      const request = await axios.get(search_URL);
       setResults(request.data.results);
     }
 
     fetchData();
   }
-
+  
+  console.log(requests.search);
 //   console.log(results);
 
   return (
