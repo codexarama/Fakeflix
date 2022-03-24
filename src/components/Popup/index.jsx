@@ -13,7 +13,7 @@ import './popup.css';
 export default function Popup({
   popup,
   close,
-  image,
+  vignette,
   addMovie,
   movieId,
   title,
@@ -55,7 +55,7 @@ export default function Popup({
             <header
               className="popup_header"
               style={{
-                backgroundImage: `url(${IMG_URL}${image})`,
+                backgroundImage: `url(${IMG_URL}${vignette})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center center',
               }}

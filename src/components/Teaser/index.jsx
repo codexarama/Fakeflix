@@ -8,7 +8,7 @@ import Content from '../Content';
 import './teaser.css';
 
 export default function Teaser({
-  image,
+  vignette,
   addMovie,
   movieId,
   title,
@@ -31,7 +31,7 @@ export default function Teaser({
           <header
             className="teaser_header"
             style={{
-              backgroundImage: `url(${IMG_URL}${image})`,
+              backgroundImage: `url(${IMG_URL}${vignette})`,
               backgroundSize: 'cover',
               backgroundPosition: 'center center',
             }}

@@ -54,7 +54,7 @@ export default function Slider({ title, fetchUrl }) {
           {movies.map((movie) => (
             <Teaser
               key={movie.id}
-              image={movie.backdrop_path}
+              vignette={movie.backdrop_path}
               addMovie={movie}
               movieId={movie.id}
               vote={movie.vote_average * 10}
