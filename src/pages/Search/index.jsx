@@ -6,9 +6,11 @@ import requests from '../../config/requests';
 import Teaser from '../../components/Teaser';
 import { genreFinder } from '../../components/Content/genres';
 
+import { Search } from '@mui/icons-material';
+
 import './search.css';
 
-export default function Search() {
+export default function SearchPage() {
   const [query, setQuery] = useState('');
   const [results, setResults] = useState([]);
 
@@ -16,7 +18,8 @@ export default function Search() {
     event.preventDefault();
     setQuery(event.target.value);
 
-    const search_URL = requests.search + `${event.target.value}`;
+    // console.log(requests.search);
+    const search_URL = `${requests.search}${event.target.value}`;
 
     async function fetchData() {
       const request = await axios.get(search_URL);
@@ -25,23 +28,20 @@ export default function Search() {
 
     fetchData();
   }
-  
-  console.log(requests.search);
-//   console.log(results);
+
+  //   console.log(results);
 
   return (
     <main className="main_content">
-      <form action="" className='search_movie'>
-        <label htmlFor="search">
+      <form action="" className="search_movie">
           <input
-            id="search"
             type="text"
             placeholder="Search for a movie"
             autoComplete="off"
             value={query}
             onChange={onChange}
           />
-        </label>
+        <Search className="icon" />
       </form>
       <ul className="main_content--results">
         {results.length > 0 &&
