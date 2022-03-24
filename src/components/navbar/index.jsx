@@ -18,9 +18,14 @@ import {
   Tune,
 } from '@mui/icons-material';
 
+import SearchMovie from '../SearchMovie';
+
 import './navbar.css';
 
 export default function Navbar() {
+  // const windowWidth = window.innerWidth
+  // console.log(windowWidth);
+
   const location = useLocation();
   const isVideoPage = location.pathname.includes('video');
 
@@ -35,7 +40,7 @@ export default function Navbar() {
 
   const [isOpen, setIsOpen] = useState(false);
   const handleClick = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     setIsOpen(!isOpen);
   };
 
@@ -54,13 +59,27 @@ export default function Navbar() {
               </Link>
               {menu.map((item) => (
                 <li key={item}>
-              <Link to={`/${item.toLowerCase().replace(/\s+/g, '')}`}>
-                  {item}
-              </Link>
-                  </li>
+                  <Link to={`/${item.toLowerCase().replace(/\s+/g, '')}`}>
+                    {item}
+                  </Link>
+                </li>
               ))}
             </ul>
             <div className="navbar_right">
+            {/* <SearchMovie /> */}
+
+              {/* <Search className="icon" onClick={handleClick} /> */}
+              {/* <SearchMovie search={isOpen} close={handleClick} /> */}
+
+              {/* <form className="search" action="" autoComplete="on">
+                  <input
+                    className="search_input"
+                    type="text"
+                    placeholder="Search for a movie"
+                  />
+                  <Search className="icon search_submit" />
+                </form> */}
+
               <Link to={'/search'}>
                 <Search className='icon' />
               </Link>
