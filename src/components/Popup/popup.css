@@ -51,7 +51,7 @@
   padding-left: 2rem;
 }
 
-.popup_content {
+.popup_main {
   box-sizing: border-box;
   width: 100%;
   display: flex;
@@ -59,13 +59,13 @@
   padding: 1rem 2rem 2rem;
 }
 
-.popup_main {
-  flex-basis: 70%;
-  padding-right: 1rem;
-}
-
 .popup_main .teaser_infos--synopsis {
   max-height: 145px;
+}
+
+.popup_content {
+  flex-basis: 70%;
+  padding-right: 1rem;
 }
 
 .popup_aside .teaser_infos--genre {

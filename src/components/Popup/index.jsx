@@ -67,14 +67,14 @@ export default function Popup({
               addMovie={addMovie}
               movieId={movieId}
             />
-            <article className="popup_content">
-              <main className="popup_main">
+            <section className="popup_main">
+              <article className="popup_content">
                 <Content title={title} vote={vote} synopsis={synopsis} />
-              </main>
+              </article>
               <aside className="popup_aside">
                 <Content date={date} casting={casting} genre={genre} />
               </aside>
-            </article>
+            </section>
           </section>
         </main>
       )}
