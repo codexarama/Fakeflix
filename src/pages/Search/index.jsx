@@ -4,7 +4,6 @@ import axios from 'axios';
 import requests from '../../config/requests';
 
 import Teaser from '../../components/Teaser';
-import { genreFinder } from '../../components/Content/genres';
 
 import { Search } from '@mui/icons-material';
 
@@ -45,22 +44,8 @@ export default function SearchPage() {
       </form>
       <ul className="main_content--results">
         {results.length > 0 &&
-          results.map((result) => (
-            <Teaser
-              key={result.id}
-              id={result.id}
-              image={result.backdrop_path}
-              add={result}
-              poster={result.poster_path}
-              vote={result.vote_average * 10}
-              title={result?.title || result?.name || result?.original_title}
-              genre={genreFinder(result)}
-              date={
-                result.release_date?.slice(0, -6) ||
-                result.first_air_date?.slice(0, -6)
-              }
-              synopsis={result?.overview || 'No description available'}
-            />
+          results.map((movie) => (
+            <Teaser key={movie.id} movie={movie} />
           ))}
       </ul>
     </main>
