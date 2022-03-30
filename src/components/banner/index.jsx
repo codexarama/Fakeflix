@@ -19,12 +19,14 @@ export default function Banner() {
   useEffect(() => {
     async function fetchData() {
       const request = await axios.get(requests.fetchTrending);
+
       setMovie(
         request.data.results[
           Math.floor(Math.random() * request.data.results.length - 1)
         ]
       );
     }
+
     fetchData();
   }, []);
 
@@ -37,11 +39,11 @@ export default function Banner() {
       : 'No description';
   }
 
-  // handle popup actions
-  const { isOpen, toggle, escToClose } = usePopup();
+  // handle Popup || Modal element actions
+  const { isOpen, toggle, keyboardEscape } = usePopup();
+  // press escape to close Popup || Modal element
   useEffect(() => {
-    window.addEventListener('keydown', escToClose);
-    return () => window.removeEventListener('keydown', escToClose);
+    keyboardEscape();
   });
 
   return (

@@ -11,15 +11,26 @@ export default function usePopup() {
   }
 
   // close popup by pressing escape key when keyboard navigation
-  function escToClose(e) {
+  function escapeToClose(e) {
     if (e.key === 'Escape') {
-      toggle();
+      setIsOpen(false);
     }
   }
+
+  function keyboardEscape() {
+    window.addEventListener('keydown', escapeToClose);
+    return () => window.removeEventListener('keydown', escapeToClose);
+  }
+
+  // function escToClose(e) {
+  //   if (e.key === 'Escape') {
+  //     setIsOpen(false)
+  //   }
+  // }
 
   return {
     isOpen,
     toggle,
-    escToClose,
+    keyboardEscape,
   };
 }

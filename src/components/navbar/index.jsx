@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 
@@ -18,6 +18,7 @@ import {
   Tune,
 } from '@mui/icons-material';
 
+import usePopup from '../Popup/usePopup.js';
 import SearchMovie from '../SearchMovie';
 
 import './navbar.css';
@@ -38,11 +39,12 @@ export default function Navbar() {
     return () => (window.onscroll = null);
   };
 
-  const [isOpen, setIsOpen] = useState(false);
-  const handleClick = (e) => {
-    // e.preventDefault();
-    setIsOpen(!isOpen);
-  };
+  // handle Popup || Modal element actions
+  const { isOpen, toggle, keyboardEscape } = usePopup();
+  // press escape to close Popup || Modal element
+  useEffect(() => {
+    keyboardEscape();
+  });
 
   return (
     <>
@@ -66,23 +68,12 @@ export default function Navbar() {
               ))}
             </ul>
             <div className="navbar_right">
-            {/* <SearchMovie /> */}
+              <SearchMovie />
 
-              {/* <Search className="icon" onClick={handleClick} /> */}
-              {/* <SearchMovie search={isOpen} close={handleClick} /> */}
-
-              {/* <form className="search" action="" autoComplete="on">
-                  <input
-                    className="search_input"
-                    type="text"
-                    placeholder="Search for a movie"
-                  />
-                  <Search className="icon search_submit" />
-                </form> */}
-
-              <Link to={'/search'}>
+              {/* <Link to={'/search'}>
                 <Search className='icon' />
-              </Link>
+              </Link> */}
+
               <Notifications />
               <img
                 src={avatar}
@@ -91,7 +82,7 @@ export default function Navbar() {
               />
               {isOpen ? (
                 <>
-                  <ArrowDropUp onClick={handleClick} />
+                  <ArrowDropUp onClick={toggle} />
                   <div className="navbar_right--options">
                     <button>
                       <PowerSettingsNew />
@@ -102,7 +93,7 @@ export default function Navbar() {
                   </div>
                 </>
               ) : (
-                <ArrowDropDown onClick={handleClick} />
+                <ArrowDropDown onClick={toggle} />
               )}
             </div>
           </div>
