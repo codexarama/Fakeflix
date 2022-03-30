@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { IMG_URL } from '../../config/requests';
 
+import Header from '../Header';
 import Icons from '../Buttons';
 import Content from '../Content';
 import { genreFinder } from '../Content/genres';
@@ -19,16 +20,7 @@ export default function Teaser({ movie }) {
     >
       {isHovered ? (
         <>
-          <header
-            className="teaser_header"
-            style={{
-              backgroundImage: `url(${IMG_URL}${movie.backdrop_path})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center center',
-            }}
-          >
-            <div className="teaser_vignette"></div>
-          </header>
+          <Header className="teaser_header" movie={movie} />
           <main className="teaser_infos">
             <Icons addMovie={movie} movieId={movie.id} />
             <Content
