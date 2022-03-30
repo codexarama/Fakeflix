@@ -7,13 +7,12 @@ import './home.css';
 export default function Home() {
   return (
     <main className="landing-page">
-      <Banner type="movies" />
+      <Banner />
       {data.map((slider, index) => (
         <Slider
           key={index}
           title={slider.title}
           fetchUrl={slider.url}
-          // isPoster={slider.isPoster}
         />
       ))}
     </main>
