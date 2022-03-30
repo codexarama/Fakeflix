@@ -20,14 +20,15 @@ export default function Popup({ popup, close, movie }) {
   // handle ARIA attributes
   // prevent body from scrolling when popup is open
   useEffect(() => {
+    const bodyRoot = document.querySelector('body')
     const popupRoot = document.getElementById('popup');
 
-    popup && document.body.setAttribute('arias-hidden', 'true');
+    popup && bodyRoot.setAttribute('arias-hidden', 'true');
     popup && popupRoot.setAttribute('arias-hidden', 'false');
-    popup && (document.body.style.overflow = 'hidden');
+    popup && (bodyRoot.style.overflow = 'hidden');
 
-    !popup && document.body.setAttribute('arias-hidden', 'false');
-    !popup && (document.body.style.overflow = 'unset');
+    !popup && bodyRoot.setAttribute('arias-hidden', 'false');
+    !popup && (bodyRoot.style.overflow = 'unset');
   }, [popup]);
 
   // get casting data
@@ -42,7 +43,7 @@ export default function Popup({ popup, close, movie }) {
   useEffect(() => {
     async function fetchCasting() {
       const credits = await axios.get(credits_URL);
-      
+
       // get the 3 main actors
       if (credits.data.cast.length > 3) credits.data.cast.length = 3;
       setCasting(credits.data.cast);
@@ -59,9 +60,9 @@ export default function Popup({ popup, close, movie }) {
           id="popup"
           className="popup"
           role="main"
-          onClick={() => {
-            close();
-          }}
+          // onClick={() => {
+          //   close();
+          // }}
         >
           <section className="popup_container">
             <button className="popup_close" onClick={close}>
