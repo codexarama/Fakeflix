@@ -1,0 +1,29 @@
+/* SELECT */
+#genre {
+  margin-left: 0.5rem;
+  width: 7.5rem;
+}
+
+/* .react-select__control {
+    background: var(--color-primary);
+  } */
+
+#genre > div,
+#react_select-3-listbox {
+  background-color: var(--color-primary);
+}
+
+#genre div::-webkit-scrollbar {
+  width: 0;
+}
+
+.react_select__menu {
+  max-height: 190px;
+  overflow: auto;
+}
+
+#genre > div > div > div {
+  color: var(--color-default);
+  font-size: medium;
+  font-weight: 300;
+}
