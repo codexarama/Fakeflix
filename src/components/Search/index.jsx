@@ -82,6 +82,7 @@ export default function SearchMovie() {
                   className="modal_search--input"
                   type="text"
                   placeholder="Search for a movie"
+                  autoFocus
                   value={query}
                   onChange={onChange}
                 />
