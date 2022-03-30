@@ -19,7 +19,7 @@ import {
 } from '@mui/icons-material';
 
 import usePopup from '../Popup/usePopup.js';
-import SearchMovie from '../SearchMovie';
+import SearchMovie from '../Search';
 
 import './navbar.css';
 
