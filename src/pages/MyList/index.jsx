@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useEffect, useContext } from 'react';
 import { GlobalContext } from '../../context/GlobalState';
 // import { Link } from 'react-router-dom';
 
@@ -8,6 +8,11 @@ import '../../components/Search/search.css';
 import SearchMovie from '../../components/Search';
 
 export default function MyList() {
+  useEffect(() => {
+    const bodyRoot = document.querySelector('body');
+    bodyRoot.style.overflow = 'unset';
+  }, []);
+
   const { watchList } = useContext(GlobalContext);
 
   return (
