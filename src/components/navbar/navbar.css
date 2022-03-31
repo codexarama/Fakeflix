@@ -41,9 +41,14 @@
   flex-grow: 1;
 }
 
+.navbar_right--search {
+  margin-top: 0.25rem;
+}
+
 .navbar_right--avatar {
   width: 32px;
   border-radius: 50%;
+  /* styles for historic Netflix one : */
   /* width: 24px; */
   /* border-radius: 0.25rem; */
   background-color: var(--color-secondary);

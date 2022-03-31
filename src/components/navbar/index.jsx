@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 
 import logo from '../../assets/logo_fakeflix.png';
-// import logo from '../../assets/logo_netflix.svg';
 import avatar from '../../assets/avatar_amandine.png';
+// import logo from '../../assets/logo_netflix.svg';
 // import avatar from '../../assets/avatar_fakeflix.jpg';
 
 import { menu } from './menu';
@@ -19,7 +19,7 @@ import {
 } from '@mui/icons-material';
 
 import usePopup from '../Popup/usePopup.js';
-import SearchMovie from '../Search';
+// import SearchMovie from '../Search';
 
 import './navbar.css';
 
@@ -39,9 +39,10 @@ export default function Navbar() {
     return () => (window.onscroll = null);
   };
 
-  // handle Popup || Modal element actions
+  // handle Popup || Modal component actions
   const { isOpen, toggle, keyboardEscape } = usePopup();
-  // press escape to close Popup || Modal element
+  const homePage = ""
+  // press escape to close Popup || Modal component
   useEffect(() => {
     keyboardEscape();
   });
@@ -68,11 +69,10 @@ export default function Navbar() {
               ))}
             </ul>
             <div className="navbar_right">
-              <SearchMovie />
-
-              {/* <Link to={'/search'}>
-                <Search className='icon' />
-              </Link> */}
+              {/* <SearchMovie /> */}
+              <Link to={'/search'}>
+                <Search className="navbar_right--search" />
+              </Link>
 
               <Notifications />
               <img
@@ -82,7 +82,7 @@ export default function Navbar() {
               />
               {isOpen ? (
                 <>
-                  <ArrowDropUp onClick={toggle} />
+                  <ArrowDropUp onClick={() => toggle(homePage)} />
                   <div className="navbar_right--options">
                     <button>
                       <PowerSettingsNew />
@@ -93,7 +93,7 @@ export default function Navbar() {
                   </div>
                 </>
               ) : (
-                <ArrowDropDown onClick={toggle} />
+                <ArrowDropDown onClick={() => toggle(homePage)} />
               )}
             </div>
           </div>
