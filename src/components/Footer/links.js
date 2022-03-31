@@ -33,7 +33,7 @@ export const socials = [
 
 export const links = [
   'Audio and subtitles',
-  "Heelp center",
+  "Help center",
   'Hurry',
   'Recruitment',
   'Privacy',
