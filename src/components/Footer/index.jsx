@@ -5,6 +5,10 @@ import { useLocation } from 'react-router-dom';
 import { socials, links, service, copyright } from './links';
 import './footer.css';
 
+/**
+ * Footer COMPONENT
+ * @returns {Reactnode}   jsx in DOM
+ */
 export default function Footer() {
   const location = useLocation();
   const isVideoPage = location.pathname.includes('video');
