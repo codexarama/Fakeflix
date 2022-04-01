@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 
@@ -16,6 +18,15 @@ import { genreFinder } from '../Content/genres';
 
 import './popup.css';
 
+/**
+ * Popup COMPONENT
+ *
+ * @param   {object}      props
+ * @param   {boolean}     props.popup     [mount || unmount its modal]
+ * @param   {function}    props.close     [handle X button click action]
+ * @param   {array}       props.movie     [movie complete infos]
+ * @returns {Reactnode}   jsx in DOM
+ */
 export default function Popup({ popup, close, movie }) {
   // handle ARIA attributes
   // prevent body from scrolling when popup is open
@@ -104,3 +115,12 @@ export default function Popup({ popup, close, movie }) {
     document.body
   );
 }
+
+/**
+ * Popup PROPTYPES
+ */
+ Popup.propTypes = {
+  popup: PropTypes.bool.isRequired,
+  close: PropTypes.func.isRequired,
+  movie: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
+};
