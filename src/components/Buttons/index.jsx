@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import { useContext } from 'react';
 import { GlobalContext } from '../../context/GlobalState';
 
@@ -13,6 +15,17 @@ import {
 
 import './buttons.css';
 
+/**
+ * Icons COMPONENT
+ * (buttons group)
+ *
+ * @param   {object}      props
+ * @param   {string}      props.className    [class attribute(s)]
+ * @param   {object}      props.addMovie     [movie complete infos]
+ * @param   {number}      props.movieId      [movie unique identifier]
+ *
+ * @returns {Reactnode}   jsx in DOM
+ */
 export default function Icons({ className, addMovie, movieId }) {
   const { addMovieToWatchList, watchList } = useContext(GlobalContext);
   const { removeMovieFromWatchList } = useContext(GlobalContext);
@@ -51,3 +64,12 @@ export default function Icons({ className, addMovie, movieId }) {
     </section>
   );
 }
+
+/**
+ * Icons PROPTYPES
+ */
+Icons.propTypes = {
+  className: PropTypes.string,
+  addMovie: PropTypes.object.isRequired,
+  movieId: PropTypes.number.isRequired,
+};
