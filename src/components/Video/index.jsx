@@ -4,6 +4,10 @@ import trailer from '../../assets/video_netflix_intro.mp4';
 
 import './video.css';
 
+/**
+ * Video COMPONENT
+ * @returns {Reactnode}   jsx in DOM
+ */
 export default function Video() {
   let history = useNavigate();
 
