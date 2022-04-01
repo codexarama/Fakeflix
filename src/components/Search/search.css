@@ -1,21 +1,16 @@
 /* SEARCH BAR IN MODAL COMPONENT */
-.modal_search {
-  position: absolute;
-  top: 0;
-}
-
-.modal_search--form {
+.search_form {
   position: relative;
   width: 50%;
   display: flex;
   justify-content: center;
-  margin: 1rem auto;
+  margin: 5rem auto 1rem;
   height: 3rem;
   padding: 0;
   color: var(--color-default);
 }
 
-.modal_search--input {
+.search_input {
   height: 1.25rem;
   padding: 1rem 2rem 1rem 0.5rem;
   border: none;
@@ -27,11 +22,11 @@
   color: var(--color-default);
 }
 
-.modal_search--input:focus {
+.search_input:focus {
 cursor: text;
 }
 
-.modal_search--submit {
+.search_submit {
   position: absolute;
   top: 35%;
   margin-right: 0;
@@ -40,15 +35,15 @@ cursor: text;
   cursor: pointer;
 }
 
-.modal_search--form svg {
+.search_form svg {
   color: var(--color-tertiary);
 }
 
-.modal_search--form svg:hover {
+.search_form svg:hover {
   color: var(--color-default);
 }
 
-.modal_search--msg {
+.search_msg {
   margin-top: 2rem;
   text-align: center;
   color: var(--color-default);
