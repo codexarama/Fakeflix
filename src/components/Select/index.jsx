@@ -1,8 +1,18 @@
+import PropTypes from 'prop-types';
+
 import Select from 'react-select';
 import { options } from './options';
 
 import './select.css';
 
+/**
+ * SelectMedia COMPONENT
+ *
+ * @param   {object}      props
+ * @param   {boolean}     props.type     [media type : Movie || Serie]
+
+ * @returns {Reactnode}   jsx in DOM
+ */
 export default function SelectMedia({ type }) {
   return (
     <>
@@ -32,3 +42,10 @@ export default function SelectMedia({ type }) {
     </>
   );
 }
+
+/**
+ * SelectMedia PROPTYPES
+ */
+ SelectMedia.propTypes = {
+  movie: PropTypes.bool,
+};
