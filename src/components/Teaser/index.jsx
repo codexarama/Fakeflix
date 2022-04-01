@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { IMG_URL } from '../../config/requests';
@@ -9,6 +11,14 @@ import { genreFinder } from '../Content/genres';
 
 import './teaser.css';
 
+/**
+ * Teaser COMPONENT
+ *
+ * @param   {object}      props
+ * @param   {object}      props.movie     [movie complete infos]
+
+ * @returns {Reactnode}   jsx in DOM
+ */
 export default function Teaser({ movie }) {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -49,3 +59,10 @@ export default function Teaser({ movie }) {
     </li>
   );
 }
+
+/**
+ * Teaser PROPTYPES
+ */
+ Teaser.propTypes = {
+  movie: PropTypes.object.isRequired,
+};
