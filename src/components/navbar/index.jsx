@@ -23,6 +23,10 @@ import usePopup from '../Popup/usePopup.js';
 
 import './navbar.css';
 
+/**
+ * Navbar COMPONENT
+ * @returns {Reactnode}   jsx in DOM
+ */
 export default function Navbar() {
   // const windowWidth = window.innerWidth
   // console.log(windowWidth);
