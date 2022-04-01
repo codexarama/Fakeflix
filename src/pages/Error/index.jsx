@@ -3,6 +3,10 @@ import { useEffect } from 'react';
 import error from '../../assets/404.gif';
 import './error.css'
 
+/**
+ * Error COMPONENT
+ * @returns {Reactnode}   jsx in DOM
+ */
 export default function Error() {
   useEffect(() => {
     document
