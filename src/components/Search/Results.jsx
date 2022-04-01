@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 
@@ -5,6 +7,19 @@ import { Cancel } from '@mui/icons-material';
 import Teaser from '../Teaser';
 import Input from './Input';
 
+/**
+ * Results COMPONENT
+ *
+ * @param   {object}      props
+ * @param   {boolean}     props.popup      [mount || unmount its modal]
+ * @param   {function}    props.close      [handle X button click action]
+ * @param   {string}      props.query      [any character]
+ * @param   {function}    props.onChange   [handle input change]
+ * @param   {function}    props.onSubmit   [handle form submit]
+ * @param   {array}       props.results    [search results]
+ *
+ * @returns {Reactnode}   jsx in DOM
+ */
 export default function Results({
   popup,
   close,
@@ -55,3 +70,15 @@ export default function Results({
     document.body
   );
 }
+
+/**
+ * Results PROPTYPES
+ */
+ Results.propTypes = {
+  popup: PropTypes.bool.isRequired,
+  close: PropTypes.func.isRequired,
+  query: PropTypes.string,
+  onChange: PropTypes.func,
+  onSubmit: PropTypes.func,
+  results: PropTypes.array,
+};
