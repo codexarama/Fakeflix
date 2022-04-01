@@ -52,7 +52,7 @@ export default function Banner() {
     <>
       <header className="banner">
         <Header className="banner" movie={movie} />
-        <SelectMedia type={movie.media_type} />
+        <SelectMedia type={movie?.media_type} />
         <article className="banner_content">
           <h1 className="banner_title">
             {movie?.title || movie?.name || movie?.original_title}
