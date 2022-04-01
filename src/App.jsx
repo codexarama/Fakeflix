@@ -1,16 +1,12 @@
+import { Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
+import GlobalProvider from './context/GlobalState';
 import Navbar from './components/Navbar';
-import Home from './pages/Home';
-import MyList from './pages/MyList';
-import Search from './pages/Search';
-import Video from './components/Video';
 import Footer from './components/Footer';
 import Error from './pages/Error';
 
-import GlobalProvider from './context/GlobalState';
-
-import './app.css';
+import appRoutes from './appRoutes';
 
 /**
  * App
@@ -23,13 +19,24 @@ export default function App() {
       <BrowserRouter>
         <Navbar />
 
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/mylist" element={<MyList />} />
-          <Route path="/search" element={<Search />} />
-          <Route path="/video/:id" element={<Video />} />
-          <Route path="*" element={<Error />} />
-        </Routes>
+        <Suspense fallback={<h1>Loading...</h1>}>
+          <Routes>
+            {appRoutes.map((route, i) => {
+              return (
+                <Route
+                  key={i}
+                  path={route.path}
+                  element={
+                    <Suspense fallback={<h1 className="loading">...</h1>}>
+                      <route.element />
+                    </Suspense>
+                  }
+                />
+              );
+            })}
+            <Route path="*" element={<Error />} />
+          </Routes>
+        </Suspense>
 
         <Footer />
       </BrowserRouter>
