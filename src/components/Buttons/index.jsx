@@ -13,7 +13,7 @@ import {
 
 import './buttons.css';
 
-export default function Icons({ className, addMovie, movieId, videoLink }) {
+export default function Icons({ className, addMovie, movieId }) {
   const { addMovieToWatchList, watchList } = useContext(GlobalContext);
   const { removeMovieFromWatchList } = useContext(GlobalContext);
 
@@ -22,7 +22,7 @@ export default function Icons({ className, addMovie, movieId, videoLink }) {
 
   return (
     <section className={`group_icons ${className}`}>
-      <Link to={`/video/${videoLink}`}>
+      <Link to={`/video/${movieId}`}>
         <button className="icon icon_play">
           <PlayCircleFilled />
         </button>
