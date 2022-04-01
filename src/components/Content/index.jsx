@@ -1,5 +1,22 @@
+import PropTypes from 'prop-types';
+
 import './content.css'
 
+/**
+ * Content COMPONENT
+ * (various content types)
+ *
+ * @param   {object}      props
+ * @param   {string}      props.className    [class attribute(s)]
+ * @param   {string}      props.title        [content title]
+ * @param   {number}      props.vote         [movie vote]
+ * @param   {object}      props.date         [movie date]
+ * @param   {object}      props.genre        [movie genre]
+ * @param   {string}      props.synopsis     [movie synopsis]
+ * @param   {object}      props.casting      [movie casting]
+ *
+ * @returns {Reactnode}   jsx in DOM
+ */
 export default function Content({
   className,
   title,
@@ -35,3 +52,16 @@ export default function Content({
     </>
   );
 }
+
+/**
+ * Content PROPTYPES
+ */
+ Content.propTypes = {
+  className: PropTypes.string,
+  title: PropTypes.string,
+  vote: PropTypes.number,
+  date: PropTypes.string,
+  genre: PropTypes.array,
+  synopsis: PropTypes.string,
+  casting: PropTypes.array,
+};
