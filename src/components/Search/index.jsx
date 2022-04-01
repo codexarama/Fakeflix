@@ -1,17 +1,14 @@
 import { useEffect, useState } from 'react';
-import { Navigate } from "react-router-dom";
 
 import requests from '../../config/requests';
 import axios from 'axios';
 
-import { Search } from '@mui/icons-material';
-
 import usePopup from '../Popup/usePopup';
+import Input from './Input';
 import Results from './Results';
 
 import './search.css';
 import '../Popup/popup.css';
-import Input from './Input';
 
 export default function SearchMovie() {
   const [query, setQuery] = useState('');

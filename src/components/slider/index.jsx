@@ -6,7 +6,6 @@ import {
   ArrowForwardIosOutlined,
 } from '@mui/icons-material';
 
-import { genreFinder } from '../Content/genres.js';
 import Teaser from '../Teaser';
 
 import './slider.css';
