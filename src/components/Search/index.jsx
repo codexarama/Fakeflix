@@ -12,15 +12,6 @@ import '../Popup/popup.css';
 
 export default function SearchMovie() {
   const [query, setQuery] = useState('');
-  const [results, setResults] = useState([]);
-
-  // handle Popup || Modal component actions
-  const { isOpen, toggle, keyboardEscape } = usePopup();
-  // press escape to close Popup || Modal component
-  useEffect(() => {
-    keyboardEscape();
-  });
-
   function onChange(event) {
     event.preventDefault();
     setQuery(event.target.value);
@@ -36,14 +27,21 @@ export default function SearchMovie() {
     fetchData();
   }
 
+  const [results, setResults] = useState([]);
   // console.log(results);
-
   function onSubmit() {
-    const searchPage = "search"
+    const searchPage = 'search';
     results.length > 0 && toggle(searchPage);
   }
 
-  const mylistPage = "mylist"
+  // handle Popup || Modal component actions
+  const { isOpen, toggle, keyboardEscape } = usePopup();
+  // press escape to close Popup || Modal component
+  useEffect(() => {
+    keyboardEscape();
+  });
+
+  const mylistPage = 'mylist';
 
   return (
     <>
