@@ -7,6 +7,10 @@ import Teaser from '../../components/Teaser';
 import '../../components/Search/search.css';
 import SearchMovie from '../../components/Search';
 
+/**
+ * MyList COMPONENT
+ * @returns {Reactnode}   jsx in DOM
+ */
 export default function MyList() {
   useEffect(() => {
     const bodyRoot = document.querySelector('body');
