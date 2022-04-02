@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { IMG_URL } from '../../config/requests';
+import noPoster from '../../assets/no-poster.png';
 
 import Header from '../Header';
 import Icons from '../Buttons';
@@ -32,11 +33,11 @@ export default function Teaser({ movie }) {
         <>
           <Header className="teaser_header" movie={movie} />
           <main className="teaser_infos">
-            <Icons addMovie={movie} movieId={movie.id} />
+            <Icons addMovie={movie} movieId={movie?.id} />
             <Content
               genre={genreFinder(movie)}
               className="specific_style"
-              vote={movie.vote_average * 10}
+              vote={movie?.vote_average * 10}
               // get only yyyy from format date yyyy-mm-dd
               // THE SECRET : add "?" after key "realease_date" || "first_air_date"
               date={
@@ -48,9 +49,13 @@ export default function Teaser({ movie }) {
           </main>
         </>
       ) : (
-        <Link to={`/video/${movie.id}`} key={`poster ${movie.id}`}>
+        <Link to={`/video/${movie?.id}`} key={`poster ${movie?.id}`}>
           <img
-            src={`${IMG_URL}${movie.poster_path}`}
+            src={
+              movie.poster_path === null || undefined
+                ? noPoster
+                : `${IMG_URL}${movie?.poster_path}`
+            }
             className="item_image"
             alt={movie?.title || movie?.name || movie?.original_title}
           />
@@ -63,6 +68,6 @@ export default function Teaser({ movie }) {
 /**
  * Teaser PROPTYPES
  */
- Teaser.propTypes = {
+Teaser.propTypes = {
   movie: PropTypes.object.isRequired,
 };
