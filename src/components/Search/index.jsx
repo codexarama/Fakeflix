@@ -43,7 +43,12 @@ export default function SearchMovie() {
 
   return (
     <main className="main_content">
-      <form className="search_form" action="" autoComplete="on">
+      <form
+        className="search_form"
+        style={inputValue ? { margin: '5rem auto 1rem' } : { margin: '0 auto' }}
+        action="?"
+        autoComplete="off"
+      >
         <label />
         <input
           className="search_input"
