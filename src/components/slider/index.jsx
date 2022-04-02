@@ -13,6 +13,7 @@ import './slider.css';
 export default function Slider({ title, fetchUrl }) {
   const [movies, setMovies] = useState([]);
 
+  // re-rendered only if updated data
   useEffect(() => {
     async function fetchData() {
       const request = await axios.get(fetchUrl);
