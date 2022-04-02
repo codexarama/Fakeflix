@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 
 import { IMG_URL } from '../../config/requests';
+import noImage from '../../assets/no-image.png';
 
 /**
  * Header COMPONENT
@@ -16,7 +17,13 @@ export default function Header({ className, movie }) {
     <header
       className={className}
       style={{
-        backgroundImage: `url(${IMG_URL}${movie.backdrop_path})`,
+        backgroundImage: `url(
+          ${
+            movie.backdrop_path === null || undefined
+              ? noImage
+              : `${IMG_URL}${movie.backdrop_path}`
+          }
+        )`,
         backgroundSize: 'cover',
         backgroundPosition: 'center center',
       }}
