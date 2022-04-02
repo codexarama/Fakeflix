@@ -51,6 +51,7 @@ export default function Teaser({ movie }) {
       ) : (
         <Link to={`/video/${movie?.id}`} key={`poster ${movie?.id}`}>
           <img
+            loading="lazy"
             src={
               movie.poster_path === null || undefined
                 ? noPoster
