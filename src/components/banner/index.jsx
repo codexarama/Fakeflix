@@ -16,6 +16,7 @@ export default function Banner() {
   // get movie data
   const [movie, setMovie] = useState([]);
 
+  // re-rendered only if updated data
   useEffect(() => {
     async function fetchData() {
       const request = await axios.get(requests.fetchTrending);
@@ -41,7 +42,7 @@ export default function Banner() {
 
   // handle Popup || Modal element actions
   const { isOpen, toggle, keyboardEscape } = usePopup();
-  const homePage = ""
+  const homePage = '';
 
   // press escape to close Popup || Modal element
   useEffect(() => {
@@ -68,7 +69,10 @@ export default function Banner() {
                   Play
                 </button>
               </Link>
-              <button className="banner_options--info" onClick={() => toggle(homePage)}>
+              <button
+                className="banner_options--info"
+                onClick={() => toggle(homePage)}
+              >
                 <InfoRounded />
                 Info
               </button>
