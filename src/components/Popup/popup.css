@@ -42,7 +42,12 @@
   color: var(--color-default);
 }
 
+.popup_container .vignette{
+  height: 35vh;
+}
+
 .popup_header {
+  width: 100%;
   height: 35vh;
   border-radius: 1rem 1rem 0 0;
 }
