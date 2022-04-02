@@ -1,8 +1,11 @@
 /* BANNER */
 .banner {
-  position: relative;
   height: 70vh;
   color: var(--color-default);
+}
+
+.banner .vignette {
+  height: 70vh;
 }
 
 .banner_category {
@@ -20,7 +23,7 @@
   width: 35%;
   position: absolute;
   left: 50px;
-  bottom: 50px;
+  bottom: 35vh;
 }
 
 .banner_description {
