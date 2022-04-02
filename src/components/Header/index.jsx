@@ -14,22 +14,19 @@ import noImage from '../../assets/no-image.png';
  */
 export default function Header({ className, movie }) {
   return (
-    <header
-      className={className}
-      style={{
-        backgroundImage: `url(
-          ${
-            movie.backdrop_path === null || undefined
-              ? noImage
-              : `${IMG_URL}${movie.backdrop_path}`
-          }
-        )`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center center',
-      }}
-    >
+    <>
       <div className="vignette"></div>
-    </header>
+      <img
+        loading="lazy"
+        className={className}
+        src={
+          movie.backdrop_path === null || undefined
+            ? noImage
+            : `${IMG_URL}${movie?.backdrop_path}`
+        }
+        alt={movie?.title || movie?.name || movie?.original_title}
+      />
+    </>
   );
 }
 
