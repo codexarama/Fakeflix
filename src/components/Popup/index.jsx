@@ -14,7 +14,7 @@ import { Cancel } from '@mui/icons-material';
 import Header from '../Header';
 import Icons from '../Buttons';
 import Content from '../Content';
-import { genreFinder } from '../Content/genres';
+import { displayGenres } from '../Content/genres';
 
 import './popup.css';
 
@@ -104,7 +104,7 @@ export default function Popup({ popup, close, movie }) {
                       {actor?.name}
                     </li>
                   ))}
-                  genre={genreFinder(movie)}
+                  genre={displayGenres(movie)}
                 />
               </aside>
             </section>

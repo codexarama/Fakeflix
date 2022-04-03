@@ -26,15 +26,15 @@ const genresData = [
   { id: 10768, name: 'War & Politics' },
 ];
 
-export const genreFinder = (movie) => {
-  let genre = [];
+export const displayGenres = (movie) => {
+  let genres = [];
   movie.genre_ids.forEach((id) => {
     genresData.map((data) =>
-      id === data.id && genre.push(data.name)
+      id === data.id && genres.push(data.name)
     );
   });
 
-  return genre.map((name) => (
+  return genres.map((name) => (
     <li key={name} className="teaser_infos--genreList">
       {name}
     </li>
