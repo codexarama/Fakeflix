@@ -14,7 +14,7 @@ const appRoutes = [
     element: lazy(() => import('./pages/Search')),
   },
   {
-    path: '/video ',
+    path: '/video/:id',
     element: lazy(() => import('./components/Video')),
   },
 ];
