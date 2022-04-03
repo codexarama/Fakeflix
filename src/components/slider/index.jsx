@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import { useState, useRef, useMemo } from 'react';
 import { useFetch } from './useFetch';
 
@@ -11,7 +13,7 @@ import Teaser from '../Teaser';
 import './slider.css';
 
 /**
- * Teaser COMPONENT
+ * Slider COMPONENT
  *
  * @param   {object}      props
  * @param   {string}      props.title     [title of each thematic slider]
@@ -79,3 +81,11 @@ export default function Slider({ title, fetchUrl }) {
     </section>
   );
 }
+
+/**
+ * Slider PROPTYPES
+ */
+ Slider.propTypes = {
+  title: PropTypes.string.isRequired,
+  fetchUrl: PropTypes.string.isRequired,
+};
