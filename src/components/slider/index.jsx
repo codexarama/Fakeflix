@@ -1,5 +1,5 @@
-import { useState, useEffect, useRef } from 'react';
-import axios from 'axios';
+import { useState, useRef, useMemo } from 'react';
+import { useFetch } from './useFetch';
 
 import {
   ArrowBackIosNewOutlined,
@@ -10,22 +10,34 @@ import Teaser from '../Teaser';
 
 import './slider.css';
 
+/**
+ * Teaser COMPONENT
+ *
+ * @param   {object}      props
+ * @param   {string}      props.title     [title of each thematic slider]
+ * @param   {string}      props.fetchUrl
+ *
+ * @returns {Reactnode}   jsx in DOM
+ */
 export default function Slider({ title, fetchUrl }) {
-  const [movies, setMovies] = useState([]);
+  // gets fetched data from external server (tmdb)
+  const { status, data, error } = useFetch(fetchUrl);
 
-  // re-rendered only if updated data
-  useEffect(() => {
-    async function fetchData() {
-      const request = await axios.get(fetchUrl);
-      setMovies(request.data.results);
-    }
-    fetchData();
-  }, [fetchUrl]);
+  // data to display
+  const displayData = (data) => {
+    return data.map((movie) => <Teaser key={movie.id} movie={movie} />);
+  };
 
-  // console.log(movies);
+  // caches data after the request is made to prevent
+  // unnecessary re-renders of the Teaser component
+  const result = useMemo(() => displayData(data), [data]);
 
+  // manages the forward or backward movement of the gallery
+  // by clicking on the direction arrows
   const [slideNumber, setSlideNumber] = useState(0);
+
   const sliderRef = useRef();
+
   const handleClick = (slide) => {
     let distance = sliderRef.current.getBoundingClientRect().x - 28;
 
@@ -51,9 +63,9 @@ export default function Slider({ title, fetchUrl }) {
           <ArrowBackIosNewOutlined />
         </button>
         <ul className="slider_wrapper--content" ref={sliderRef}>
-          {movies.map((movie) => (
-            <Teaser key={movie.id} movie={movie} />
-          ))}
+          {status === 'error' && <div>{error}</div>}
+          {status === 'loading' && <div className="loading"></div>}
+          {status === 'fetched' && result}
         </ul>
         <button
           className="slider_wrapper--nav slider_wrapper--navRight"
