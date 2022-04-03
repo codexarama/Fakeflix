@@ -20,7 +20,7 @@ export default function Header({ className, movie }) {
         loading="lazy"
         className={className}
         src={
-          movie.backdrop_path === null || undefined
+          movie?.backdrop_path === null || undefined
             ? noImage
             : `${IMG_URL}${movie?.backdrop_path}`
         }
