@@ -8,7 +8,7 @@ import noPoster from '../../assets/no-poster.png';
 import Header from '../Header';
 import Icons from '../Buttons';
 import Content from '../Content';
-import { genreFinder } from '../Content/genres';
+import { displayGenres } from '../Content/genres';
 
 import './teaser.css';
 
@@ -35,7 +35,7 @@ return (
         <main className="teaser_infos">
           <Icons addMovie={movie} movieId={movie?.id} />
           <Content
-            genre={genreFinder(movie)}
+            genre={displayGenres(movie)}
             className="specific_style"
             vote={movie?.vote_average * 10}
             // get only yyyy from format date yyyy-mm-dd
