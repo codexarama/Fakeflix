@@ -28,6 +28,8 @@ export default function Slider({ title, fetchUrl }) {
     return data.map((movie) => <Teaser key={movie.id} movie={movie} />);
   };
 
+  // *** REMEMBER TO UNCHECK "Désactiver le cache" *** //
+  // *** IN THE "Réseau" FIELD of BROWSER *** //
   // caches data after the request is made to prevent
   // unnecessary re-renders of the Teaser component
   const result = useMemo(() => displayData(data), [data]);
