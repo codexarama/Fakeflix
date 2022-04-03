@@ -3,6 +3,7 @@
 .slider_wrapper--teaser {
   position: relative;
   width: 225px;
+  height: 342px;
   border-radius: 0.5rem;
   background-color: var(--color-primary);
   margin-right: 5px;
