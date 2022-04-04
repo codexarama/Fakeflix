@@ -38,6 +38,7 @@ Reproduction de l'interface et de ses fonctionnalités
 🔘 Rendus conditionnels selon interaction
 
 🔘 Mémorisation des valeurs et états selon besoin
+
 🔘 Génération aléatoire d'affichage
 
 ## Choix techniques
