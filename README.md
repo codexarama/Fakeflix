@@ -18,15 +18,25 @@ Reproduction de l'interface et de ses fonctionnalités
 
 ## Méthodologie
 
+
 🔘 Analyse · Synthèse · Personnalisation
+
 🔘 Environnement local sécurisé
+
 🔘 Appels asynchrones de l'API REST tmdb
+
 🔘 Mise en cache des données
+
 🔘 Gestion des données : itération, filtre, tri, adaptation
+
 🔘 Traitement différé des fonctionnalités selon besoin
+
 🔘 Fragmentation du code (bundle splitting)
+
 🔘 Gestion locale & globale des états
+
 🔘 Rendus conditionnels selon interaction
+
 🔘 Mémorisation des valeurs et états selon besoin
 🔘 Génération aléatoire d'affichage
 
@@ -35,18 +45,22 @@ Reproduction de l'interface et de ses fonctionnalités
 > VOIR TAGS DE LA DESCRIPTION DU DEPÔT
 
 🔘 Gestionnaires d'Etat
+
     ✔ useState
     ✔ useContext
     ✔ useReducer
 
 🔘 Mémorisation de valeurs
+
     ✔ useRef
     ✔ useMemo
 
 🔘 Actualisation de rendu
+
     ✔ useEffect
 
 🔘 Gestionnaires de navigation
+
     ✔ React Router
     ✔ Nested Routes
     ✔ useLocation
@@ -55,6 +69,7 @@ Reproduction de l'interface et de ses fonctionnalités
 🔘 Hooks personnalisés
 
 🔘 Optimisation des performances
+
     ✔ Axios
     ✔ Cache data
     ✔ Local storage
