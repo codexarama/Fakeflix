@@ -34,9 +34,6 @@ export default function Navbar() {
   const location = useLocation();
   const isVideoPage = location.pathname.includes('video');
 
-  // const isErrorPage = location.pathname.includes("*")
-  // console.log(isErrorPage); // ne fonctionne pas
-
   const [isScrolled, setIsScrolled] = useState(false);
   window.onscroll = () => {
     setIsScrolled(window.pageYOffset === 0 ? false : true);
