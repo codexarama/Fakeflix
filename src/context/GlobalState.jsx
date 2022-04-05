@@ -36,9 +36,9 @@ export default function GlobalProvider(props) {
     <GlobalContext.Provider
       value={{
         watchList: state.watchList,
-        watched: state.watched,
         addMovieToWatchList,
         removeMovieFromWatchList,
+        watched: state.watched,
       }}
     >
       {props.children}
