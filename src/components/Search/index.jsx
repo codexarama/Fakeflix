@@ -8,26 +8,26 @@ import { Search } from '@mui/icons-material';
 import './search.css';
 
 /**
- * SearchPage COMPONENT
+ * SearchMovie COMPONENT
  * @returns {Reactnode}   jsx in DOM
  */
 export default function SearchMovie() {
-  const [inputValue, setInputValue] = useState('');
+  const [value, setValue] = useState('');
 
   // useRef Hook allows to persist values between renders
   // and stores a mutable value without causing a re-render when updated.
   // by accessing a DOM element directly.
-  const previousInputValue = useRef('');
+  const refValue = useRef(value);
 
   useEffect(() => {
-    previousInputValue.current = inputValue;
-  }, [inputValue]);
+    refValue.current = value;
+  });
 
   const [results, setResults] = useState([]);
 
   function onChange(event) {
     event.preventDefault();
-    setInputValue(event.target.value);
+    setValue(event.target.value);
     // console.log(requests.search);
     const search_URL = `${requests.search}${event.target.value}`;
 
@@ -45,7 +45,7 @@ export default function SearchMovie() {
     <main className="main_content">
       <form
         className="search_form"
-        style={inputValue ? { margin: '5rem auto 1rem' } : { margin: '0 auto' }}
+        style={value ? { margin: '5rem auto 1rem' } : { margin: '0 auto' }}
         action="?"
         autoComplete="off"
       >
@@ -55,12 +55,12 @@ export default function SearchMovie() {
           type="text"
           placeholder="Search for a movie"
           autoFocus
-          value={inputValue}
+          value={value}
           onChange={onChange}
         />
         <Search className="icon search_submit" />
       </form>
-      {inputValue ? (
+      {value ? (
         <>
           <h2 className="search_msg">{`${results.length} résultats`}</h2>
           <ul className="main_content--results">
