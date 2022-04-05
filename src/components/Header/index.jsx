@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
 import { IMG_URL } from '../../config/requests';
-import noImage from '../../assets/no-image.png';
+import noBanner from '../../assets/no-banner.png';
 
 /**
  * Header COMPONENT
@@ -21,7 +21,7 @@ export default function Header({ className, movie }) {
         className={className}
         src={
           movie?.backdrop_path === null || undefined
-            ? noImage
+            ? noBanner
             : `${IMG_URL}${movie?.backdrop_path}`
         }
         alt={movie?.title || movie?.name || movie?.original_title}
