@@ -21,7 +21,6 @@
 .footer_links-list {
   display: flex;
   flex-wrap: wrap;
-  width: 100%;
   justify-content: space-between;
   margin-bottom: 1rem;
 }
@@ -55,12 +54,24 @@
 }
 
 /* ADAPTATIVE */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1200px) {
   .footer_links-link {
-    flex-basis: 50%;
+    flex-basis: 25%;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .footer_links-link {
+    flex-basis: 30%;
   }
 
   .footer_copyright {
     text-align: left;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .footer {
+    width: 90%;
   }
 }

@@ -32,18 +32,18 @@ export const socials = [
 ];
 
 export const links = [
-  'Audio and subtitles',
-  "Help center",
-  'Hurry',
-  'Recruitment',
   'Privacy',
-  'Cookie preferences',
+  'Hurry',
   'Contact us',
-  'Audio description',
   'Gift Cards',
-  'Investors relations',
+  "Help center",
+  'Recruitment',
+  'Legal notice',
+  'Audio subtitles',
   "Terms of use",
-  'Legal notice'
+  'Audio description',
+  'Cookie preferences',
+  'Investors relations',
 ];
 
 export const service = [
