@@ -6,14 +6,14 @@ import { options } from './options';
 import './select.css';
 
 /**
- * SelectMedia COMPONENT
+ * SelectGenre COMPONENT
  *
  * @param   {object}      props
  * @param   {boolean}     props.type     [media type : Movie || Serie]
 
  * @returns {Reactnode}   jsx in DOM
  */
-export default function SelectMedia({ type }) {
+export default function SelectGenre({ type }) {
   return (
     <>
       {type && (
@@ -23,7 +23,6 @@ export default function SelectMedia({ type }) {
             name="genre"
             id="genre"
             options={options}
-            defaultValue={options[0]}
             className="react_select-container"
             classNamePrefix="react_select"
             theme={(theme) => ({
@@ -44,8 +43,8 @@ export default function SelectMedia({ type }) {
 }
 
 /**
- * SelectMedia PROPTYPES
+ * SelectGenre PROPTYPES
  */
- SelectMedia.propTypes = {
+ SelectGenre.propTypes = {
   movie: PropTypes.bool,
 };
