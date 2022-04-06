@@ -23,6 +23,23 @@ import './teaser.css';
 export default function Teaser({ movie }) {
   const [isHovered, setIsHovered] = useState(false);
 
+  const [addVote, setAddVote] = useState(movie.vote_count);
+  const [removeVote, setRemoveVote] = useState(movie.vote_count);
+  const [hasVote, setHasVote] = useState(false);
+
+  function handleVote(status) {
+    if (status === 'add') {
+      setAddVote(addVote + 1);
+      setHasVote(!hasVote);
+      if (hasVote === true) setAddVote(addVote - 1);
+    }
+    if (status === 'remove') {
+      setRemoveVote(removeVote - 1);
+      setHasVote(!hasVote);
+      if (hasVote === true) setRemoveVote(removeVote + 1);
+    }
+  }
+
   return (
     <li
       className={isHovered ? 'slider_wrapper--teaser' : 'slider_wrapper--item'}
@@ -31,9 +48,17 @@ export default function Teaser({ movie }) {
     >
       {isHovered ? (
         <>
-          <Header className="teaser_header" movie={movie} />
+          <header>
+            <Header className="teaser_header" movie={movie} />
+          </header>
           <main className="teaser_infos">
-            <Icons addMovie={movie} movieId={movie?.id} />
+            <Icons
+              addMovie={movie}
+              movieId={movie?.id}
+              addVote={addVote}
+              removeVote={removeVote}
+              handleVote={handleVote}
+            />
             <Content
               genre={displayGenres(movie)}
               className="specific_style"

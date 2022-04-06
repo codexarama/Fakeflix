@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-import { useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
+import { useContext } from 'react';
 import { GlobalContext } from '../../context/GlobalState';
 
 import { Link } from 'react-router-dom';
@@ -26,43 +26,20 @@ import './buttons.css';
  *
  * @returns {Reactnode}   jsx in DOM
  */
-export default function Icons({ className, addMovie, movieId }) {
-  const { addMovieToWatchList, watchList } = useContext(GlobalContext);
-  const { removeMovieFromWatchList } = useContext(GlobalContext);
+export default function Icons({
+  className,
+  movieId,
+  addVote,
+  removeVote,
+  handleVote,
+}) {
+  const { addMovieToWatchList, watchList, removeMovieFromWatchList } =
+    useContext(GlobalContext);
 
-  let storedMovie = watchList?.find((item) => item.id === addMovie.id);
+  let storedMovie = watchList?.find((item) => item.id === movieId);
   const addDisabled = storedMovie ? true : false;
 
-  // const yesSelected = useRef(false);
-  const [isYesActive, setIsYesActive] = useState(false);
-
-  // const noSelected = useRef(false);
-  const [isNoActive, setIsNoActive] = useState(false);
-
-  // useEffect(() => {
-    // yesSelected.current = isYesActive
-    // noSelected.current = isNoActive
-  // })
-
-  // function rateIsYes() {
-  //   setIsYesActive(!isYesActive);
-  //   setIsNoActive(false);
-  // }
-
-  // function rateIsNo() {
-  //   setIsNoActive(!isNoActive);
-  //   setIsYesActive(false);
-  // }
-
-  const rateIsYes = useCallback(() => {
-    setIsYesActive(!isYesActive);
-    setIsNoActive(false);
-  }, [isYesActive])
-
-  const rateIsNo = useCallback(() => {
-    setIsNoActive(!isNoActive);
-    setIsYesActive(false);
-  }, [isNoActive])
+  // const { vote, handleVote } = useContext(GlobalContext);
 
   return (
     <section className={`group_icons ${className}`}>
@@ -81,39 +58,27 @@ export default function Icons({ className, addMovie, movieId }) {
       ) : (
         <button
           className="icon icon_add icon_yes"
-          onClick={() => addMovieToWatchList(addMovie)}
+          onClick={() => addMovieToWatchList(movieId)}
         >
           <Add />
         </button>
       )}
-      <button
-        // ref={yesSelected}
-        className={`icon icon_thumb icon_yes ${
-          isYesActive ? 'icon_yes-selected' : ''
-        }`}
-        onClick={rateIsYes}
-        // onClick={() => {
-          // setIsYesActive(!isYesActive);
-          // setIsNoActive(false);
-          // yesSelected.current = setIsYesActive(!isYesActive);
-        // }}
-      >
-        <ThumbUpOffAlt />
-      </button>
-      <button
-        // ref={noSelected}
-        className={`icon icon_thumb icon_no ${
-          isNoActive ? 'icon_no-selected' : ''
-        }`}
-        onClick={rateIsNo}
-        // onClick={() => {
-          // setIsNoActive(!isNoActive);
-          // setIsYesActive(false);
-          // noSelected.current = setIsNoActive(!isNoActive);
-        // }}
-      >
-        <ThumbDownOffAlt />
-      </button>
+      <div className="group_icons--vote">
+        <button
+          className={`icon icon_thumb icon_yes`}
+          onClick={() => handleVote('add')}
+        >
+          <p className="vote_count">{addVote}</p>
+          <ThumbUpOffAlt />
+        </button>
+        <button
+          className={`icon icon_thumb icon_no`}
+          onClick={() => handleVote('remove')}
+        >
+          <p className="vote_count">{removeVote}</p>
+          <ThumbDownOffAlt />
+        </button>
+      </div>
     </section>
   );
 }

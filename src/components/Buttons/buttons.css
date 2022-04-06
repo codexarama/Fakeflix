@@ -1,12 +1,15 @@
 /* BUTTONS with ICONS */
-.group_icons {
+.group_icons,
+.group_icons--vote {
   display: flex;
 }
 
 .icon {
+  position: relative;
   display: flex;
   align-items: center;
   margin-right: 0.5rem;
+  background: var(--color-primary);
   color: var(--color-default);
 }
 
@@ -26,9 +29,18 @@
   font-size: smaller;
 }
 
+.vote_count {
+  position: absolute;
+  top: -1rem;
+  font-size: x-small;
+  width: 30px;
+  left: -0.25rem;
+  text-align: center;
+}
+
 .icon_yes svg:hover,
 .icon_yes-selected svg {
-/* .icon_yes:focus svg { */
+  /* .icon_yes:focus svg { */
   border-radius: 1rem;
   border: 2px solid lightgreen;
   color: lightgreen;
@@ -36,7 +48,7 @@
 
 .icon_no svg:hover,
 .icon_no-selected svg {
-/* .icon_no:focus svg { */
+  /* .icon_no:focus svg { */
   border-radius: 1rem;
   border: 2px solid coral;
   color: coral;
