@@ -32,6 +32,7 @@ export default function Slider({ title, fetchUrl }) {
 
   // caches data after the request is made to prevent
   // unnecessary re-renders of the Teaser component
+  // by using memoization principle
   const result = useMemo(() => displayData(data), [data]);
 
   // manages the forward or backward movement of the gallery
