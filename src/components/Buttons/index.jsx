@@ -28,6 +28,7 @@ import './buttons.css';
  */
 export default function Icons({
   className,
+  selectedMovie,
   movieId,
   addVote,
   removeVote,
@@ -38,8 +39,6 @@ export default function Icons({
 
   let storedMovie = watchList?.find((item) => item.id === movieId);
   const addDisabled = storedMovie ? true : false;
-
-  // const { vote, handleVote } = useContext(GlobalContext);
 
   return (
     <section className={`group_icons ${className}`}>
@@ -58,7 +57,7 @@ export default function Icons({
       ) : (
         <button
           className="icon icon_add icon_yes"
-          onClick={() => addMovieToWatchList(movieId)}
+          onClick={() => addMovieToWatchList(selectedMovie)}
         >
           <Add />
         </button>
