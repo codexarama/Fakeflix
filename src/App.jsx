@@ -16,6 +16,7 @@ import appRoutes from './appRoutes';
 export default function App() {
   return (
     <GlobalProvider>
+
       <BrowserRouter>
         <Navbar />
 
@@ -40,6 +41,7 @@ export default function App() {
 
         <Footer />
       </BrowserRouter>
+      
     </GlobalProvider>
   );
 }

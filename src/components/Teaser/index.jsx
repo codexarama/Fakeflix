@@ -53,7 +53,7 @@ export default function Teaser({ movie }) {
           </header>
           <main className="teaser_infos">
             <Icons
-              addMovie={movie}
+              selectedMovie={movie}
               movieId={movie?.id}
               addVote={addVote}
               removeVote={removeVote}
