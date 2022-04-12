@@ -1,6 +1,6 @@
-import requests from '../../config/requests';
+import requests from './requests';
 
-const data = [
+const dataInfos = [
   {
     title: 'Fakeflix originals',
     url: requests.fetchNetflixOriginals,
@@ -41,4 +41,4 @@ const data = [
   },
 ];
 
-export default data;
+export default dataInfos;

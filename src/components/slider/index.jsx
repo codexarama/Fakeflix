@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
 import { useState, useRef, useMemo } from 'react';
-import { useFetch } from './useFetch';
+import { useFetch } from '../../config/useFetch';
 
 import {
   ArrowBackIosNewOutlined,
