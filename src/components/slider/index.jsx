@@ -49,7 +49,7 @@ export default function Slider({ title, fetchUrl }) {
       sliderRef.current.style.transform = `translateX(${460 + distance}px)`;
     }
 
-    if (slide === 'next' && slideNumber < 7) {
+    if (slide === 'next' && slideNumber < 8) {
       setSlideNumber(slideNumber + 1);
       sliderRef.current.style.transform = `translateX(${-460 + distance}px)`;
     }
