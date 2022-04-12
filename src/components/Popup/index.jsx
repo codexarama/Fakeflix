@@ -83,13 +83,13 @@ export default function Popup({ popup, close, movie }) {
             <Icons
               className={'popup_icons'}
               addMovie={movie}
-              movieId={movie.id}
+              movieId={movie?.id}
             />
             <section className="popup_main">
               <article className="popup_content">
                 <Content
                   title={movie?.title || movie?.name || movie?.original_title}
-                  vote={movie.vote_average * 10}
+                  vote={movie?.vote_average * 10}
                   synopsis={movie?.overview || 'No description available'}
                 />
               </article>
