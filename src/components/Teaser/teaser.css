@@ -6,7 +6,7 @@
   height: 342px;
   border-radius: 0.5rem;
   background-color: var(--color-primary);
-  margin-right: 5px;
+  margin-right: 2rem;
   color: white;
 }
 
@@ -15,12 +15,19 @@
   width: 100%;
   height: 100%;
   border-radius: 0.5rem;
-  transition: transform 0.5s ease-in;
+  transition: transform 0.75s ease-in;
 }
 
 .slider_wrapper--teaser {
   border-radius: 0.5rem 0.5rem 0 0;
   border-bottom: 1px solid lightslategray;
+  transition: transform 0.5s;
+}
+
+.slider_wrapper--teaser:hover {
+  z-index: 1;
+  transform: scale(1.1);
+  box-shadow: rgba(255, 255, 255, 0.25) 0px 0px 25px !important;
 }
 
 .slider_teaser {

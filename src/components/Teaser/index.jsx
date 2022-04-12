@@ -78,7 +78,7 @@ export default function Teaser({ movie }) {
           <img
             loading="lazy"
             src={
-              movie.poster_path === null || undefined
+              movie?.poster_path === null || undefined
                 ? noPoster
                 : `${IMG_URL}${movie?.poster_path}`
             }

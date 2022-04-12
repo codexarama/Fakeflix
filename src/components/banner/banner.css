@@ -8,6 +8,11 @@
   height: 70vh;
 }
 
+.banner img {
+  width: 100%;
+  object-fit: cover;
+}
+
 .banner_category {
   position: absolute;
   top: 5rem;
