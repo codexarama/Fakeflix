@@ -1,6 +1,6 @@
 import Banner from '../../components/Banner';
 import Slider from '../../components/Slider';
-import data from '../../components/Slider/data';
+import dataInfos from '../../config/dataInfos';
 
 import './home.css';
 
@@ -12,11 +12,11 @@ export default function Home() {
   return (
     <main className="landing-page">
       <Banner />
-      {data.map((slider, index) => (
+      {dataInfos.map((data, index) => (
         <Slider
           key={index}
-          title={slider.title}
-          fetchUrl={slider.url}
+          title={data.title}
+          fetchUrl={data.url}
         />
       ))}
     </main>
