@@ -42,7 +42,7 @@ export default function SearchMovie() {
   // console.log(results);
 
   return (
-    <main className="main_content">
+    <>
       <form
         className="search_form"
         style={value ? { margin: '5rem auto 1rem' } : { margin: '0 auto' }}
@@ -69,6 +69,6 @@ export default function SearchMovie() {
           </ul>
         </>
       ) : null}
-    </main>
+    </>
   );
 }
