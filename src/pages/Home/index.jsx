@@ -1,6 +1,6 @@
 import Banner from '../../components/Banner';
 import Slider from '../../components/Slider';
-import dataInfos from '../../config/dataInfos';
+import dataInfos from '../../config/dataInfos.js';
 
 import './home.css';
 
