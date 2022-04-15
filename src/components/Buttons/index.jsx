@@ -5,13 +5,9 @@ import { GlobalContext } from '../../context/GlobalState';
 
 import { Link } from 'react-router-dom';
 
-import {
-  Check,
-  Add,
-  PlayCircleFilled,
-  ThumbUpOffAlt,
-  ThumbDownOffAlt,
-} from '@mui/icons-material';
+import { Check, Add, PlayCircleFilled } from '@mui/icons-material';
+
+import Raters from './Raters';
 
 import './buttons.css';
 
@@ -26,14 +22,7 @@ import './buttons.css';
  *
  * @returns {Reactnode}   jsx in DOM
  */
-export default function Icons({
-  className,
-  selectedMovie,
-  movieId,
-  addVote,
-  removeVote,
-  handleVote,
-}) {
+export default function Icons({ addMovie, movieId, count }) {
   const { addMovieToWatchList, watchList, removeMovieFromWatchList } =
     useContext(GlobalContext);
 
@@ -41,7 +30,7 @@ export default function Icons({
   const addDisabled = storedMovie ? true : false;
 
   return (
-    <section className={`group_icons ${className}`}>
+    <section className="group_icons">
       <Link to={`/video/${movieId}`}>
         <button className="icon icon_play">
           <PlayCircleFilled />
@@ -57,27 +46,12 @@ export default function Icons({
       ) : (
         <button
           className="icon icon_add icon_yes"
-          onClick={() => addMovieToWatchList(selectedMovie)}
+          onClick={() => addMovieToWatchList(addMovie)}
         >
           <Add />
         </button>
       )}
-      <div className="group_icons--vote">
-        <button
-          className={`icon icon_thumb icon_yes`}
-          onClick={() => handleVote('add')}
-        >
-          <p className="vote_count">{addVote}</p>
-          <ThumbUpOffAlt />
-        </button>
-        <button
-          className={`icon icon_thumb icon_no`}
-          onClick={() => handleVote('remove')}
-        >
-          <p className="vote_count">{removeVote}</p>
-          <ThumbDownOffAlt />
-        </button>
-      </div>
+      <Raters count={count} />
     </section>
   );
 }
