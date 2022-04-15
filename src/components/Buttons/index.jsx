@@ -16,13 +16,13 @@ import './buttons.css';
  * (buttons group)
  *
  * @param   {object}      props
- * @param   {string}      props.className    [class attribute(s)]
- * @param   {object}      props.addMovie     [movie complete infos]
- * @param   {number}      props.movieId      [movie unique identifier]
+ * @param   {string}      props.className         [class attribute(s)]
+ * @param   {object}      props.selectedMovie     [movie complete infos]
+ * @param   {number}      props.movieId           [movie unique identifier]
  *
  * @returns {Reactnode}   jsx in DOM
  */
-export default function Icons({ addMovie, movieId, count }) {
+export default function Icons({ selectedMovie, movieId, count }) {
   const { addMovieToWatchList, watchList, removeMovieFromWatchList } =
     useContext(GlobalContext);
 
@@ -46,7 +46,7 @@ export default function Icons({ addMovie, movieId, count }) {
       ) : (
         <button
           className="icon icon_add icon_yes"
-          onClick={() => addMovieToWatchList(addMovie)}
+          onClick={() => addMovieToWatchList(selectedMovie)}
         >
           <Add />
         </button>
@@ -61,6 +61,6 @@ export default function Icons({ addMovie, movieId, count }) {
  */
 Icons.propTypes = {
   className: PropTypes.string,
-  addMovie: PropTypes.object.isRequired,
+  selectedMovie: PropTypes.object.isRequired,
   movieId: PropTypes.number.isRequired,
 };
