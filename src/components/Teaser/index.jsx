@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 
 import { useState } from 'react';
+
 import { Link } from 'react-router-dom';
 import { IMG_URL } from '../../config/requests';
 import noPoster from '../../assets/no-poster.png';
@@ -23,23 +24,6 @@ import './teaser.css';
 export default function Teaser({ movie }) {
   const [isHovered, setIsHovered] = useState(false);
 
-  const [addVote, setAddVote] = useState(movie.vote_count);
-  const [removeVote, setRemoveVote] = useState(movie.vote_count);
-  const [hasVote, setHasVote] = useState(false);
-
-  function handleVote(status) {
-    if (status === 'add') {
-      setAddVote(addVote + 1);
-      setHasVote(!hasVote);
-      if (hasVote === true) setAddVote(addVote - 1);
-    }
-    if (status === 'remove') {
-      setRemoveVote(removeVote - 1);
-      setHasVote(!hasVote);
-      if (hasVote === true) setRemoveVote(removeVote + 1);
-    }
-  }
-
   return (
     <li
       className={isHovered ? 'slider_wrapper--teaser' : 'slider_wrapper--item'}
@@ -55,9 +39,7 @@ export default function Teaser({ movie }) {
             <Icons
               selectedMovie={movie}
               movieId={movie?.id}
-              addVote={addVote}
-              removeVote={removeVote}
-              handleVote={handleVote}
+              count={movie?.vote_count}
             />
             <Content
               genre={displayGenres(movie)}
