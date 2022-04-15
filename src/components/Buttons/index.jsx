@@ -51,7 +51,7 @@ export default function Icons({ selectedMovie, movieId, count }) {
           <Add />
         </button>
       )}
-      <Raters count={count} />
+      <Raters key={movieId} count={count} />
     </section>
   );
 }
