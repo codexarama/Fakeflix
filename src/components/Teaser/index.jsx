@@ -24,11 +24,19 @@ import './teaser.css';
 export default function Teaser({ movie }) {
   const [isHovered, setIsHovered] = useState(false);
 
+  function onMouseEnter() {
+    setIsHovered(true);
+  }
+
+  function onMouseLeave() {
+    setIsHovered(false);
+  }
+
   return (
     <li
       className={isHovered ? 'slider_wrapper--teaser' : 'slider_wrapper--item'}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
     >
       {isHovered ? (
         <>
@@ -39,7 +47,7 @@ export default function Teaser({ movie }) {
             <Icons
               selectedMovie={movie}
               movieId={movie?.id}
-              count={movie?.vote_count}
+              count={movie.vote_count}
             />
             <Content
               genre={displayGenres(movie)}
