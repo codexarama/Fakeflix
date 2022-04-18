@@ -22,12 +22,20 @@ import './buttons.css';
  *
  * @returns {Reactnode}   jsx in DOM
  */
-export default function Icons({ selectedMovie, movieId, count }) {
+export default function Icons({
+  selectedMovie,
+  movieId,
+  rating,
+  // handleClickLike,
+  // handleClickDislike,
+}) {
   const { addMovieToWatchList, watchList, removeMovieFromWatchList } =
     useContext(GlobalContext);
 
   let storedMovie = watchList?.find((item) => item.id === movieId);
   const addDisabled = storedMovie ? true : false;
+
+  // const { handleClickLike, handleClickDislike } = useContext(GlobalContext);
 
   return (
     <section className="group_icons">
@@ -51,7 +59,7 @@ export default function Icons({ selectedMovie, movieId, count }) {
           <Add />
         </button>
       )}
-      <Raters key={movieId} count={count} />
+      <Raters rating={rating} />
     </section>
   );
 }

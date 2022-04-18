@@ -29,19 +29,18 @@ export default function Slider({ title, fetchUrl }) {
   const { status, data, error } = useFetch(fetchUrl);
 
   // gets state & reducer from context
-  const { rating } = useContext(GlobalContext);
+  const { rating, handleClickLike } = useContext(GlobalContext);
 
-  // data to display
-  function displayData(data) {
-    return data.map((movie, rating) => (
-      <Teaser key={movie.id} movie={movie} count={(movie = rating)} />
+  function displayData(data, rating) {
+    return data.map((movie) => (
+      <Teaser key={movie.id} movie={movie} rating={(movie = rating)} />
     ));
   }
 
   // caches data after the request to prevent
   // unnecessary re-renders of the Teaser component
   // by using memoization hook : useMemo
-  const results = useMemo(() => displayData(data), [data]);
+  const results = useMemo(() => displayData(data, rating), [data, rating]);
 
   // gets state & reducer from context
   const { getVoteCount } = useContext(GlobalContext);
@@ -59,6 +58,29 @@ export default function Slider({ title, fetchUrl }) {
       if ([...rating].length === 0) moviesRating();
     }, 250);
   }, [moviesRating, rating]);
+
+  /////////////////////////////////////////////////////////////////////////////////
+  // function displayRatings(rating) {
+  //   return rating.map((count) => <Raters key={count.id} rating={count} />);
+  // }
+
+  // // caches data after the request to prevent
+  // // unnecessary re-renders of the Teaser component
+  // // by using memoization hook : useMemo
+  // const ratings = useMemo(() => displayRatings(rating), [rating]);
+  // console.log(ratings); // OK
+
+  // useEffect(() => {
+  // }, []);
+
+  // const buttonsSection = [...document.getElementsByClassName('group_icons')];
+  // console.log(buttonsSection); // OK
+
+  // // const raters = [...document.getElementsByClassName('group_icons--vote')];
+  // // console.log(raters);
+
+  // // buttonsSection.forEach((section, index) => section.append(ratings[index]))
+  /////////////////////////////////////////////////////////////////////////////////
 
   // manages the forward or backward movement of the slider
   // by clicking on the direction arrows

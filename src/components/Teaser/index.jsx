@@ -21,7 +21,7 @@ import './teaser.css';
 
  * @returns {Reactnode}   jsx in DOM
  */
-export default function Teaser({ movie }) {
+export default function Teaser({ movie, rating }) {
   const [isHovered, setIsHovered] = useState(false);
 
   function onMouseEnter() {
@@ -38,7 +38,7 @@ export default function Teaser({ movie }) {
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
-      {isHovered ? (
+      {/* {isHovered ? ( */}
         <>
           <header>
             <Header className="teaser_header" movie={movie} />
@@ -47,7 +47,9 @@ export default function Teaser({ movie }) {
             <Icons
               selectedMovie={movie}
               movieId={movie?.id}
-              count={movie.vote_count}
+              // rating={rating}
+              // rating={rating?.vote_count}
+              rating={movie?.vote_count}
             />
             <Content
               genre={displayGenres(movie)}
@@ -63,7 +65,7 @@ export default function Teaser({ movie }) {
             />
           </main>
         </>
-      ) : (
+      {/* ) : (
         <Link to={`/video/${movie?.id}`} key={`poster ${movie?.id}`}>
           <img
             loading="lazy"
@@ -76,7 +78,7 @@ export default function Teaser({ movie }) {
             alt={movie?.title || movie?.name || movie?.original_title}
           />
         </Link>
-      )}
+      )} */}
     </li>
   );
 }

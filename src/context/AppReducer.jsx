@@ -21,6 +21,31 @@ export default function AppReducer(state, action) {
         rating: [action.payload, ...state.rating],
       };
 
+    case 'HANDLE_LIKE':
+      return {
+        ...state,
+        rating: state.rating.find(
+          (movie) => (movie.vote_count = movie.vote_count + action.payload)
+        ),
+
+        // // RETURNS EVERY COUNT + 1
+        // rating: [
+        //   ...state.rating.map((movie) => movie.vote_count + action.payload),
+        // ],
+      };
+    case 'HANDLE_DISLIKE':
+      return {
+        ...state,
+        rating: state.rating.find(
+          (movie) => (movie.vote_count = movie.vote_count + action.payload)
+        ),
+
+        // // RETURNS EVERY COUNT + 1
+        // rating: [
+        //   ...state.rating.map((movie) => movie.vote_count + action.payload),
+        // ],
+      };
+
     default:
       return state;
   }

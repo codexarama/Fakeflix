@@ -1,4 +1,4 @@
-import { createContext, useReducer, useEffect } from 'react';
+import { createContext, useReducer, useEffect, useState } from 'react';
 import AppReducer from './AppReducer';
 
 // initial state
@@ -31,11 +31,11 @@ export default function GlobalProvider({ children }) {
     dispatch({ type: 'ADD_MOVIE_TO_WATCHLIST', payload: movie });
   }
 
-  function removeMovieFromWatchList (id) {
+  function removeMovieFromWatchList(id) {
     dispatch({ type: 'REMOVE_MOVIE_FROM_WATCHLIST', payload: id });
-  };
+  }
 
-  function getVoteCount (movie) {
+  function getVoteCount(movie) {
     dispatch({
       type: 'GET_VOTE_COUNT',
       payload: {
@@ -44,6 +44,52 @@ export default function GlobalProvider({ children }) {
         vote_count: movie.vote_count,
       },
     });
+  }
+
+  const [status, setStatus] = useState(null);
+
+  const handleClickLike = () => {
+    if (status==='like') {
+      setStatus(null)
+      dispatch({
+        type: 'HANDLE_LIKE',
+        payload: -1,
+      })
+    } else {
+      setStatus('like')
+      if (status==='dislike') {
+        dispatch({
+          type: 'HANDLE_DISLIKE',
+          payload: -1,
+        })
+      }
+      dispatch({
+        type: 'HANDLE_LIKE',
+        payload: 1,
+      })
+    }
+  }
+
+  const handleClickDislike = () => {
+    if (status === 'dislike') {
+      setStatus(null);
+      dispatch({
+        type: 'HANDLE_DISLIKE',
+        payload: -1,
+      });
+    } else {
+      setStatus('dislike');
+      if (status === 'like') {
+        dispatch({
+          type: 'HANDLE_LIKE',
+          payload: -1,
+        });
+      }
+      dispatch({
+        type: 'HANDLE_DISLIKE',
+        payload: -1,
+      });
+    }
   };
 
   // VALUES
@@ -53,6 +99,8 @@ export default function GlobalProvider({ children }) {
     removeMovieFromWatchList,
     rating,
     getVoteCount,
+    handleClickLike,
+    handleClickDislike,
   };
 
   return (
