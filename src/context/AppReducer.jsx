@@ -13,6 +13,16 @@ export default function AppReducer(state, action) {
           (movie) => movie.id !== action.payload
         ),
       };
+    case 'HANDLE_LIKE':
+      return {
+        ...state,
+        likes: state.likes + action.payload,
+      };
+    case 'HANDLE_DISLIKE':
+      return {
+        ...state,
+        dislikes: state.dislikes + action.payload,
+      };
     default:
       return state;
   }

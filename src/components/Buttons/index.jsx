@@ -23,10 +23,8 @@ import './buttons.css';
  * @returns {Reactnode}   jsx in DOM
  */
 export default function Icons({
-  selectedMovie,
   movieId,
-  // addVote,
-  // removeVote,
+  selectedMovie,
   voteCount,
   handleVote,
 }) {
@@ -59,7 +57,6 @@ export default function Icons({
         </button>
       )}
       <Raters voteCount={voteCount} handleVote={handleVote} />
-      {/* <Raters addVote={addVote} removeVote={removeVote} handleVote={handleVote} /> */}
     </section>
   );
 }
