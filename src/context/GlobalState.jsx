@@ -6,8 +6,9 @@ const initialState = {
   watchList: localStorage.getItem('watchList')
     ? JSON.parse(localStorage.getItem('watchList'))
     : [],
-  likes: 0,
-  dislikes: 0,
+  rating: localStorage.getItem('rating')
+    ? JSON.parse(localStorage.getItem('rating'))
+    : [],
 };
 
 // create context
@@ -17,10 +18,11 @@ export const GlobalContext = createContext(initialState);
 export default function GlobalProvider({ children }) {
   const [state, dispatch] = useReducer(AppReducer, initialState);
 
-  const { watchList } = state;
+  const { watchList, rating } = state;
 
   useEffect(() => {
     localStorage.setItem('watchList', JSON.stringify(state.watchList));
+    localStorage.setItem('rating', JSON.stringify(state.rating));
   }, [state]);
 
   // ACTIONS
@@ -32,61 +34,89 @@ export default function GlobalProvider({ children }) {
     dispatch({ type: 'REMOVE_MOVIE_FROM_WATCHLIST', payload: id });
   }
 
-  const { likes, dislikes } = state;
-  const [status, setStatus] = useState(null);
+    // const [status, setStatus] = useState(null);
 
-  const handleClickLike = () => {
-    if (status === 'like') {
-      setStatus(null);
-      dispatch({
-        type: 'HANDLE_LIKE',
-        payload: -1,
-      });
-    } else {
-      setStatus('like');
-      if (status === 'dislike') {
-        dispatch({
-          type: 'HANDLE_DISLIKE',
-          payload: -1,
-        });
-      }
-      dispatch({
-        type: 'HANDLE_LIKE',
-        payload: 1,
-      });
-    }
-  };
+  function handleClickLike(movie) {
+    dispatch({
+      type: 'ADD_A_LIKE',
+      payload: {
+        id: movie.id,
+        name: movie?.title || movie?.name || movie?.original_title,
+        vote_count: movie.vote_count + 1,
+      },
+    });
+  }
 
-  const handleClickDislike = () => {
-    if (status === 'dislike') {
-      setStatus(null);
-      dispatch({
-        type: 'HANDLE_DISLIKE',
-        payload: -1,
-      });
-    } else {
-      setStatus('dislike');
-      if (status === 'like') {
-        dispatch({
-          type: 'HANDLE_LIKE',
-          payload: -1,
-        });
-      }
-      dispatch({
-        type: 'HANDLE_DISLIKE',
-        payload: 1,
-      });
-    }
-  };
+  function handleClickDislike(movie) {
+    dispatch({
+      type: 'ADD_A_LIKE',
+      payload: {
+        id: movie.id,
+        name: movie?.title || movie?.name || movie?.original_title,
+        vote_count: movie.vote_count - 1,
+      },
+    });
+  }
+
+  // function handleClickDislike(movie) {}
+
+
+
+
+
+
+  // const [status, setStatus] = useState(null);
+
+  // const handleClickLike = () => {
+  //   if (status === 'like') {
+  //     setStatus(null);
+  //     dispatch({
+  //       type: 'HANDLE_LIKE',
+  //       payload: -1,
+  //     });
+  //   } else {
+  //     setStatus('like');
+  //     if (status === 'dislike') {
+  //       dispatch({
+  //         type: 'HANDLE_DISLIKE',
+  //         payload: -1,
+  //       });
+  //     }
+  //     dispatch({
+  //       type: 'HANDLE_LIKE',
+  //       payload: 1,
+  //     });
+  //   }
+  // };
+
+  // const handleClickDislike = () => {
+  //   if (status === 'dislike') {
+  //     setStatus(null);
+  //     dispatch({
+  //       type: 'HANDLE_DISLIKE',
+  //       payload: -1,
+  //     });
+  //   } else {
+  //     setStatus('dislike');
+  //     if (status === 'like') {
+  //       dispatch({
+  //         type: 'HANDLE_LIKE',
+  //         payload: -1,
+  //       });
+  //     }
+  //     dispatch({
+  //       type: 'HANDLE_DISLIKE',
+  //       payload: 1,
+  //     });
+  //   }
+  // };
 
   // VALUES
   const value = {
     watchList,
     addMovieToWatchList,
     removeMovieFromWatchList,
-    likes,
-    dislikes,
-    status,
+    rating,
     handleClickLike,
     handleClickDislike,
   };

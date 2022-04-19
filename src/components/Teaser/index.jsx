@@ -38,7 +38,7 @@ export default function Teaser({ movie }) {
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
-      {isHovered ? (
+      {/* {isHovered ? ( */}
         <>
           <header>
             <Header className="teaser_header" movie={movie} />
@@ -63,7 +63,7 @@ export default function Teaser({ movie }) {
             />
           </main>
         </>
-      ) : (
+      {/* ) : (
         <Link to={`/video/${movie?.id}`} key={`poster ${movie?.id}`}>
           <img
             loading="lazy"
@@ -76,7 +76,7 @@ export default function Teaser({ movie }) {
             alt={movie?.title || movie?.name || movie?.original_title}
           />
         </Link>
-      )}
+      )} */}
     </li>
   );
 }

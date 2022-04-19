@@ -56,7 +56,7 @@ export default function Icons({
           <Add />
         </button>
       )}
-      <Raters voteCount={voteCount} handleVote={handleVote} />
+      <Raters voteCount={voteCount} selectedMovie={selectedMovie} />
     </section>
   );
 }
