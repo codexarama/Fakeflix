@@ -1,4 +1,4 @@
-import { createContext, useReducer, useEffect, useState } from 'react';
+import { createContext, useReducer, useEffect } from 'react';
 import AppReducer from './AppReducer';
 
 // initial state
@@ -34,8 +34,6 @@ export default function GlobalProvider({ children }) {
     dispatch({ type: 'REMOVE_MOVIE_FROM_WATCHLIST', payload: id });
   }
 
-  const [status, setStatus] = useState(null);
-
   function incrementRating(movie) {
     dispatch({
       type: 'INCREMENT_RATING',
@@ -58,51 +56,9 @@ export default function GlobalProvider({ children }) {
     });
   }
 
-  // const [status, setStatus] = useState(null);
-
-  // const handleClickLike = () => {
-  //   if (status === 'like') {
-  //     setStatus(null);
-  //     dispatch({
-  //       type: 'HANDLE_LIKE',
-  //       payload: -1,
-  //     });
-  //   } else {
-  //     setStatus('like');
-  //     if (status === 'dislike') {
-  //       dispatch({
-  //         type: 'HANDLE_DISLIKE',
-  //         payload: -1,
-  //       });
-  //     }
-  //     dispatch({
-  //       type: 'HANDLE_LIKE',
-  //       payload: 1,
-  //     });
-  //   }
-  // };
-
-  // const handleClickDislike = () => {
-  //   if (status === 'dislike') {
-  //     setStatus(null);
-  //     dispatch({
-  //       type: 'HANDLE_DISLIKE',
-  //       payload: -1,
-  //     });
-  //   } else {
-  //     setStatus('dislike');
-  //     if (status === 'like') {
-  //       dispatch({
-  //         type: 'HANDLE_LIKE',
-  //         payload: -1,
-  //       });
-  //     }
-  //     dispatch({
-  //       type: 'HANDLE_DISLIKE',
-  //       payload: 1,
-  //     });
-  //   }
-  // };
+  function removeVoteFromRating(id) {
+    dispatch({ type: 'REMOVE_VOTE_FROM_RATING', payload: id });
+  }
 
   // VALUES
   const value = {
@@ -112,6 +68,7 @@ export default function GlobalProvider({ children }) {
     rating,
     incrementRating,
     decrementRating,
+    removeVoteFromRating
   };
 
   return (

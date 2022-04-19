@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-import { useContext } from 'react';
+import { useContext, useEffect, useRef } from 'react';
 import { GlobalContext } from '../../context/GlobalState';
 
 import { Link } from 'react-router-dom';
@@ -26,18 +26,19 @@ import './buttons.css';
  *
  * @returns {Reactnode}   jsx in DOM
  */
-export default function Icons({
-  movieId,
-  selectedMovie,
-  voteCount,
-}) {
+export default function Icons({ movieId, selectedMovie, voteCount }) {
   const { addMovieToWatchList, watchList, removeMovieFromWatchList } =
     useContext(GlobalContext);
 
   let storedMovie = watchList?.find((item) => item.id === movieId);
   const addDisabled = storedMovie ? true : false;
 
-  const { incrementRating, decrementRating } = useContext(GlobalContext);
+  const { incrementRating, decrementRating, rating, removeVoteFromRating } =
+    useContext(GlobalContext);
+  let storedVote = rating?.find((item) => item.id === movieId);
+  const voteDisabled = storedVote ? true : false;
+
+  if (rating.length > 0) console.log(rating[0].vote_count);
 
   return (
     <section className="group_icons">
@@ -62,20 +63,31 @@ export default function Icons({
         </button>
       )}
       <div className="group_icons--vote">
-        <button
-          className="icon icon_thumb icon_yes"
-          onClick={() => incrementRating(selectedMovie)}
-        >
-          <p className="vote_count">{voteCount}</p>
-          <ThumbUpOffAlt />
-        </button>
-        <button
+        {voteDisabled ? (
+          <button
+            className="icon icon_thumb icon_yes--active"
+            onClick={() => removeVoteFromRating(movieId)}
+          >
+            <p className="vote_count">{rating[0].vote_count}</p>
+            {/* <p className="vote_count">{voteCount}</p> */}
+            <ThumbUpOffAlt />
+          </button>
+        ) : (
+          <button
+            className="icon icon_thumb icon_yes"
+            onClick={() => incrementRating(selectedMovie)}
+          >
+            <p className="vote_count">{voteCount}</p>
+            <ThumbUpOffAlt />
+          </button>
+        )}
+        {/* <button
           className="icon icon_thumb icon_no"
           onClick={() => decrementRating(selectedMovie)}
         >
           <p className="vote_count">{voteCount}</p>
           <ThumbDownOffAlt />
-        </button>
+        </button> */}
       </div>
     </section>
   );
