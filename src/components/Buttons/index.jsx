@@ -22,7 +22,14 @@ import './buttons.css';
  *
  * @returns {Reactnode}   jsx in DOM
  */
-export default function Icons({ selectedMovie, movieId, count }) {
+export default function Icons({
+  selectedMovie,
+  movieId,
+  // addVote,
+  // removeVote,
+  voteCount,
+  handleVote,
+}) {
   const { addMovieToWatchList, watchList, removeMovieFromWatchList } =
     useContext(GlobalContext);
 
@@ -51,7 +58,8 @@ export default function Icons({ selectedMovie, movieId, count }) {
           <Add />
         </button>
       )}
-      <Raters key={movieId} count={count} />
+      <Raters voteCount={voteCount} handleVote={handleVote} />
+      {/* <Raters addVote={addVote} removeVote={removeVote} handleVote={handleVote} /> */}
     </section>
   );
 }
