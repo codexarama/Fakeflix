@@ -34,11 +34,11 @@ export default function GlobalProvider({ children }) {
     dispatch({ type: 'REMOVE_MOVIE_FROM_WATCHLIST', payload: id });
   }
 
-    // const [status, setStatus] = useState(null);
+  const [status, setStatus] = useState(null);
 
-  function handleClickLike(movie) {
+  function incrementRating(movie) {
     dispatch({
-      type: 'ADD_A_LIKE',
+      type: 'INCREMENT_RATING',
       payload: {
         id: movie.id,
         name: movie?.title || movie?.name || movie?.original_title,
@@ -47,9 +47,9 @@ export default function GlobalProvider({ children }) {
     });
   }
 
-  function handleClickDislike(movie) {
+  function decrementRating(movie) {
     dispatch({
-      type: 'ADD_A_LIKE',
+      type: 'DECREMENT_RATING',
       payload: {
         id: movie.id,
         name: movie?.title || movie?.name || movie?.original_title,
@@ -57,13 +57,6 @@ export default function GlobalProvider({ children }) {
       },
     });
   }
-
-  // function handleClickDislike(movie) {}
-
-
-
-
-
 
   // const [status, setStatus] = useState(null);
 
@@ -117,8 +110,8 @@ export default function GlobalProvider({ children }) {
     addMovieToWatchList,
     removeMovieFromWatchList,
     rating,
-    handleClickLike,
-    handleClickDislike,
+    incrementRating,
+    decrementRating,
   };
 
   return (

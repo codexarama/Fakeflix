@@ -13,31 +13,19 @@ export default function AppReducer(state, action) {
           (movie) => movie.id !== action.payload
         ),
       };
+      
     // rating cases
-    case 'ADD_A_LIKE':
+    case 'INCREMENT_RATING':
       return {
         ...state,
         rating: [action.payload, ...state.rating],
       };
 
-    case 'ADD_A_DISLIKE':
+    case 'DECREMENT_RATING':
       return {
         ...state,
         rating: [action.payload, ...state.rating],
       };
-
-    ////////////////////////////////////////////////////////////////////////////
-    // case 'HANDLE_LIKE':
-    //   return {
-    //     ...state,
-    //     likes: state.likes + action.payload,
-    //   };
-    // case 'HANDLE_DISLIKE':
-    //   return {
-    //     ...state,
-    //     dislikes: state.dislikes + action.payload,
-    //   };
-    ////////////////////////////////////////////////////////////////////////////
 
     default:
       return state;
