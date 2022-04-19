@@ -13,14 +13,6 @@ export default function AppReducer(state, action) {
           (movie) => movie.id !== action.payload
         ),
       };
-
-    // rating case
-    case 'GET_VOTE_COUNT':
-      return {
-        ...state,
-        rating: [action.payload, ...state.rating],
-      };
-
     default:
       return state;
   }

@@ -1,8 +1,5 @@
 import PropTypes from 'prop-types';
 
-import { useContext, useEffect } from 'react';
-import { GlobalContext } from '../../context/GlobalState';
-
 import { useState, useRef, useMemo } from 'react';
 import { useFetch } from '../../config/useFetch';
 
@@ -28,13 +25,10 @@ export default function Slider({ title, fetchUrl }) {
   // gets fetched data from external server (tmdb)
   const { status, data, error } = useFetch(fetchUrl);
 
-  // gets state & reducer from context
-  const { rating } = useContext(GlobalContext);
-
   // data to display
   function displayData(data) {
-    return data.map((movie, rating) => (
-      <Teaser key={movie.id} movie={movie} count={(movie = rating)} />
+    return data.map((movie) => (
+      <Teaser key={movie.id} movie={movie} />
     ));
   }
 
@@ -42,23 +36,6 @@ export default function Slider({ title, fetchUrl }) {
   // unnecessary re-renders of the Teaser component
   // by using memoization hook : useMemo
   const results = useMemo(() => displayData(data), [data]);
-
-  // gets state & reducer from context
-  const { getVoteCount } = useContext(GlobalContext);
-
-  // gets rating data
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  function moviesRating() {
-    data.map((movie) => getVoteCount(movie));
-  }
-
-  // stores rating data in localStorage
-  useEffect(() => {
-    setTimeout(() => {
-      // prevent from store again when reload page
-      if ([...rating].length === 0) moviesRating();
-    }, 250);
-  }, [moviesRating, rating]);
 
   // manages the forward or backward movement of the slider
   // by clicking on the direction arrows
