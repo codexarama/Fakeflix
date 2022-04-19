@@ -32,6 +32,24 @@ export default function Teaser({ movie }) {
     setIsHovered(false);
   }
 
+  // const [addVote, setAddVote] = useState(movie.vote_count);
+  // const [removeVote, setRemoveVote] = useState(movie.vote_count);
+  const [voteCount, setVoteCount] = useState(movie.vote_count);
+  const [hasVote, setHasVote] = useState(false);
+
+  function handleVote(status) {
+    if (status === 'add') {
+      setHasVote(!hasVote);
+      setVoteCount(voteCount + 1);
+      if (hasVote) setVoteCount(voteCount - 1);
+    }
+    if (status === 'remove') {
+      setHasVote(!hasVote);
+      setVoteCount(voteCount - 1);
+      if (hasVote) setVoteCount(voteCount + 1);
+    }
+  }
+
   return (
     <li
       className={isHovered ? 'slider_wrapper--teaser' : 'slider_wrapper--item'}
@@ -47,7 +65,10 @@ export default function Teaser({ movie }) {
             <Icons
               selectedMovie={movie}
               movieId={movie?.id}
-              count={movie.vote_count}
+              // addVote={addVote}
+              // removeVote={removeVote}
+              voteCount={voteCount}
+              handleVote={handleVote}
             />
             <Content
               genre={displayGenres(movie)}
