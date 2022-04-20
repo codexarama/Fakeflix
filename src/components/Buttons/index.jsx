@@ -5,9 +5,13 @@ import { GlobalContext } from '../../context/GlobalState';
 
 import { Link } from 'react-router-dom';
 
-import { Check, Add, PlayCircleFilled } from '@mui/icons-material';
-
-import Raters from './Raters';
+import {
+  Check,
+  Add,
+  PlayCircleFilled,
+  ThumbUpOffAlt,
+  ThumbDownOffAlt,
+} from '@mui/icons-material';
 
 import './buttons.css';
 
@@ -22,20 +26,12 @@ import './buttons.css';
  *
  * @returns {Reactnode}   jsx in DOM
  */
-export default function Icons({
-  selectedMovie,
-  movieId,
-  rating,
-  // handleClickLike,
-  // handleClickDislike,
-}) {
+export default function Icons({ selectedMovie, movieId }) {
   const { addMovieToWatchList, watchList, removeMovieFromWatchList } =
     useContext(GlobalContext);
 
   let storedMovie = watchList?.find((item) => item.id === movieId);
   const addDisabled = storedMovie ? true : false;
-
-  // const { handleClickLike, handleClickDislike } = useContext(GlobalContext);
 
   return (
     <section className="group_icons">
@@ -59,7 +55,18 @@ export default function Icons({
           <Add />
         </button>
       )}
-      <Raters rating={rating} />
+
+      <div className="group_icons--vote">
+        <button className="icon icon_thumb icon_yes active">
+          <p className="vote_count"></p>
+          <ThumbUpOffAlt />
+        </button>
+
+        <button className="icon icon_thumb icon_no active">
+          {/* <p className="vote_count"></p> */}
+          <ThumbDownOffAlt />
+        </button>
+      </div>
     </section>
   );
 }
