@@ -29,21 +29,7 @@ export default function Slider({ title, fetchUrl }) {
   const { status, data, error } = useFetch(fetchUrl);
 
   // gets state & reducer from context
-  const { rating, handleClickLike } = useContext(GlobalContext);
-
-  function displayData(data, rating) {
-    return data.map((movie) => (
-      <Teaser key={movie.id} movie={movie} rating={(movie = rating)} />
-    ));
-  }
-
-  // caches data after the request to prevent
-  // unnecessary re-renders of the Teaser component
-  // by using memoization hook : useMemo
-  const results = useMemo(() => displayData(data, rating), [data, rating]);
-
-  // gets state & reducer from context
-  const { getVoteCount } = useContext(GlobalContext);
+  const { rating, getVoteCount } = useContext(GlobalContext);
 
   // gets rating data
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -59,28 +45,28 @@ export default function Slider({ title, fetchUrl }) {
     }, 250);
   }, [moviesRating, rating]);
 
-  /////////////////////////////////////////////////////////////////////////////////
-  // function displayRatings(rating) {
-  //   return rating.map((count) => <Raters key={count.id} rating={count} />);
-  // }
+  // get Teaser data to display
+  function displayData(data) {
+    return data.map((movie) => <Teaser key={movie.id} movie={movie} />);
+  }
 
-  // // caches data after the request to prevent
-  // // unnecessary re-renders of the Teaser component
-  // // by using memoization hook : useMemo
-  // const ratings = useMemo(() => displayRatings(rating), [rating]);
-  // console.log(ratings); // OK
+  // caches data after the request to prevent
+  // unnecessary re-renders of the Teaser component
+  // by using memoization hook : useMemo
+  const results = useMemo(() => displayData(data), [data]);
+  // console.log(results);
 
-  // useEffect(() => {
-  // }, []);
-
-  // const buttonsSection = [...document.getElementsByClassName('group_icons')];
-  // console.log(buttonsSection); // OK
-
-  // // const raters = [...document.getElementsByClassName('group_icons--vote')];
-  // // console.log(raters);
-
-  // // buttonsSection.forEach((section, index) => section.append(ratings[index]))
-  /////////////////////////////////////////////////////////////////////////////////
+  // display rating data
+  let voteCount;
+  voteCount = [...document.getElementsByClassName('vote_count')];
+  useEffect(() => {
+    setTimeout(() => {
+        voteCount.map(
+          (count, index) =>
+            (count.textContent = rating.reverse()[index].vote_count)
+        )
+    }, 250);
+  }, [rating, voteCount]);
 
   // manages the forward or backward movement of the slider
   // by clicking on the direction arrows
