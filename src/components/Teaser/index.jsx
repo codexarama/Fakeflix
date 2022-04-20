@@ -21,7 +21,7 @@ import './teaser.css';
 
  * @returns {Reactnode}   jsx in DOM
  */
-export default function Teaser({ movie, rating }) {
+export default function Teaser({ movie }) {
   const [isHovered, setIsHovered] = useState(false);
 
   function onMouseEnter() {
@@ -39,32 +39,29 @@ export default function Teaser({ movie, rating }) {
       onMouseLeave={onMouseLeave}
     >
       {/* {isHovered ? ( */}
-        <>
-          <header>
-            <Header className="teaser_header" movie={movie} />
-          </header>
-          <main className="teaser_infos">
-            <Icons
-              selectedMovie={movie}
-              movieId={movie?.id}
-              // rating={rating}
-              // rating={rating?.vote_count}
-              rating={movie?.vote_count}
-            />
-            <Content
-              genre={displayGenres(movie)}
-              className="specific_style"
-              vote={movie?.vote_average * 10}
-              // get only yyyy from format date yyyy-mm-dd
-              // THE SECRET : add "?" after key "realease_date" || "first_air_date"
-              date={
-                movie.release_date?.slice(0, -6) ||
-                movie.first_air_date?.slice(0, -6)
-              }
-              synopsis={movie?.overview || 'No description available'}
-            />
-          </main>
-        </>
+      <>
+        <header>
+          <Header className="teaser_header" movie={movie} />
+        </header>
+        <main className="teaser_infos">
+          <Icons
+            selectedMovie={movie}
+            movieId={movie?.id}
+          />
+          <Content
+            genre={displayGenres(movie)}
+            className="specific_style"
+            vote={movie?.vote_average * 10}
+            // get only yyyy from format date yyyy-mm-dd
+            // THE SECRET : add "?" after key "realease_date" || "first_air_date"
+            date={
+              movie.release_date?.slice(0, -6) ||
+              movie.first_air_date?.slice(0, -6)
+            }
+            synopsis={movie?.overview || 'No description available'}
+          />
+        </main>
+      </>
       {/* ) : (
         <Link to={`/video/${movie?.id}`} key={`poster ${movie?.id}`}>
           <img
