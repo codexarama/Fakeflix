@@ -60,7 +60,7 @@ export default function SearchMovie() {
         />
         <Search className="icon search_submit" />
       </form>
-      {value ? (
+      {value && (
         <>
           <h2 className="search_msg">{`${results.length} résultats`}</h2>
           <ul className="main_content--results">
@@ -68,7 +68,7 @@ export default function SearchMovie() {
               results.map((movie) => <Teaser key={movie.id} movie={movie} />)}
           </ul>
         </>
-      ) : null}
+      )}
     </>
   );
 }
