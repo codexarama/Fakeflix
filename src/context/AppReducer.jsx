@@ -24,14 +24,14 @@ export default function AppReducer(state, action) {
     case 'HANDLE_LIKE':
       return {
         ...state,
-        rating: state.rating.find(
-          (movie) => (movie.vote_count = movie.vote_count + action.payload)
-        ),
+        rating: [action.payload, ...state.rating],
 
-        // // RETURNS EVERY COUNT + 1
-        // rating: [
-        //   ...state.rating.map((movie) => movie.vote_count + action.payload),
-        // ],
+        // rating: [state.rating.vote_count + action.payload, ...state.rating]
+
+      //   // RETURNS EVERY COUNT + 1
+      //   rating: state.rating.map(
+      //     (movie) => (movie.vote_count + action.payload)
+      //   ),
       };
     case 'HANDLE_DISLIKE':
       return {

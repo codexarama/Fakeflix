@@ -65,7 +65,7 @@ export default function Slider({ title, fetchUrl }) {
           (count, index) =>
             (count.textContent = rating.reverse()[index].vote_count)
         )
-    }, 250);
+    }, 1000);
   }, [rating, voteCount]);
 
   // manages the forward or backward movement of the slider

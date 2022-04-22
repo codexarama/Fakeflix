@@ -27,7 +27,7 @@ import './buttons.css';
  * @returns {Reactnode}   jsx in DOM
  */
 export default function Icons({ selectedMovie, movieId }) {
-  const { addMovieToWatchList, watchList, removeMovieFromWatchList } =
+  const { addMovieToWatchList, watchList, removeMovieFromWatchList, handleClickLike } =
     useContext(GlobalContext);
 
   let storedMovie = watchList?.find((item) => item.id === movieId);
@@ -57,7 +57,7 @@ export default function Icons({ selectedMovie, movieId }) {
       )}
 
       <div className="group_icons--vote">
-        <button className="icon icon_thumb icon_yes active">
+        <button className="icon icon_thumb icon_yes active" onClick={() => handleClickLike(selectedMovie)}>
           <p className="vote_count"></p>
           <ThumbUpOffAlt />
         </button>

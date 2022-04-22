@@ -48,24 +48,24 @@ export default function GlobalProvider({ children }) {
 
   const [status, setStatus] = useState(null);
 
-  const handleClickLike = () => {
+  const handleClickLike = (movie) => {
     if (status==='like') {
       setStatus(null)
       dispatch({
         type: 'HANDLE_LIKE',
-        payload: -1,
+        payload: movie.vote_count -1,
       })
     } else {
       setStatus('like')
       if (status==='dislike') {
         dispatch({
           type: 'HANDLE_DISLIKE',
-          payload: -1,
+          payload: movie.vote_count -1,
         })
       }
       dispatch({
         type: 'HANDLE_LIKE',
-        payload: 1,
+        payload: movie.vote_count + 1,
       })
     }
   }
@@ -91,6 +91,52 @@ export default function GlobalProvider({ children }) {
       });
     }
   };
+
+  // const [status, setStatus] = useState(null);
+
+  // const handleClickLike = () => {
+  //   if (status==='like') {
+  //     setStatus(null)
+  //     dispatch({
+  //       type: 'HANDLE_LIKE',
+  //       payload: -1,
+  //     })
+  //   } else {
+  //     setStatus('like')
+  //     if (status==='dislike') {
+  //       dispatch({
+  //         type: 'HANDLE_DISLIKE',
+  //         payload: -1,
+  //       })
+  //     }
+  //     dispatch({
+  //       type: 'HANDLE_LIKE',
+  //       payload: 1,
+  //     })
+  //   }
+  // }
+
+  // const handleClickDislike = () => {
+  //   if (status === 'dislike') {
+  //     setStatus(null);
+  //     dispatch({
+  //       type: 'HANDLE_DISLIKE',
+  //       payload: -1,
+  //     });
+  //   } else {
+  //     setStatus('dislike');
+  //     if (status === 'like') {
+  //       dispatch({
+  //         type: 'HANDLE_LIKE',
+  //         payload: -1,
+  //       });
+  //     }
+  //     dispatch({
+  //       type: 'HANDLE_DISLIKE',
+  //       payload: -1,
+  //     });
+  //   }
+  // };
 
   // VALUES
   const value = {
