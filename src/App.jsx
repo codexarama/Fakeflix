@@ -7,6 +7,7 @@ import Footer from './components/Footer';
 import Error from './pages/Error';
 
 import appRoutes from './appRoutes';
+import ScrollToTop from './utils/ScrollToTop';
 
 /**
  * App
@@ -16,8 +17,9 @@ import appRoutes from './appRoutes';
 export default function App() {
   return (
     <GlobalProvider>
-
       <BrowserRouter>
+        <ScrollToTop />
+        
         <Navbar />
 
         <Suspense fallback={<h1>Loading...</h1>}>
@@ -41,7 +43,6 @@ export default function App() {
 
         <Footer />
       </BrowserRouter>
-      
     </GlobalProvider>
   );
 }
