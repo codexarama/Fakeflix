@@ -19,7 +19,7 @@ export default function App() {
     <GlobalProvider>
       <BrowserRouter>
         <ScrollToTop />
-        
+
         <Navbar />
 
         <Suspense fallback={<h1>Loading...</h1>}>
