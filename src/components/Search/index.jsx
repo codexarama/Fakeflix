@@ -21,7 +21,7 @@ export default function SearchMovie() {
 
   useEffect(() => {
     refValue.current = value;
-  });
+  }, []);
 
   const [results, setResults] = useState([]);
 
