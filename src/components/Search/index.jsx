@@ -21,6 +21,7 @@ export default function SearchMovie() {
 
   useEffect(() => {
     refValue.current = value;
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const [results, setResults] = useState([]);
