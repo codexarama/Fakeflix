@@ -2,7 +2,7 @@ import { Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import GlobalProvider from './context/GlobalState';
-import Navbar from './components/Navbar';
+import Navbar from './components/Nav';
 import Footer from './components/Footer';
 import Error from './pages/Error';
 
