@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 
 import { Link } from 'react-router-dom';
 import { IMG_URL } from '../../config/requests';
@@ -32,23 +32,56 @@ export default function Teaser({ movie }) {
     setIsHovered(false);
   }
 
-  // const [addVote, setAddVote] = useState(movie.vote_count);
-  // const [removeVote, setRemoveVote] = useState(movie.vote_count);
-  const [voteCount, setVoteCount] = useState(movie.vote_count);
+  const [status, setStatus] = useState('');
   const [hasVote, setHasVote] = useState(false);
+  const [voteCount, setVoteCount] = useState(movie.vote_count);
 
-  function handleVote(status) {
-    if (status === 'add') {
-      setHasVote(!hasVote);
-      setVoteCount(voteCount + 1);
-      if (hasVote) setVoteCount(voteCount - 1);
-    }
-    if (status === 'remove') {
-      setHasVote(!hasVote);
-      setVoteCount(voteCount - 1);
-      if (hasVote) setVoteCount(voteCount + 1);
-    }
-  }
+  const handleVote = useCallback(
+    (status) => {
+      if (status === 'like') {
+        setStatus('add');
+        setHasVote(!hasVote);
+        setVoteCount(voteCount + 1);
+        if (hasVote) {
+          setStatus(null);
+          setVoteCount(voteCount - 1);
+        }
+      }
+
+      if (status === 'dislike') {
+        setStatus('remove');
+        setHasVote(!hasVote);
+        setVoteCount(voteCount - 1);
+        if (hasVote) {
+          setStatus(null);
+          setVoteCount(voteCount + 1);
+        }
+      }
+    },
+    [hasVote, voteCount]
+  );
+
+  // function handleVote(status) {
+  //   if (status === 'like') {
+  //     setStatus('add');
+  //     setHasVote(!hasVote);
+  //     setVoteCount(voteCount + 1);
+  //     if (hasVote) {
+  //       setStatus(null);
+  //       setVoteCount(voteCount - 1);
+  //     }
+  //   }
+
+  //   if (status === 'dislike') {
+  //     setStatus('remove');
+  //     setHasVote(!hasVote);
+  //     setVoteCount(voteCount - 1);
+  //     if (hasVote) {
+  //       setStatus(null);
+  //       setVoteCount(voteCount + 1);
+  //     }
+  //   }
+  // }
 
   return (
     <li
@@ -57,33 +90,32 @@ export default function Teaser({ movie }) {
       onMouseLeave={onMouseLeave}
     >
       {isHovered ? (
-        <>
-          <header>
-            <Header className="teaser_header" movie={movie} />
-          </header>
-          <main className="teaser_infos">
-            <Icons
-              selectedMovie={movie}
-              movieId={movie?.id}
-              // addVote={addVote}
-              // removeVote={removeVote}
-              voteCount={voteCount}
-              handleVote={handleVote}
-            />
-            <Content
-              genre={displayGenres(movie)}
-              className="specific_style"
-              vote={movie?.vote_average * 10}
-              // get only yyyy from format date yyyy-mm-dd
-              // THE SECRET : add "?" after key "realease_date" || "first_air_date"
-              date={
-                movie.release_date?.slice(0, -6) ||
-                movie.first_air_date?.slice(0, -6)
-              }
-              synopsis={movie?.overview || 'No description available'}
-            />
-          </main>
-        </>
+      <>
+        <header>
+          <Header className="teaser_header" movie={movie} />
+        </header>
+        <main className="teaser_infos">
+          <Icons
+            selectedMovie={movie}
+            movieId={movie?.id}
+            handleVote={handleVote}
+            status={status}
+            voteCount={voteCount}
+          />
+          <Content
+            genre={displayGenres(movie)}
+            className="specific_style"
+            vote={movie?.vote_average * 10}
+            // get only yyyy from format date yyyy-mm-dd
+            // THE SECRET : add "?" after key "realease_date" || "first_air_date"
+            date={
+              movie.release_date?.slice(0, -6) ||
+              movie.first_air_date?.slice(0, -6)
+            }
+            synopsis={movie?.overview || 'No description available'}
+          />
+        </main>
+      </>
       ) : (
         <Link to={`/video/${movie?.id}`} key={`poster ${movie?.id}`}>
           <img
