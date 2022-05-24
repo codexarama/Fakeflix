@@ -1,5 +1,5 @@
-import Banner from '../../components/Banner';
-import Slider from '../../components/Slider';
+import Banner from '../../components/Ban';
+import Slider from '../../components/Slid';
 import dataInfos from '../../config/dataInfos.js';
 
 import './home.css';
