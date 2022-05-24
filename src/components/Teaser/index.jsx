@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 
-import { useCallback, useState } from 'react';
+import { useState } from 'react';
+// import { useCallback, useState } from 'react';
 
 import { Link } from 'react-router-dom';
 import { IMG_URL } from '../../config/requests';
