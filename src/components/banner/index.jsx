@@ -42,7 +42,6 @@ export default function Banner() {
 
   // handle Popup || Modal element actions
   const { isOpen, toggle, keyboardEscape } = usePopup();
-  const homePage = '';
 
   // press escape to close Popup || Modal element
   useEffect(() => {
@@ -71,7 +70,7 @@ export default function Banner() {
               </Link>
               <button
                 className="banner_options--info"
-                onClick={() => toggle(homePage)}
+                onClick={toggle}
               >
                 <InfoRounded />
                 Info
@@ -80,7 +79,7 @@ export default function Banner() {
           )}
         </article>
       </header>
-      <Popup popup={isOpen} close={() => toggle(homePage)} movie={movie} />
+      <Popup popup={isOpen} close={toggle} movie={movie} />
     </>
   );
 }

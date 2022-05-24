@@ -39,7 +39,7 @@
 }
 
 .icon_yes svg:hover,
-.icon_yes-selected svg {
+.icon_yes--active svg {
   /* .icon_yes:focus svg { */
   border-radius: 1rem;
   border: 2px solid lightgreen;
@@ -47,7 +47,7 @@
 }
 
 .icon_no svg:hover,
-.icon_no-selected svg {
+.icon_no--active svg {
   /* .icon_no:focus svg { */
   border-radius: 1rem;
   border: 2px solid coral;

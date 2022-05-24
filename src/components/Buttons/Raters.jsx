@@ -1,19 +1,26 @@
 import { ThumbUpOffAlt, ThumbDownOffAlt } from '@mui/icons-material';
 
-export default function Raters({ voteCount, handleVote }) {
-// export default function Raters({ addVote, removeVote, handleVote }) {
+export default function Raters({ status, handleVote, voteCount }) {
   return (
     <div className="group_icons--vote">
       <button
-        className="icon icon_thumb icon_yes"
-        onClick={() => handleVote('add')}
+        className={
+          status === 'add'
+            ? 'icon icon_thumb icon_yes icon_yes--active'
+            : 'icon icon_thumb icon_yes'
+        }
+        onClick={() => handleVote('like')}
       >
         <p className="vote_count">{voteCount}</p>
         <ThumbUpOffAlt />
       </button>
       <button
-        className="icon icon_thumb icon_no"
-        onClick={() => handleVote('remove')}
+        className={
+          status === 'remove'
+            ? 'icon icon_thumb icon_no icon_no--active'
+            : 'icon icon_thumb icon_no'
+        }
+        onClick={() => handleVote('dislike')}
       >
         <p className="vote_count">{voteCount}</p>
         <ThumbDownOffAlt />

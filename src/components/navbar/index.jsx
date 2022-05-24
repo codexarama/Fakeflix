@@ -42,7 +42,7 @@ export default function Navbar() {
 
   // handle Popup || Modal component actions
   const { isOpen, toggle, keyboardEscape } = usePopup();
-  const homePage = ""
+
   // press escape to close Popup || Modal component
   useEffect(() => {
     keyboardEscape();
@@ -83,7 +83,7 @@ export default function Navbar() {
               />
               {isOpen ? (
                 <>
-                  <ArrowDropUp onClick={() => toggle(homePage)} />
+                  <ArrowDropUp onClick={toggle} />
                   <div className="navbar_right--options">
                     <button>
                       <PowerSettingsNew />
@@ -94,7 +94,7 @@ export default function Navbar() {
                   </div>
                 </>
               ) : (
-                <ArrowDropDown onClick={() => toggle(homePage)} />
+                <ArrowDropDown onClick={toggle} />
               )}
             </div>
           </div>
