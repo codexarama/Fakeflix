@@ -59,7 +59,8 @@ export default function Icons({
           <Add />
         </button>
       )}
-      <Raters handleVote={handleVote} status={status} voteCount={voteCount} />
+      <Raters />
+      {/* <Raters handleVote={handleVote} status={status} voteCount={voteCount} /> */}
     </section>
   );
 }
