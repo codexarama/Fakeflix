@@ -32,34 +32,34 @@ export default function Teaser({ movie }) {
     setIsHovered(false);
   }
 
-  const [status, setStatus] = useState('');
-  const [hasVote, setHasVote] = useState(false);
-  const [voteCount, setVoteCount] = useState(movie.vote_count);
+  // const [status, setStatus] = useState('');
+  // const [hasVote, setHasVote] = useState(false);
+  // const [voteCount, setVoteCount] = useState(movie.vote_count);
 
-  const handleVote = useCallback(
-    (status) => {
-      if (status === 'like') {
-        setStatus('add');
-        setHasVote(!hasVote);
-        setVoteCount(voteCount + 1);
-        if (hasVote) {
-          setStatus(null);
-          setVoteCount(voteCount - 1);
-        }
-      }
+  // const handleVote = useCallback(
+  //   (status) => {
+  //     if (status === 'like') {
+  //       setStatus('add');
+  //       setHasVote(!hasVote);
+  //       setVoteCount(voteCount + 1);
+  //       if (hasVote) {
+  //         setStatus(null);
+  //         setVoteCount(voteCount - 1);
+  //       }
+  //     }
 
-      if (status === 'dislike') {
-        setStatus('remove');
-        setHasVote(!hasVote);
-        setVoteCount(voteCount - 1);
-        if (hasVote) {
-          setStatus(null);
-          setVoteCount(voteCount + 1);
-        }
-      }
-    },
-    [hasVote, voteCount]
-  );
+  //     if (status === 'dislike') {
+  //       setStatus('remove');
+  //       setHasVote(!hasVote);
+  //       setVoteCount(voteCount - 1);
+  //       if (hasVote) {
+  //         setStatus(null);
+  //         setVoteCount(voteCount + 1);
+  //       }
+  //     }
+  //   },
+  //   [hasVote, voteCount]
+  // );
 
   // function handleVote(status) {
   //   if (status === 'like') {
@@ -98,9 +98,9 @@ export default function Teaser({ movie }) {
           <Icons
             selectedMovie={movie}
             movieId={movie?.id}
-            handleVote={handleVote}
-            status={status}
-            voteCount={voteCount}
+            // handleVote={handleVote}
+            // status={status}
+            // voteCount={voteCount}
           />
           <Content
             genre={displayGenres(movie)}
