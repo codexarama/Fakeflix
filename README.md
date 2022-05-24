@@ -69,6 +69,9 @@ Reproduction de l'interface et de ses fonctionnalités
 
 🔘 Hooks personnalisés
 
+    ✔ usePopup
+    ✔ useFetch
+
 🔘 Optimisation des performances
 
     ✔ Axios
