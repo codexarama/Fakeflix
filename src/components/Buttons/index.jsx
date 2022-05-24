@@ -25,13 +25,14 @@ import './buttons.css';
 export default function Icons({
   selectedMovie,
   movieId,
-  // addVote,
-  // removeVote,
-  voteCount,
+  status,
   handleVote,
+  voteCount,
 }) {
   const { addMovieToWatchList, watchList, removeMovieFromWatchList } =
     useContext(GlobalContext);
+
+    console.log(watchList);
 
   let storedMovie = watchList?.find((item) => item.id === movieId);
   const addDisabled = storedMovie ? true : false;
@@ -58,8 +59,7 @@ export default function Icons({
           <Add />
         </button>
       )}
-      <Raters voteCount={voteCount} handleVote={handleVote} />
-      {/* <Raters addVote={addVote} removeVote={removeVote} handleVote={handleVote} /> */}
+      <Raters handleVote={handleVote} status={status} voteCount={voteCount} />
     </section>
   );
 }
