@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-import axios from 'axios';
+import { useFetch } from '../../config/useFetch';
 import requests from '../../config/requests';
 
 import SelectMedia from '../Select';
@@ -16,22 +16,16 @@ export default function Banner() {
   // get movie data
   const [movie, setMovie] = useState([]);
 
+  const { status, data } = useFetch(requests.fetchTrending);
+
+  // render a random movie
   // re-rendered only if updated data
   useEffect(() => {
-    async function fetchData() {
-      const request = await axios.get(requests.fetchTrending);
+    status === 'fetched' &&
+      setMovie(data[Math.floor(Math.random() * data.length - 1)]);
+  }, [data, status]);
 
-      setMovie(
-        request.data.results[
-          Math.floor(Math.random() * request.data.results.length - 1)
-        ]
-      );
-    }
-
-    fetchData();
-  }, []);
-
-  // console.log(movie);
+  console.log(movie);
 
   // handle description length
   function truncateText(string, n) {
@@ -68,10 +62,7 @@ export default function Banner() {
                   Play
                 </button>
               </Link>
-              <button
-                className="banner_options--info"
-                onClick={toggle}
-              >
+              <button className="banner_options--info" onClick={toggle}>
                 <InfoRounded />
                 Info
               </button>
