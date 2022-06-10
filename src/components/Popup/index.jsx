@@ -4,10 +4,7 @@ import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 
 import axios from 'axios';
-import requests, {
-  MOVIE_ID,
-  REACT_APP_API_KEY,
-} from '../../config/requests';
+import requests, { MOVIE_ID, REACT_APP_API_KEY } from '../../config/requests';
 
 import { Cancel } from '@mui/icons-material';
 
@@ -42,32 +39,13 @@ export default function Popup({ popup, close, movie }) {
     !popup && (bodyRoot.style.overflow = 'unset');
   }, [popup]);
 
-  // get & set movie Id
-  class MOVIE {
-    constructor(id) {
-      this.id = id;
-    }
-
-    get movieId() {
-      return `${this.id}`;
-    }
-
-    // define setter
-    set movieId(id) {
-      this.id = id;
-    }
-  }
-
-  MOVIE = new MOVIE(movie?.id);
-
-  // use setter
-  MOVIE.movieId = MOVIE_ID
-
   const [casting, setCasting] = useState([]);
+  const castingAPI =
+    requests.creditsStart + `${movie?.id}` + requests.creditsEnd;
 
   useEffect(() => {
     async function fetchCasting() {
-      const credits = await axios.get(requests.credits, {
+      const credits = await axios.get(castingAPI, {
         params: {
           api_key: REACT_APP_API_KEY,
         },
@@ -79,7 +57,7 @@ export default function Popup({ popup, close, movie }) {
     }
 
     fetchCasting();
-  }, []);
+  }, [castingAPI]);
 
   return createPortal(
     <>
