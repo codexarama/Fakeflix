@@ -1,6 +1,9 @@
 import { useEffect, useState, useRef } from 'react';
-import requests from '../../config/requests';
+
+import { useFetch } from '../../config/useFetch';
+import requests, { REACT_APP_API_KEY } from '../../config/requests';
 import axios from 'axios';
+
 import Teaser from '../../components/Teaser';
 
 import { Search } from '@mui/icons-material';
@@ -21,7 +24,7 @@ export default function SearchMovie() {
 
   useEffect(() => {
     refValue.current = value;
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const [results, setResults] = useState([]);
@@ -33,14 +36,18 @@ export default function SearchMovie() {
     const search_URL = `${requests.search}${event.target.value}`;
 
     async function fetchData() {
-      const request = await axios.get(search_URL);
+      const request = await axios.get(search_URL, {
+        params: {
+          api_key: REACT_APP_API_KEY,
+        },
+      });
       setResults(request.data.results);
     }
 
     fetchData();
   }
 
-  // console.log(results);
+  // console.log('results', results);
 
   return (
     <>

@@ -4,13 +4,11 @@ import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 
 import axios from 'axios';
-import {
-  // MOVIE_ID,
-  CREDIT_URL_START,
-  CREDIT_URL_END,
-} from '../../config/requests';
+import { useFetch } from '../../config/useFetch';
+import requests, { REACT_APP_API_KEY } from '../../config/requests';
 
 import { Cancel } from '@mui/icons-material';
+
 import Header from '../Header';
 import Icons from '../Buttons';
 import Content from '../Content';
@@ -31,7 +29,7 @@ export default function Popup({ popup, close, movie }) {
   // handle ARIA attributes
   // prevent body from scrolling when popup is open
   useEffect(() => {
-    const bodyRoot = document.querySelector('body')
+    const bodyRoot = document.querySelector('body');
     const popupRoot = document.getElementById('popup');
 
     popup && bodyRoot.setAttribute('arias-hidden', 'true');
@@ -42,18 +40,17 @@ export default function Popup({ popup, close, movie }) {
     !popup && (bodyRoot.style.overflow = 'unset');
   }, [popup]);
 
-  // get casting data
-  const credits_URL = CREDIT_URL_START + `${movie?.id}` + CREDIT_URL_END;
-  // console.log(MOVIE_ID);
-  // console.log(MOVIE_ID = "ola"); // Cannot set property MOVIE_ID of #<Object> which has only a getter
-  // MOVIE_ID = `${movie?.id}`
-  // const credits_URL = requests.credits;
-
   const [casting, setCasting] = useState([]);
+  const castingAPI = `${requests.creditsStart}${movie?.id}${requests.creditsEnd}`;
+  // console.log(castingAPI);
 
   useEffect(() => {
     async function fetchCasting() {
-      const credits = await axios.get(credits_URL);
+      const credits = await axios.get(castingAPI, {
+        params: {
+          api_key: REACT_APP_API_KEY,
+        },
+      });
 
       // get the 3 main actors
       if (credits.data.cast.length > 3) credits.data.cast.length = 3;
@@ -61,7 +58,7 @@ export default function Popup({ popup, close, movie }) {
     }
 
     fetchCasting();
-  }, [credits_URL]);
+  }, [castingAPI]);
 
   return createPortal(
     <>
@@ -119,7 +116,7 @@ export default function Popup({ popup, close, movie }) {
 /**
  * Popup PROPTYPES
  */
- Popup.propTypes = {
+Popup.propTypes = {
   popup: PropTypes.bool.isRequired,
   close: PropTypes.func.isRequired,
   movie: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),

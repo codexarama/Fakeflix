@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-import axios from 'axios';
+import { useFetch } from '../../config/useFetch';
 import requests from '../../config/requests';
 
+// todo : DEVELOP "SelectMedia by genre" feature
 import SelectMedia from '../Select';
+
 import Header from '../Header';
 import { InfoRounded, PlayCircleFilledRounded } from '@mui/icons-material';
 import usePopup from '../Popup/usePopup.js';
@@ -16,20 +18,14 @@ export default function Banner() {
   // get movie data
   const [movie, setMovie] = useState([]);
 
+  const { status, data } = useFetch(requests.fetchTrending);
+
+  // render a random movie
   // re-rendered only if updated data
   useEffect(() => {
-    async function fetchData() {
-      const request = await axios.get(requests.fetchTrending);
-
-      setMovie(
-        request.data.results[
-          Math.floor(Math.random() * request.data.results.length - 1)
-        ]
-      );
-    }
-
-    fetchData();
-  }, []);
+    status === 'fetched' &&
+      setMovie(data[Math.floor(Math.random() * data.length - 1)]);
+  }, [data, status]);
 
   // console.log(movie);
 
@@ -52,7 +48,7 @@ export default function Banner() {
     <>
       <header className="banner">
         <Header className="banner" movie={movie} />
-        <SelectMedia type={movie?.media_type} />
+        {/* <SelectMedia type={movie?.media_type} /> */}
         <article className="banner_content">
           <h1 className="banner_title">
             {movie?.title || movie?.name || movie?.original_title}
@@ -68,10 +64,7 @@ export default function Banner() {
                   Play
                 </button>
               </Link>
-              <button
-                className="banner_options--info"
-                onClick={toggle}
-              >
+              <button className="banner_options--info" onClick={toggle}>
                 <InfoRounded />
                 Info
               </button>

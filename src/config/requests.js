@@ -1,26 +1,45 @@
-// export const {REACT_APP_API_KEY} = process.env;
-const REACT_APP_API_KEY="7cd87a2a8f9768f5fe4154575d2b60bb"
-export const BASE_URL = 'https://api.themoviedb.org/3';
-export const IMG_URL = 'https://image.tmdb.org/t/p/original/';
-export const CREDIT_URL_START = `${BASE_URL}/movie/`
-export const CREDIT_URL_END = `/credits?api_key=${REACT_APP_API_KEY}&language=en-US`
+const BASE_URL = 'https://api.themoviedb.org/3';
 
-// export let {MOVIE_ID} = ""
+const TRENDING = '/trending/all/week?';
+
+const DISCOVER_MOVIE = '/discover/movie?';
+const TOP_MOVIE = '/movie/top_rated?';
+const SEARCH_MOVIE = '/search/movie?';
+
+const DISCOVER_TV = '/discover/tv?';
+const TOP_TV = '/tv/top_rated?';
+
+const LANGUAGE_US = '&language=en-US';
+const NETWORK = '&with_network=';
+const GENRE = '&with_genres=';
+
+const CREDITS_start = `${BASE_URL}/movie/`;
+const CREDITS_end = `/credits?${LANGUAGE_US}`;
+
+const QUERY = '&query=';
+
+export const IMG_URL = 'https://image.tmdb.org/t/p/original/';
+
+// * use this way in real context
+// export const {REACT_APP_API_KEY} = process.env;
+// ! needs to be visible to get data via Netlify web editor
+export const REACT_APP_API_KEY = '7cd87a2a8f9768f5fe4154575d2b60bb';
 
 const requests = {
-  // fetchBest: `${BASE_URL}/discover/movie?api_key=${REACT_APP_API_KEY}&primary_release_year=2021&sort_by=vote_average.desc`,
-  // fetchPopular: `${BASE_URL}/discover/movie?api_key=${REACT_APP_API_KEY}&sort_by=popularity.desc`,
-  fetchTrending: `${BASE_URL}/trending/all/week?api_key=${REACT_APP_API_KEY}&language=en-US`,
-  fetchNetflixOriginals: `${BASE_URL}/discover/tv?api_key=${REACT_APP_API_KEY}&language=en-US&with_network=213`,
-  fetchTopRatedMovie: `${BASE_URL}/movie/top_rated?api_key=${REACT_APP_API_KEY}&language=en-US`,
-  fetchTopRatedTvShow: `${BASE_URL}/tv/top_rated?api_key=${REACT_APP_API_KEY}&language=en-US`,
-  fetchSciFiMovies: `${BASE_URL}/discover/movie?api_key=${REACT_APP_API_KEY}&language=en-US&with_genres=878`,
-  fetchAnimationMovies: `${BASE_URL}/discover/movie?api_key=${REACT_APP_API_KEY}&language=en-US&with_genres=16`,
-  fetchMysteryMovies: `${BASE_URL}/discover/movie?api_key=${REACT_APP_API_KEY}&language=en-US&with_genres=9648`,
-  fetchDramaMovies: `${BASE_URL}/discover/movie?api_key=${REACT_APP_API_KEY}&language=en-US&with_genres=18`,
-  fetchDocumentaries: `${BASE_URL}/discover/movie?api_key=${REACT_APP_API_KEY}&language=en-US&with_genres=99`,
-  // credits : `${BASE_URL}/movie/${MOVIE_ID}/credits?api_key=${REACT_APP_API_KEY}&language=en-US`,
-  search : `${BASE_URL}/search/movie?api_key=${REACT_APP_API_KEY}&language=en-US&query=`
+  // fetchBest: `${BASE_URL}${DISCOVER_MOVIE}&primary_release_year=2021&sort_by=vote_average.desc`,
+  // fetchPopular: `${BASE_URL}${DISCOVER_MOVIE}&sort_by=popularity.desc`,
+  fetchTrending: `${BASE_URL}${TRENDING}${LANGUAGE_US}`,
+  fetchNetflixOriginals: `${BASE_URL}${DISCOVER_TV}${LANGUAGE_US}${NETWORK}213`,
+  fetchTopRatedMovie: `${BASE_URL}${TOP_MOVIE}${LANGUAGE_US}`,
+  fetchTopRatedTvShow: `${BASE_URL}${TOP_TV}${LANGUAGE_US}`,
+  fetchSciFiMovies: `${BASE_URL}${DISCOVER_MOVIE}${LANGUAGE_US}${GENRE}878`,
+  fetchAnimationMovies: `${BASE_URL}${DISCOVER_MOVIE}${LANGUAGE_US}${GENRE}16`,
+  fetchMysteryMovies: `${BASE_URL}${DISCOVER_MOVIE}${LANGUAGE_US}${GENRE}9648`,
+  fetchDramaMovies: `${BASE_URL}${DISCOVER_MOVIE}${LANGUAGE_US}${GENRE}18`,
+  fetchDocumentaries: `${BASE_URL}${DISCOVER_MOVIE}${LANGUAGE_US}${GENRE}99`,
+  creditsStart: `${CREDITS_start}`,
+  creditsEnd: `${CREDITS_end}`,
+  search: `${BASE_URL}${SEARCH_MOVIE}${LANGUAGE_US}${QUERY}`,
 };
 
 export default requests;
