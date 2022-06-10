@@ -32,7 +32,7 @@ export default function Icons({
   const { addMovieToWatchList, watchList, removeMovieFromWatchList } =
     useContext(GlobalContext);
 
-    console.log(watchList);
+    // console.log(watchList);
 
   let storedMovie = watchList?.find((item) => item.id === movieId);
   const addDisabled = storedMovie ? true : false;
