@@ -5,6 +5,7 @@ import { createPortal } from 'react-dom';
 
 import axios from 'axios';
 import requests, {
+  ID,
   MOVIE_ID,
   REACT_APP_API_KEY,
 } from '../../config/requests';
@@ -42,36 +43,23 @@ export default function Popup({ popup, close, movie }) {
     !popup && (bodyRoot.style.overflow = 'unset');
   }, [popup]);
 
-  // get & set movie Id
-  class MOVIE {
-    constructor(id) {
-      this.id = id;
-    }
+  // MOVIE_ID = MOVIE_ID.id = movie?.id
+  // console.log('MOVIE_ID', MOVIE_ID = MOVIE_ID.id);
+  // console.log('MOVIE_ID.id', MOVIE_ID.id);
+  // console.log('MOVIE_ID.id :', MOVIE_ID.id = movie?.id ); // OK !
+  // console.log('MOVIE_ID.id :', MOVIE_ID.id = movie?.id ); // OK !
+  // console.log('MOVIE_ID.id = movie id from DATABASE :', MOVIE_ID.id = movie?.id); // OK !
+  // console.log('movie id from DATABASE :', movie?.id);
 
-    get movieId() {
-      return `${this.id}`;
-    }
+  const movieId = movie?.id;
 
-    // define setter
-    set movieId(id) {
-      this.id = id;
-    }
-  }
-
-  MOVIE = new MOVIE(movie?.id);
-
-  // use setter
-  MOVIE.movieId = MOVIE_ID
-
+  // const casting_url = `https://api.themoviedb.org/3/movie/${movie?.id} /credits?&api_key=7cd87a2a8f9768f5fe4154575d2b60bb&language=en-US`
+  const casting_url = requests.credits;
   const [casting, setCasting] = useState([]);
 
   useEffect(() => {
     async function fetchCasting() {
-      const credits = await axios.get(requests.credits, {
-        params: {
-          api_key: REACT_APP_API_KEY,
-        },
-      });
+      const credits = await axios.get(casting_url);
 
       // get the 3 main actors
       if (credits.data.cast.length > 3) credits.data.cast.length = 3;
@@ -79,7 +67,22 @@ export default function Popup({ popup, close, movie }) {
     }
 
     fetchCasting();
-  }, []);
+
+    // MOVIE_ID = MOVIE_ID.id = movieId // ERREUR
+    console.log('MOVIE_ID', MOVIE_ID);
+    console.log('ID', ID);
+    console.log('ID.id = movie id from DATABASE :', ID.id = movieId); // OK !
+        console.log('MOVIE_ID', MOVIE_ID = ID.id);
+
+    // console.log('MOVIE_ID.id = movie id from DATABASE :', MOVIE_ID = movieId); // OK !
+    // console.log('MOVIE_ID.id = movie id from DATABASE :', MOVIE_ID.id = movieId); // OK !
+    // console.log('MOVIE_ID', MOVIE_ID = MOVIE_ID.id);
+    // console.log('movie id from DATABASE :', movieId);
+
+
+  }, [casting_url, movieId]);
+
+  console.log(casting);
 
   return createPortal(
     <>
