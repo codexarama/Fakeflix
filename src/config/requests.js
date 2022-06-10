@@ -13,8 +13,8 @@ const LANGUAGE_US = '&language=en-US';
 const NETWORK = '&with_network=';
 const GENRE = '&with_genres=';
 
-const CREDITS_start = `${BASE_URL}/movie/`
-const CREDITS_end = `/credits?${LANGUAGE_US}`
+const CREDITS_start = `${BASE_URL}/movie/`;
+const CREDITS_end = `/credits?${LANGUAGE_US}`;
 
 const QUERY = '&query=';
 
