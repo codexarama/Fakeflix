@@ -27,7 +27,7 @@ export default function Banner() {
       setMovie(data[Math.floor(Math.random() * data.length - 1)]);
   }, [data, status]);
 
-  console.log(movie);
+  // console.log(movie);
 
   // handle description length
   function truncateText(string, n) {
