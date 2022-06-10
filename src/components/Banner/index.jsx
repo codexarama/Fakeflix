@@ -4,7 +4,9 @@ import { Link } from 'react-router-dom';
 import { useFetch } from '../../config/useFetch';
 import requests from '../../config/requests';
 
+// todo : DEVELOP "SelectMedia by genre" feature
 import SelectMedia from '../Select';
+
 import Header from '../Header';
 import { InfoRounded, PlayCircleFilledRounded } from '@mui/icons-material';
 import usePopup from '../Popup/usePopup.js';
@@ -46,7 +48,7 @@ export default function Banner() {
     <>
       <header className="banner">
         <Header className="banner" movie={movie} />
-        <SelectMedia type={movie?.media_type} />
+        {/* <SelectMedia type={movie?.media_type} /> */}
         <article className="banner_content">
           <h1 className="banner_title">
             {movie?.title || movie?.name || movie?.original_title}

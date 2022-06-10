@@ -1,5 +1,6 @@
 const BASE_URL = 'https://api.themoviedb.org/3';
 export const IMG_URL = 'https://image.tmdb.org/t/p/original/';
+export const MOVIE_ID = ""
 
 // * use this way in real context
 // export const {REACT_APP_API_KEY} = process.env;
@@ -18,6 +19,7 @@ const requests = {
   fetchMysteryMovies: `${BASE_URL}/discover/movie?&language=en-US&with_genres=9648`,
   fetchDramaMovies: `${BASE_URL}/discover/movie?&language=en-US&with_genres=18`,
   fetchDocumentaries: `${BASE_URL}/discover/movie?&language=en-US&with_genres=99`,
+  credits : `${BASE_URL}/movie/${MOVIE_ID}/credits?&language=en-US`,
   search : `${BASE_URL}/search/movie?&language=en-US&query=`
 };
 
