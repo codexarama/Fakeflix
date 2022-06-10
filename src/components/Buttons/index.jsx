@@ -70,6 +70,6 @@ export default function Icons({
  */
 Icons.propTypes = {
   className: PropTypes.string,
-  selectedMovie: PropTypes.object.isRequired,
+  selectedMovie: PropTypes.object,
   movieId: PropTypes.number.isRequired,
 };
