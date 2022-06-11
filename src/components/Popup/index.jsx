@@ -79,7 +79,7 @@ export default function Popup({ popup, close, movie }) {
             <Header className="popup_header" movie={movie} />
             <Icons
               className={'popup_icons'}
-              addMovie={movie}
+              selectedMovie={movie}
               movieId={movie?.id}
             />
             <section className="popup_main">
