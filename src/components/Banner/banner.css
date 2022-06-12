@@ -60,6 +60,7 @@
 .banner_options--play {
   color: var(--color-primary);
   background-color: rgba(255, 255, 255, 0.7);
+  transition: all 1s;
 }
 
 .banner_options--play:hover {
@@ -68,6 +69,7 @@
 
 .banner_options--info {
   background-color: rgba(110, 110, 110, 0.7);
+  transition: all 1s;
 }
 
 .banner_options--info:hover {

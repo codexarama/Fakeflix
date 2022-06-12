@@ -22,6 +22,11 @@
 }
 
 .icon_add svg,
+.icon_check svg {
+  cursor: pointer;
+}
+
+.icon_add svg,
 .icon_thumb svg {
   border: 2px solid white;
   border-radius: 1rem;
