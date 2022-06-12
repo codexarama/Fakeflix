@@ -25,29 +25,36 @@
 }
 
 .banner_content {
-  width: 35%;
+  width: 65%;
+  padding: 0 8%;
   position: absolute;
-  left: 50px;
   bottom: 35vh;
+}
+
+.banner_title {
+  font-size: xxx-large;
 }
 
 .banner_description {
   margin: 1rem 0;
   font-weight: 300;
+  font-size: x-large;
 }
 
 .banner_options button {
   display: inline-flex;
   align-items: center;
-  margin-right: 1rem;
-  padding: 0.5rem 0.75rem 0.5rem 0.5rem;
+  margin-right: 1.25rem;
+  padding: 0.75rem 1.25rem 0.75rem 1rem;
   border-radius: 5rem;
   font-weight: 700;
+  font-size: larger;
   cursor: pointer;
 }
 
 .banner_options button svg {
-  margin-right: 0.25rem;
+  margin-right: 0.5rem;
+  font-size: 2rem;
 }
 
 .banner_options--play {
@@ -65,4 +72,11 @@
 
 .banner_options--info:hover {
   background-color: grey;
+}
+
+/* ADAPTATIVE */
+@media screen and (max-width: 400px) {
+  .banner_content {
+    width: 90%;
+  }
 }
