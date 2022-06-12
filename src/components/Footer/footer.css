@@ -14,8 +14,14 @@
   margin-bottom: 1rem;
 }
 
-.footer_socials-links {
-  width: 40px;
+.footer_socials li {
+  margin-left: -0.25rem;
+  margin-right: 0.5rem;
+}
+
+.footer_socials-links svg {
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 .footer_links-list {
@@ -26,7 +32,12 @@
 }
 
 .footer_links-link {
+  font-size: large;
   flex-basis: 15%;
+}
+
+.footer_links-link a {
+  font-size: medium;
 }
 
 .footer_socials-links :hover,

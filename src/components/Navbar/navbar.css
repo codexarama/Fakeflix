@@ -4,18 +4,15 @@
   position: fixed;
   top: 0;
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   color: var(--color-default);
   background: linear-gradient(to top, transparent 0%, rgb(0, 0, 0, 0.3) 50%);
 }
 
 .scrolled {
   background-color: var(--color-primary);
-}
-
-.navbar_container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 }
 
 .navbar_left {
@@ -28,6 +25,9 @@
   padding: 1.5rem 1rem;
 }
 
+.navbar_left--item {
+  font-size: large;
+}
 .navbar_left,
 .navbar_right {
   position: relative;
