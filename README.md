@@ -22,7 +22,7 @@ Reproduction de l'interface et de ses fonctionnalités
 
 :x: Supprime un-des film-s à la liste de films à voir
 
-:mag_right: search movies and get results
+:mag_right: Recherche un film et affiche les résultats correspondants
 
 **à venir**
 
