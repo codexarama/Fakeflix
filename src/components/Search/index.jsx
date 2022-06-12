@@ -14,19 +14,19 @@ import './search.css';
  * @returns {Reactnode}   jsx in DOM
  */
 export default function SearchMovie() {
-  const [value, setValue] = useState('');
+  const [query, setQuery] = useState('');
 
   // useRef Hook allows to persist values between renders
   // and stores a mutable value without causing a re-render when updated.
   // by accessing a DOM element directly.
-  const refValue = useRef(value);
+  const refValue = useRef(query);
 
   useEffect(() => {
-    refValue.current = value;
+    refValue.current = query;
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const { status, data } = useFetch(`${requests.search}${value}`);
+  const { status, data } = useFetch(`${requests.search}${query}`);
   const [results, setResults] = useState([]);
 
   useEffect(() => {
@@ -36,18 +36,18 @@ export default function SearchMovie() {
 
   function onChange(event) {
     event.preventDefault();
-    setValue(event.target.value);
+    setQuery(event.target.value);
     setResults(data);
   }
 
-  // console.log(value);
+  // console.log(query);
   // console.log('results', results);
 
   return (
     <>
       <form
         className="search_form"
-        style={value ? { margin: '5rem auto 1rem' } : { margin: '0 auto' }}
+        style={query ? { margin: '5rem auto 1rem' } : { margin: '0 auto' }}
         action="?"
         autoComplete="off"
       >
@@ -57,12 +57,12 @@ export default function SearchMovie() {
           type="text"
           placeholder="Search for a movie"
           autoFocus
-          value={value}
+          value={query}
           onChange={onChange}
         />
         <Search className="icon search_submit" />
       </form>
-      {value && (
+      {query && (
         <>
           <h2 className="search_msg">{`${results.length} résultats`}</h2>
           <ul className="main_content--results">
