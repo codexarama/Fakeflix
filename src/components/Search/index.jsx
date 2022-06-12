@@ -1,8 +1,7 @@
 import { useEffect, useState, useRef } from 'react';
 
 import { useFetch } from '../../config/useFetch';
-import requests, { REACT_APP_API_KEY } from '../../config/requests';
-import axios from 'axios';
+import requests from '../../config/requests';
 
 import Teaser from '../../components/Teaser';
 
@@ -27,26 +26,21 @@ export default function SearchMovie() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const { status, data } = useFetch(`${requests.search}${value}`);
   const [results, setResults] = useState([]);
+
+  useEffect(() => {
+    status === 'fetched' &&
+    setResults(data);
+  }, [data, status]);
 
   function onChange(event) {
     event.preventDefault();
     setValue(event.target.value);
-    // console.log(requests.search);
-    const search_URL = `${requests.search}${event.target.value}`;
-
-    async function fetchData() {
-      const request = await axios.get(search_URL, {
-        params: {
-          api_key: REACT_APP_API_KEY,
-        },
-      });
-      setResults(request.data.results);
-    }
-
-    fetchData();
+    setResults(data);
   }
 
+  // console.log(value);
   // console.log('results', results);
 
   return (
