@@ -26,9 +26,9 @@ Reproduction de l'interface et de ses fonctionnalités
 
 **à venir**
 
-- [] Personnalise le profil utlisateur
-- [] Joue la bande-annonce officielle du film sélectionné
-- [] Ajoute un vote (like / dislike) au film sélectionné _(actualisation du compteur de votes)_
+- [ ] Personnalise le profil utlisateur
+- [ ] Joue la bande-annonce officielle du film sélectionné
+- [ ] Ajoute un vote (like / dislike) au film sélectionné _(actualisation du compteur de votes)_
 
 ## Compétences développées
 
