@@ -10,17 +10,17 @@ Reproduction de l'interface et de ses fonctionnalités
 
 ## Fonctionnalités
 
-    :eye: display movies gallery by category
+:eye: display movies gallery by category
 
-    :arrows_counterclockwise: switch between movie poster and movie details
+:arrows_counterclockwise: switch between movie poster and movie details
 
-    :arrow_forward: play selected movie
+:arrow_forward: play selected movie
 
-    :heart: add movie to watch list
+:heart: add movie to watch list
 
-    :x: remove movie from watch list
+:x: remove movie from watch list
 
-    :mag_right: search movies and get results
+:mag_right: search movies and get results
 
 ## Compétences développées
 
