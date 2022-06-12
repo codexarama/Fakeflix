@@ -3,9 +3,7 @@ import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 
 import logo from '../../assets/logo_fakeflix.png';
-import avatar from '../../assets/avatar_amandine.png';
-// import logo from '../../assets/logo_netflix.svg';
-// import avatar from '../../assets/avatar_fakeflix.jpg';
+import avatar from '../../assets/avatar_fakeflix.jpg';
 
 import { menu } from './menu';
 

@@ -9,7 +9,7 @@
 }
 
 .scrolled {
-    background-color: var(--color-primary);
+  background-color: var(--color-primary);
 }
 
 .navbar_container {
@@ -46,11 +46,12 @@
 }
 
 .navbar_right--avatar {
-  width: 32px;
-  border-radius: 50%;
+  /* styles for mine : */
+  /* width: 32px;
+  border-radius: 50%; */
   /* styles for historic Netflix one : */
-  /* width: 24px; */
-  /* border-radius: 0.25rem; */
+  width: 24px;
+  border-radius: 0.25rem;
   background-color: var(--color-secondary);
   cursor: pointer;
 }

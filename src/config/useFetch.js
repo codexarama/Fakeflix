@@ -1,5 +1,6 @@
 import { useEffect, useRef, useReducer } from 'react';
-import { REACT_APP_API_KEY } from './requests';
+
+import { API_KEY } from './requests';
 import axios from 'axios';
 
 /**
@@ -42,7 +43,8 @@ export const useFetch = (url) => {
         try {
           const request = await axios.get(url, {
             params: {
-              api_key: REACT_APP_API_KEY,
+              api_key: API_KEY,
+              append_to_response: 'videos',
             },
           });
           const data = request.data.results;

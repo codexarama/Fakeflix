@@ -4,8 +4,7 @@ import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 
 import axios from 'axios';
-import { useFetch } from '../../config/useFetch';
-import requests, { REACT_APP_API_KEY } from '../../config/requests';
+import requests, { API_KEY } from '../../config/requests';
 
 import { Cancel } from '@mui/icons-material';
 
@@ -41,14 +40,14 @@ export default function Popup({ popup, close, movie }) {
   }, [popup]);
 
   const [casting, setCasting] = useState([]);
-  const castingAPI = `${requests.creditsStart}${movie?.id}${requests.creditsEnd}`;
+  const castingAPI = `${requests.apiMovie}${movie?.id}${requests.credits}`;
   // console.log(castingAPI);
 
   useEffect(() => {
     async function fetchCasting() {
       const credits = await axios.get(castingAPI, {
         params: {
-          api_key: REACT_APP_API_KEY,
+          api_key: API_KEY,
         },
       });
 
@@ -79,7 +78,7 @@ export default function Popup({ popup, close, movie }) {
             <Header className="popup_header" movie={movie} />
             <Icons
               className={'popup_icons'}
-              addMovie={movie}
+              selectedMovie={movie}
               movieId={movie?.id}
             />
             <section className="popup_main">
