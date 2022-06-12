@@ -50,8 +50,8 @@ export default function Navbar() {
     <>
       {isVideoPage ? null : (
         <nav className={isScrolled ? 'navbar scrolled' : 'navbar'}>
-          <div className="navbar_container">
-            <ul className="navbar_left">
+          <ul className="navbar_left">
+            <li>
               <Link to={'/'}>
                 <img
                   src={logo}
@@ -59,26 +59,33 @@ export default function Navbar() {
                   className="navbar_left--logo"
                 />
               </Link>
-              {menu.map((item) => (
-                <li key={item}>
-                  <Link to={`/${item.toLowerCase().replace(/\s+/g, '')}`}>
-                    {item}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-            <div className="navbar_right">
-              {/* <SearchMovie /> */}
+            </li>
+            {menu.map((item) => (
+              <li key={item} className="navbar_left--item">
+                <Link to={`/${item.toLowerCase().replace(/\s+/g, '')}`}>
+                  {item}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <ul className="navbar_right">
+            {/* <SearchMovie /> */}
+            <li>
               <Link to={'/search'}>
                 <Search className="navbar_right--search" />
               </Link>
-
+            </li>
+            <li>
               <Notifications />
+            </li>
+            <li>
               <img
                 src={avatar}
                 alt="avatar Amandine"
                 className="navbar_right--avatar"
               />
+            </li>
+            <li>
               {isOpen ? (
                 <>
                   <ArrowDropUp onClick={toggle} />
@@ -94,8 +101,8 @@ export default function Navbar() {
               ) : (
                 <ArrowDropDown onClick={toggle} />
               )}
-            </div>
-          </div>
+            </li>
+          </ul>
         </nav>
       )}
     </>

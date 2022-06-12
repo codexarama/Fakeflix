@@ -20,30 +20,30 @@ export default function Footer() {
     <>
       {isVideoPage ? null : (
         <footer className="footer">
-          <div className="footer_socials">
+          <ul className="footer_socials">
             {socials.map((social) => (
-              <Link
-                key={social.label}
-                to={social.url}
-                target={social.target}
-                aria-label={social.label}
-                className={social.className}
-              >
-                {social.icon}
-              </Link>
+              <li>
+                <Link
+                  key={social.label}
+                  to={social.url}
+                  target={social.target}
+                  aria-label={social.label}
+                  className={social.className}
+                >
+                  {social.icon}
+                </Link>
+              </li>
             ))}
-          </div>
-          <div className="footer_links">
-            <ul className="footer_links-list">
-              {links.map((link) => (
-                <li key={link} className="footer_links-link">
-                  <Link key={`to ${link}`} to="" className="footer_links-to">
-                    {link}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+          </ul>
+          <ul className="footer_links-list">
+            {links.map((link) => (
+              <li key={link} className="footer_links-link">
+                <Link key={`to ${link}`} to="" className="footer_links-to">
+                  {link}
+                </Link>
+              </li>
+            ))}
+          </ul>
           <div className="footer_code">
             {service.map((label) => (
               <>
