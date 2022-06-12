@@ -6,3 +6,13 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+.video_player-btn {
+  z-index: 1;
+  position: absolute;
+  cursor: pointer;
+  padding: 1rem;
+  color: var(--color-default);
+  background: var(--color-secondary);
+  border-radius: 0.5rem;
+}
