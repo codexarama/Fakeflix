@@ -65,34 +65,34 @@ Reproduction de l'interface et de ses fonctionnalités
 
 > VOIR TAGS DE LA DESCRIPTION DU DEPÔT
 
-🔘 Gestionnaires d'Etat
+Gestionnaires d'Etat
 
     ✔ useState
     ✔ useContext
     ✔ useReducer
 
-🔘 Mémorisation de valeurs
+Mémorisation de valeurs
 
     ✔ useRef
     ✔ useMemo
 
-🔘 Actualisation de rendu
+Actualisation de rendu
 
     ✔ useEffect
 
-🔘 Gestionnaires de navigation
+Gestionnaires de navigation
 
     ✔ React Router
     ✔ Nested Routes
     ✔ useLocation
     ✔ useNavigation
 
-🔘 Hooks personnalisés
+Hooks personnalisés
 
     ✔ usePopup
     ✔ useFetch
 
-🔘 Optimisation des performances
+Optimisation des performances
 
     ✔ Axios
     ✔ Cache data
