@@ -53,7 +53,7 @@
   width: 24px;
   border-radius: 0.25rem;
   background-color: var(--color-secondary);
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 .navbar_right--profile {
