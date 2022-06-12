@@ -10,17 +10,25 @@ Reproduction de l'interface et de ses fonctionnalités
 
 ## Fonctionnalités
 
-:eye: display movies gallery by category
+**opérationnelles**
 
-:arrows_counterclockwise: switch between movie poster and movie details
+:eye: Affiche une gallery de films par catégories
 
-:arrow_forward: play selected movie
+:arrows_counterclockwise: Bascule entre l'affiche et les informations du film
 
-:heart: add movie to watch list
+:arrow_forward: Joue le généric standard pour un film sélectionné
 
-:x: remove movie from watch list
+:heart: Ajoute un-des film-s à la liste de films à voir
+
+:x: Supprime un-des film-s à la liste de films à voir
 
 :mag_right: search movies and get results
+
+**à venir**
+
+- [] Personnalise le profil utlisateur
+- [] Joue la bande-annonce officielle du film sélectionné
+- [] Ajoute un vote (like / dislike) au film sélectionné _(actualisation du compteur de votes)_
 
 ## Compétences développées
 
