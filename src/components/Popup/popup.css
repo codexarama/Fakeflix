@@ -48,7 +48,7 @@
 
 .popup_header {
   width: 100%;
-  height: 35vh;
+  max-height: 35vh;
   border-radius: 1rem 1rem 0 0;
 }
 
