@@ -5,7 +5,7 @@ import { useFetch } from '../../config/useFetch';
 import requests from '../../config/requests';
 
 // todo : DEVELOP "SelectMedia by genre" feature
-import SelectMedia from '../Select';
+// import SelectMedia from '../Select';
 
 import Header from '../Header';
 import { InfoRounded, PlayCircleFilledRounded } from '@mui/icons-material';
